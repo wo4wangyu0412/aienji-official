@@ -7,8 +7,6 @@ var hotMiddlewareScript = 'webpack-hot-middleware/client?reload=true';
 
 var devConfig = {
     entry: {
-        // 'user/add': ['./client/user/add/', hotMiddlewareScript],
-        // 'user/list': ['./client/user/list/', hotMiddlewareScript],
         page2: ['./client/page2', hotMiddlewareScript]
     },
     output: {

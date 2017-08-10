@@ -1,11 +1,10 @@
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var path = require('path');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
+var CopyWebpackPlugin = require("copy-webpack-plugin");
 
 var productionConfig = [{
     entry: {
-        'user/add': './client/user/add/',
-        'user/list': './client/user/list/',
         page2: './client/page2'
     },
     output: {
@@ -30,7 +29,11 @@ var productionConfig = [{
         new ExtractTextPlugin({
             filename: './[name]/index.css',
             allChunks: true
-        })
+        }),
+        new CopyWebpackPlugin([{
+            from: "./client/home/",
+            to: "./home/"
+        }])
     ]
 }];
 

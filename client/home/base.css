@@ -181,7 +181,7 @@ body {
   position: relative;
 }
 #header .wapBtn {
-  width: 25%;
+  width: 100px;
   height: 100%;
   float: right;
   background: #ffffff;
