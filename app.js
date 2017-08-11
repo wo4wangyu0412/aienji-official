@@ -6,8 +6,11 @@ var open = require('./server/models/open');
 var isDev = process.env.NODE_ENV !== 'production';
 var app = express();
 var port = 3000;
-
+var ejs = require('ejs');
 app.engine('html', consolidate.ejs);
+
+consolidate.ejs.open = "{{";
+consolidate.ejs.close = "}}";
 app.set('view engine', 'html');
 app.set('views', path.resolve(__dirname, './server/views'));
 

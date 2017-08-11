@@ -1,0 +1,1710 @@
+.m-banner {
+
+  height: 640px;
+
+}
+.m-banner .infos {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  width: 100%;
+  color: #135ea1;
+  height: 4.175rem;
+  text-align: center;
+}
+.m-banner .infos h5 {
+  font-size: 3.0rem;
+  font-family: 'acidregular';
+  font-weight: 100;
+}
+.m-banner .infos p {
+  font-size: 0.9rem;
+  font-weight: 100;
+}
+.baseT h5 {
+  font-size: 50px;
+  color: #444444;
+  text-align: center;
+}
+.baseT span {
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: #135ea1;
+  margin: 24px auto 40px;
+}
+.remarks {
+  overflow: hidden;
+  padding: 90px 0;
+  border-bottom: 1px solid #7f7f7f;
+}
+.remarks .remarkBox {
+  width: 100%;
+  height: 440px;
+  background: #135ea1;
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 24px;
+  border-bottom-right-radius: 50px;
+  overflow: hidden;
+}
+.remarks .remarkBox .infos {
+  width: 71%;
+  height: 100%;
+  float: left;
+  position: relative;
+}
+.remarks .remarkBox .txt {
+  width: 77%;
+  float: left;
+  padding-top: 60px;
+}
+.remarks .remarkBox .maohao {
+  width: 11%;
+  float: left;
+  text-align: center;
+}
+.remarks .remarkBox .maohao img {
+  max-width: 100%;
+}
+.remarks .remarkBox .ml {
+  padding-top: 56px;
+}
+.remarks .remarkBox .mb {
+  position: absolute;
+  right: 0;
+  bottom: 60px;
+}
+.remarks .remarkBox .imgs {
+  width: 29%;
+  max-width: 400px;
+  float: right;
+  border-bottom-right-radius: 50px;
+  overflow: hidden;
+}
+.remarks .remarkBox .imgs img {
+  max-width: 100%;
+}
+.remarks .yumao {
+  width: 100%;
+  text-align: right;
+}
+.remarks .yumao img {
+  padding-right: 14%;
+  margin-top: -60px;
+}
+.introduction {
+  padding: 100px 0 120px;
+}
+.introduction .company {
+  width: 100%;
+  overflow: hidden;
+}
+.introduction .company .img {
+  text-align: center;
+}
+.introduction .company img {
+  max-width: 100%!important;
+}
+.introduction .company p {
+  margin-top: 46px;
+  font-size: 16px;
+  line-height: 36px;
+  color: #666666;
+}
+.introduction .company p span {
+  font-size: 20px;
+  color: #135ea1;
+}
+.years {
+  width: 100%;
+  height:760px;
+  background: no-repeat center center;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -ms-background-size: cover;
+  -o-background-size: cover;
+}
+.years .title {
+  width: 17.0rem;
+  height: 5.0rem;
+  background: #135ea1;
+  color: #ffffff;
+}
+.years .title h5 {
+  font-size: 3.0rem;
+  float: left;
+  font-weight: bold;
+  line-height: 5.0rem;
+  padding-left: 1.25rem;
+}
+.years .title h6 {
+  padding-right: 0.95rem;
+  padding-top: 0.55rem;
+  float: right;
+  font-size: 1.5rem;
+  line-height: 1.8rem;
+}
+.years .banner01 {
+  width: 100%;
+  height: 410px;
+  margin-top: 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.years .banner01 .content01 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+ /* background: #fff;*/
+}
+.years .banner01 .content01 .infos {
+ 
+  height: 100%;
+  width: 50%;
+  float: left;
+}
+.years .banner01 .content01 .infos .txt {
+  width: 80%;
+  margin: 0 auto;
+  font-size:22px;
+  line-height:32px;
+  color: #444444;
+  padding-top: 2%;
+  height: 98%;
+  overflow: hidden;
+  
+  /*overflow-y: scroll;*/
+}
+.years .banner01 .content01 .infos .txt.big{
+  overflow-y:scroll;
+}
+.years .banner01 .content01 .infos .txt p {
+  /*//height: 2.75rem;*/
+  overflow: hidden;
+  width: 96%;
+  /*text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;*/
+}
+.years .banner01 .content01 .infos .txt h2 {
+  font-size: 60px;
+  color: #444444;
+  font-weight: bold;
+  padding-bottom: 30px;
+}
+.years .banner01 .content01 .inl {
+  position: relative;
+}
+.years .banner01 .content01 .inl:after {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 4.875rem;
+  background: #adadad;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+}
+.years .bn {
+  width: 0.95rem;
+  height: 2.45rem;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto 0;
+  cursor: pointer;
+}
+.years .bn img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.years .bnr {
+  left: auto;
+  right: 0;
+}
+.organization {
+  padding: 138px 0 90px;
+  overflow: hidden;
+  border-bottom: 1px solid #7f7f7f;
+}
+.organization .baseT h5 {
+  line-height: 62px;
+}
+.organization .baseT {
+  padding-bottom: 60px;
+}
+.organization p {
+  text-align: center;
+}
+.organization p img {
+  max-width: 100%!important;
+}
+.quality {
+  padding: 120px 0 70px;
+  overflow: hidden;
+  border-bottom: 1px solid #7f7f7f;
+}
+.quality ul {
+  width: 90%;
+  margin: 0 auto;
+  overflow: hidden;
+  margin-top: 1.25rem;
+}
+.quality ul li {
+  width: 32%;
+  float: left;
+  margin-right: 2%;
+}
+.quality ul li:hover .imgs .img {
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+}
+.quality ul li:hover p {
+  color: #135ea1;
+}
+.quality ul li .imgs {
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+}
+.quality ul li .imgs .img {
+  width: 100%;
+  height: 100%;
+  background: no-repeat center center;
+  -webkit-background-size: cover;
+  background-size: cover;
+  transition-duration: 0.6s;
+  -webkit-transition-duration: 0.6s;
+  -moz-transition-duration: 0.6s;
+  -ms-transition-duration: 0.6s;
+  -o-transition-duration: 0.6s;
+}
+.quality ul li p {
+  padding-top: 24px;
+  font-size: 16px;
+  color: #444444;
+  text-align: center;
+}
+.quality ul .nor {
+  margin-right: 0;
+}
+.quality .infos h5 {
+  font-size: 30px;
+  color: #323232;
+  padding-bottom: 24px;
+}
+.quality .infos p{
+  font-size: 16px;
+  line-height: 36px;
+  color: #444444;
+}
+.testing {
+  padding: 76px 0 30px;
+  overflow: hidden;
+  border-bottom: 1px solid #7f7f7f;
+}
+.testing h5 {
+  font-size: 30px;
+  color: #323232;
+  padding-bottom: 24px;
+}
+.testing p {
+  font-size: 16px;
+  line-height: 36px;
+  color: #444444;
+}
+.testing .banner {
+  width: 100%;
+  height:340px;
+  overflow: hidden;
+  position: relative;
+  margin-top: 1.25rem;
+}
+.testing .banner .content {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.testing .banner ul {
+  width: 90%;
+  height: 100%;
+  margin: 0 auto;
+  font-size: 0;
+}
+.testing .banner ul li {
+  width: 32%;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  *display: inline\;
+  *zoom: 1\;
+  vertical-align: middle;
+  overflow: hidden;
+  text-align: center;
+  font-size: 0.4rem;
+  color: #444444;
+  margin-right: 2%;
+}
+.testing .banner ul li:hover .imgs .img {
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+}
+.testing .banner ul li:hover p {
+  color: #135ea1;
+}
+.testing .banner ul li p {
+ 
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  font-size: 16px;
+  padding-top: 10px;
+  height: 34px;
+}
+.testing .banner ul .nor {
+  margin-right: 0;
+}
+.testing .banner ul .imgs {
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+}
+.testing .banner ul .imgs .img {
+  width: 100%;
+  height: 100%;
+  background: no-repeat center center;
+  -webkit-background-size: cover;
+  background-size: cover;
+  transition-duration: 0.6s;
+  -webkit-transition-duration: 0.6s;
+  -moz-transition-duration: 0.6s;
+  -ms-transition-duration: 0.6s;
+  -o-transition-duration: 0.6s;
+}
+.testing .banner .btns {
+  width: 0.625rem;
+  height: 1.25rem;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto 0;
+  cursor: pointer;
+}
+.testing .banner .btns:hover .two {
+  display: block;
+}
+.testing .banner .btns:hover .one {
+  display: none;
+}
+.testing .banner .btns img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+.testing .banner .btns .two {
+  display: none;
+}
+.testing .banner .btnsR {
+  left: auto;
+  right: 0;
+}
+.honor {
+  padding-top: 80px;
+  overflow: hidden;
+}
+.honor h6 {
+  font-size: 30px;
+  color: #444444;
+  padding-bottom: 30px;
+}
+.honor .banner04 {
+  width: 100%;
+  height: 460px;
+  background: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.honor .banner04 .banner04_nav {
+  width: 96%;
+  height: 20px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  text-align: right;
+}
+.honor .banner04 .banner04_nav .child {
+  width: 12px;
+  height: 12px;
+  background: #c4cdd4;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  cursor: pointer;
+  margin-right: 6px;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  *display: inline\;
+  *zoom: 1\;
+  vertical-align: middle;
+  overflow: hidden;
+}
+.honor .banner04 .banner04_nav .in {
+  background: #135ea1;
+}
+.honor .banner04 ul {
+  width: 100%;
+  height: 400px;
+  position: absolute;
+  left: 0;
+  top: 60px;
+}
+.honor .banner04 ul li {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+}
+.honor .banner04 ul li .imgBox {
+  width: 15%;
+  float: left;
+  margin-right: 2%;
+  font-size: 12px;
+  color: #444444;
+  text-align: center;
+  cursor: pointer;
+}
+.honor .banner04 ul li .imgBox p {
+  padding-top: 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  height: 36px;
+}
+.honor .banner04 ul li .imgBox .imgs {
+  width: 195px;
+  height: 280px;
+  border: 1px solid #dadada;
+  position: relative;
+  overflow: hidden;
+}
+.honor .banner04 ul li .imgBox .imgs img {
+  max-height: 100%;
+  max-width: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.honor .banner04 ul li .nor {
+  margin-right: 0;
+}
+.alertBox {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100000000000;
+  display: none;
+}
+.alertBox .bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: #000;
+  opacity: .7;
+  width: 100%;
+  height: 100%;
+}
+.alertBox .close {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+  z-index: 8;
+}
+.alertBox .close img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.alertBox .banner05 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 90%;
+  max-width: 880px;
+  height: 80%;
+  max-height: 800px;
+  overflow: hidden;
+}
+.alertBox .banner05 .base_btn {
+  width: 46px;
+  height: 90px;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  margin: auto 0;
+  z-index: 6;
+  cursor: pointer;
+}
+.alertBox .banner05 .base_btn img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+.alertBox .banner05 .base_btn .h {
+  display: none;
+}
+.alertBox .banner05 .prev0 {
+  left: 0;
+}
+.alertBox .banner05 .next0 {
+  right: 0;
+}
+.alertBox .banner05 ul {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.alertBox .banner05 ul li {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  width: 540px;
+  height: 100%;
+  margin: 0 auto;
+  display: none;
+}
+.alertBox .banner05 ul li img {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+.service {
+  width: 100%;
+  height: 17.5rem;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -ms-background-size: cover;
+  -o-background-size: cover;
+  background: no-repeat center center;
+}
+.service .info {
+  padding-top: 2.75rem;
+  font-size: 0.4rem;
+  line-height: 0.8rem;
+  color: #444444;
+  width: 44%;
+}
+.service .info h6 {
+  font-size: 0.75rem;
+  padding-bottom: 0.6rem;
+}
+.contact {
+  overflow: hidden;
+  background: #135ea1;
+  font-size: 0.4rem;
+  color: #ffffff;
+}
+.contact .left {
+  width: 17.0rem;
+  height: 3.5rem;
+  float: left;
+  background: #d03658;
+  padding: 0.9rem 0.55rem;
+  overflow: hidden;
+}
+.contact .left .txt {
+  padding-left: 7.5rem;
+}
+.contact .left p {
+  height: 0.85rem;
+  line-height: 0.85rem;
+  padding-left: 1.25rem;
+  background: no-repeat left center;
+  background-size: auto 100%;
+  -webkit-background-size: auto 100%;
+  -moz-background-size: auto 100%;
+  -ms-background-size: auto 100%;
+  -o-background-size: auto 100%;
+  margin-bottom: 0.3rem;
+}
+.contact .right {
+  width: 28.0rem;
+  padding: 0.9rem 0.55rem;
+  height: 3.5rem;
+  float: left;
+}
+.contact .right .child {
+  width: 13.25rem;
+  float: left;
+  border-right: 1px solid #2b6da9;
+}
+.contact .right .nor {
+  border-right: 0 none;
+}
+.contact .right .erweima {
+  width: 3.475rem;
+  height: 3.475rem;
+  background: no-repeat center center;
+  background-size: 100% auto;
+  -webkit-background-size: 100% auto;
+  -moz-background-size: 100% auto;
+  -ms-background-size: 100% auto;
+  -o-background-size: 100% auto;
+  float: left;
+  margin-left: 2.25rem;
+}
+.contact .right .pBox {
+  overflow: hidden;
+  padding-top: 0.8rem;
+}
+.contact .right .info {
+  width: 5.0rem;
+  padding-left: 0.3rem;
+  float: left;
+}
+.contact .right .info span {
+  font-size: 0.35rem;
+  color: #a5b9d1;
+  padding: 0.275rem 0 0.45rem;
+  display: block;
+}
+.management {
+  padding: 130px 0 80px;
+  overflow: hidden;
+}
+.management .banner00 {
+  width: 100%;
+  height: 340px;
+  position: relative;
+  overflow: hidden;
+  margin-top: 50px;
+}
+.management .banner00 .content00 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.management .banner00 .content00 .child {
+  width: 32.6%;
+  max-width: 410px;
+  float: left;
+  height: auto;
+  font-size: 16px;
+  color: #444444;
+  line-height: 24px;
+  text-align: center;
+  margin-right: 1%;
+}
+.management .banner00 .content00 .child:hover {
+  color: #135ea1;
+}
+.management .banner00 .content00 .child:hover .imgs .img {
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+}
+.management .banner00 .content00 .child .imgs {
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+}
+.management .banner00 .content00 .child .imgs .img {
+  width: 100%;
+  height: 100%;
+  background: no-repeat center center;
+  -webkit-background-size: cover;
+  background-size: cover;
+  transition-duration: 0.6s;
+  -webkit-transition-duration: 0.6s;
+  -moz-transition-duration: 0.6s;
+  -ms-transition-duration: 0.6s;
+  -o-transition-duration: 0.6s;
+}
+.management .banner00 .content00 .child p {
+  height: 60px;
+  padding-top: 12px;
+  overflow: hidden;
+  /*text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;*/
+}
+.management .banner00 .content00 .nor {
+  margin-right: 0;
+}
+.management .banner00 .mainBox {
+  width: 90%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.management .banner00 .btns {
+  width: 0.625rem;
+  height: 1.25rem;
+  position: absolute;
+  top: 33%;
+  left: 0;
+  cursor: pointer;
+}
+.management .banner00 .btns:hover .two {
+  display: block;
+}
+.management .banner00 .btns:hover .one {
+  display: none;
+}
+.management .banner00 .btns img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+.management .banner00 .btns .two {
+  display: none;
+}
+.management .banner00 .btnsR {
+  left: auto;
+  right: 0;
+}
+@media (max-width: 499px) {
+  .baseT h5 {
+    font-size: 20px;
+  }
+  .m-banner{height: 22rem;}
+  .baseT span {
+    margin: 10px auto;
+    width: 40px;
+  }
+  .remarks,
+  .introduction,
+  .organization,
+  .quality {
+    padding: 30px 0;
+  }
+  .remarks .remarkBox {
+    font-size: 12px;
+    line-height: 22px;
+    height: auto;
+    overflow: hidden;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    border-radius: 0;
+  }
+  .remarks .remarkBox .txt {
+    width: 94%;
+    padding-top: 10px;
+    margin: 0 auto;
+    float: none;
+  }
+  .remarks .remarkBox .maohao {
+    width: 6%;
+    padding-top: 10px;
+    display: none;
+  }
+  .remarks .remarkBox .maohao img {
+    max-width: 60%;
+  }
+  .remarks .remarkBox .imgs {
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    float: none;
+    margin: 0 auto;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  .remarks .yumao {
+    display: none;
+  }
+  .remarks .remarkBox .infos {
+    width: 100%;
+    float: none;
+    overflow: hidden;
+    padding-bottom: 0;
+  }
+  .remarks .yumao img {
+    max-width: 500px;
+    margin-top: -40px;
+  }
+  .introduction .company p {
+    font-size: 12px;
+    line-height: 22px;
+    margin-top: 10px;
+  }
+  .quality .infos p{font-size: 14px;line-height: 20px;}
+  .introduction .company p span {
+    font-size: 12px;
+  }
+  .organization .baseT h5 {
+    line-height: 30px;
+  }
+  .organization .baseT {
+    padding-bottom: 20px;
+  }
+  .quality ul li {
+    width: 100%;
+    margin-right: 0;
+    padding-bottom: 20px;
+    margin-bottom: 10px;
+  }
+  .quality ul li .imgs {
+    height: 190px;
+  }
+  .quality ul li p {
+    font-size: 12px;
+    padding-top: 16px;
+  }
+  .testing {
+    padding: 60px 0 30px;
+  }
+  .testing h5 {
+    font-size: 24px;
+    padding-bottom: 16px;
+  }
+  .testing p {
+    font-size: 14px;
+    line-height: 22px;
+  }
+  .testing .banner {
+    height: 140px;
+  }
+  .testing .banner ul .imgs {
+    height:100px;
+  }
+  .testing .banner .btns,
+  .management .banner00 .btns {
+    width: 20px;
+    height: 26px;
+  }
+  .testing .banner ul li {
+    width: 32.8%;
+    margin-right: 2px;
+  }
+  .service .info {
+    font-size: 12px;
+    line-height: 18px;
+  }
+  .service .info h6 {
+    font-size: 20px;
+  }
+  .honor {
+    padding-top: 30px;
+  }
+  .honor .banner04 {
+    height: 640px;
+  }
+  .honor h6 {
+    font-size: 24px;
+    padding-bottom: 14px;
+  }
+  .honor .banner04 ul {
+    top: 44px;
+  }
+  .honor .banner04 ul li .imgBox .imgs {
+    width: 99%;
+    height: 140px;
+  }
+  .honor .banner04 ul li .imgBox p {
+    padding-top: 10px;
+  }
+  .honor .banner04 ul li .imgBox {
+    width: 49%;
+    margin-right: 2px;
+    margin-bottom: 10px;
+  }
+  .honor .banner04 .banner04_nav .child {
+    width: 8px;
+    height: 8px;
+    margin-right: 2px;
+  }
+  .alertBox .banner05 ul li {
+    width: 100%;
+  }
+  .alertBox .banner05 .base_btn {
+    width: 26px;
+    height: 40px;
+  }
+  .years .banner01 .content01 .infos .txt p {
+    height: auto;
+    -webkit-line-clamp: 100;
+  }
+  .years .banner01 .content01 .infos .txt {
+    font-size: 12px;
+    line-height: 18px;
+  }
+  .years .banner01 .content01 .infos .txt h2 {
+    font-size: 16px;
+  }
+  .years {
+    height: 600px;
+  }
+  .years .banner01 .content01 .infos {
+    width: 100%;
+    height: 50%;
+  }
+  .years .banner01 .content01 .inl:after {
+    background: none;
+  }
+  .years .title {
+    width: 70%;
+    height: 80px;
+  }
+  .years .title h5 {
+    font-size: 24px;
+    line-height: 80px;
+  }
+  .years .title h6 {
+    font-size: 16px;
+    line-height: 26px;
+    padding-top: 12px;
+  }
+  .years .banner01 {
+    height: 480px;
+    margin-top: 20px;
+  }
+  .testing .banner ul li p {
+    height: 30px;
+    font-size: 12px;
+  }
+  .service {
+    height: auto;
+    padding: 30px 0;
+  }
+  .service .info {
+    padding-top: 0;
+    width: 84%;
+    font-size: 12px;
+    line-height: 22px;
+  }
+  .management .banner00 {
+    height: 180px;
+    margin-top: 20px;
+  }
+  .management .banner00 .content00 {
+    text-align: center;
+    font-size: 0;
+  }
+  .management .banner00 .content00 .child .imgs {
+    height: 100px;
+  }
+  .management .banner00 .content00 .child {
+    /*width: 50%;*/
+    max-width: 140px;
+    float: none;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    *display: inline\;
+    *zoom: 1\;
+    vertical-align: middle;
+    overflow: hidden;
+    margin-right: 0;
+    font-size: 12px;
+    line-height: 18px;
+    margin-bottom: 10px;
+  }
+  .management .banner00 .content00 .child p {
+    height: 30px;
+  }
+  .management {
+    padding: 60px 0 0;
+  }
+  .contact .left {
+    width: 100%;
+    height: auto;
+    padding: 10px 0;
+    line-height: 0;
+  }
+  .contact .right {
+    width: 100%;
+    height: auto;
+    padding: 20px 0;
+  }
+  .contact .left .txt {
+    padding-left: 0;
+    text-align: center;
+    font-size: 0;
+  }
+  .contact .left p {
+    height: 24px;
+    line-height: 24px;
+    font-size: 12px;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    *display: inline\;
+    *zoom: 1\;
+    vertical-align: middle;
+    overflow: hidden;
+    padding-right: 24px;
+    padding-left: 30px;
+  }
+  .contact .right .info {
+    width: 90%;
+    padding-left: 5%;
+  }
+  .contact .right .child {
+    width: 49%;
+  }
+  .contact .right .erweima {
+    width: 60px;
+    height: 60px;
+    float: none;
+    margin: 0 auto;
+  }
+}
+@media (min-width: 500px) and (max-width: 720px) {
+  .baseT h5 {
+    font-size: 26px;
+  }
+  .m-banner{height: 300px;}
+  .baseT span {
+    margin: 10px auto ;
+    width: 40px;
+  }
+  .remarks,
+  .introduction,
+  .organization,
+  .quality {
+    padding: 50px 0;
+  }
+  .remarks .remarkBox {
+    font-size: 12px;
+    line-height: 22px;
+    height: auto;
+    overflow: hidden;
+    padding-top: 40px;
+  }
+  .remarks .remarkBox .txt {
+    width: 88%;
+    padding-top: 30px;
+  }
+  .remarks .remarkBox .maohao {
+    width: 6%;
+    padding-top: 20px;
+  }
+  .remarks .remarkBox .maohao img {
+    max-width: 60%;
+  }
+  .remarks .remarkBox .imgs {
+    width: 300px;
+    height: 300px;
+    text-align: center;
+    float: none;
+    margin: 0 auto;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  .remarks .remarkBox .infos {
+    width: 100%;
+    float: none;
+    overflow: hidden;
+    padding-bottom: 40px;
+  }
+  .remarks .yumao img {
+    max-width: 500px;
+    margin-top: -40px;
+  }
+  .introduction .company p {
+    font-size: 14px;
+    line-height: 26px;
+    margin-top: 10px;
+  }
+  .introduction .company p span {
+    font-size: 18px;
+  }
+  .organization .baseT h5 {
+    line-height: 40px;
+  }
+  .organization .baseT {
+    padding-bottom: 20px;
+  }
+  .quality ul li {
+    width: 32.8%;
+    margin-right: 2px;
+  }
+  .quality ul li .imgs {
+    height: 120px;
+  }
+  .quality ul li p {
+    font-size: 12px;
+    padding-top: 16px;
+  }
+  .testing {
+    padding: 60px 0 30px;
+  }
+  .testing h5 {
+    font-size: 24px;
+    padding-bottom: 16px;
+  }
+  .testing p {
+    font-size: 14px;
+    line-height: 26px;
+  }
+  .testing .banner {
+    height: 180px;
+  }
+  .testing .banner ul .imgs {
+    height: 120px;
+  }
+  .testing .banner .btns,
+  .management .banner00 .btns {
+    width: 20px;
+    height: 26px;
+  }
+  .testing .banner ul li {
+    width: 32.8%;
+    margin-right: 2px;
+  }
+  .testing .banner .content{background: #fff;}
+  .service .info {
+    font-size: 0.5rem;
+    line-height: 0.95rem;
+  }
+  .service .info h6 {
+    font-size: 20px;
+  }
+  .honor {
+    padding-top: 60px;
+  }
+  .honor .banner04 {
+    height: 260px;
+  }
+  .honor h6 {
+    font-size: 24px;
+    padding-bottom: 14px;
+  }
+  .honor .banner04 ul {
+    top: 44px;
+  }
+  .honor .banner04 ul li .imgBox .imgs {
+    width: 99%;
+    height: 140px;
+  }
+  .alertBox .banner05 ul li {
+    width: 100%;
+  }
+  .alertBox .banner05 .base_btn {
+    width: 26px;
+    height: 40px;
+  }
+  .honor .banner04 ul li .imgBox p {
+    padding-top: 10px;
+  }
+  .years .banner01 .content01 .infos .txt p {
+    height: auto;
+  }
+  .years .banner01 .content01 .infos .txt {
+    font-size: 12px;
+    line-height: 18px;
+  }
+  .years .banner01 .content01 .infos .txt h2 {
+    font-size: 16px;
+  }
+  .years {
+    height: 460px;
+  }
+  .years .banner01 {
+    height: 320px;
+    margin-top: 20px;
+  }
+  .testing .banner ul li p {
+    height: 30px;
+    font-size: 12px;
+  }
+  .honor .banner04 ul li .imgBox {
+    width: 16%;
+    margin-right: 3px;
+  }
+  .service {
+    height: 420px;
+  }
+  .service .info {
+    width: 84%;
+    font-size: 12;
+    line-height: 22px;
+  }
+  .management .banner00 {
+    height: 180px;
+    margin-top: 40px;
+  }
+  .management .banner00 .content00 .child .imgs {
+    height: 120px;
+  }
+  .management .banner00 .content00 .child {
+    width: 32.8%;
+    margin-right: 2px;
+    font-size: 12px;
+    line-height: 18px;
+  }
+  .management .banner00 .content00 .child p {
+    height: 30px;
+    font-size: 12px;
+  }
+  .management {
+    padding: 60px 0 40px;
+  }
+  .contact .left {
+    width: 100%;
+    height: auto;
+    padding: 10px 0;
+    line-height: 0;
+  }
+  .contact .right {
+    width: 100%;
+    height: 60px;
+    padding: 20px 0;
+  }
+  .contact .left .txt {
+    padding-left: 0;
+    text-align: center;
+    font-size: 0;
+  }
+  .contact .left p {
+    height: 24px;
+    line-height: 24px;
+    font-size: 12px;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    *display: inline\;
+    *zoom: 1\;
+    vertical-align: middle;
+    overflow: hidden;
+    padding-right: 24px;
+    padding-left: 30px;
+  }
+  .contact .right .info {
+    width: 60%;
+  }
+  .contact .right .child {
+    width: 49%;
+  }
+  .contact .right .erweima {
+    margin-left: 16px;
+    width: 60px;
+    height: 60px;
+  }
+  .honor .banner04 .banner04_nav .child {
+    width: 8px;
+    height: 8px;
+    margin-right: 2px;
+  }
+}
+@media (min-width: 721px) and (max-width: 1023px) {
+  .m-banner{height: 500px;}
+  .baseT h5 {
+    font-size: 30px;
+  }
+  .baseT span {
+    margin: 18px auto 24px;
+    width: 50px;
+  }
+  .remarks,
+  .introduction,
+  .organization,
+  .quality {
+    padding: 50px 0;
+  }
+  .remarks .remarkBox {
+    font-size: 12px;
+    line-height: 22px;
+    height: auto;
+    overflow: hidden;
+    padding-top: 40px;
+  }
+  .remarks .remarkBox .txt {
+    width: 88%;
+    padding-top: 30px;
+  }
+  .remarks .remarkBox .maohao {
+    width: 6%;
+    padding-top: 20px;
+  }
+  .remarks .remarkBox .maohao img {
+    max-width: 60%;
+  }
+  .remarks .remarkBox .imgs {
+    width: 300px;
+    height: 300px;
+    text-align: center;
+    float: none;
+    margin: 0 auto;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  .remarks .remarkBox .infos {
+    width: 100%;
+    float: none;
+    overflow: hidden;
+    padding-bottom: 40px;
+  }
+  .remarks .yumao img {
+    max-width: 500px;
+    margin-top: -40px;
+  }
+  .introduction .company p {
+    font-size: 14px;
+    line-height: 26px;
+    margin-top: 10px;
+  }
+  .introduction .company p span {
+    font-size: 18px;
+  }
+  .organization .baseT h5 {
+    line-height: 40px;
+  }
+  .organization .baseT {
+    padding-bottom: 20px;
+  }
+  .quality ul li {
+    width: 32.8%;
+    margin-right: 2px;
+  }
+  .quality ul li .imgs {
+    height: 140px;
+  }
+  .quality ul li p {
+    font-size: 12px;
+    padding-top: 16px;
+  }
+
+  .testing {
+    padding: 60px 0 30px;
+  }
+  .testing h5,.quality .infos h5 {
+    font-size: 24px;
+    padding-bottom: 16px;
+  }
+  .testing p, .quality .infos p{
+    font-size: 14px;
+    line-height: 26px;
+  }
+  .testing .banner {
+    height: 200px;
+  }
+  .testing .banner ul .imgs {
+    height: 140px;
+  }
+  .testing .banner ul li {
+    width: 32.8%;
+    margin-right: 2px;
+  }
+  .service .info {
+    font-size: 0.5rem;
+    line-height: 0.95rem;
+  }
+  .service .info h6 {
+    font-size: 1rem;
+  }
+  .honor {
+    padding-top: 60px;
+  }
+  .honor .banner04 {
+    height: 320px;
+  }
+  .honor h6 {
+    font-size: 24px;
+    padding-bottom: 14px;
+  }
+  .honor .banner04 ul {
+    top: 44px;
+  }
+  .honor .banner04 ul li .imgBox .imgs {
+    width: 99%;
+    height: 190px;
+  }
+  .honor .banner04 ul li .imgBox p {
+    padding-top: 10px;
+  }
+  /*.years .banner01 .content01 .infos .txt p {
+    height: 6.4rem;
+  }
+  .years .banner01 .content01 .infos .txt {
+    line-height: 1.15rem;
+  }*/
+  /*.years .banner01 {
+    height: 12rem;
+  }*/
+  .testing .banner ul li p {
+    font-size: 12px;
+  }
+  .honor .banner04 ul li .imgBox {
+    width: 16%;
+    margin-right: 3px;
+  }
+  .service {
+    height: 26rem;
+  }
+  .service .info {
+    width: 56%;
+    font-size: 0.6rem;
+    line-height: 1.2rem;
+  }
+  .management .banner00 {
+    height: 200px;
+    margin-top: 40px;
+  }
+  .management .banner00 .content00 .child .imgs {
+    height: 140px;
+  }
+  .management .banner00 .content00 .child p{height: 34px;}
+  .management .banner00 .content00 .child {
+    width: 32.8%;
+    margin-right: 2px;
+    font-size: 12px;
+    line-height: 18px;
+  }
+  .management {
+    padding: 60px 0 10px;
+  }
+  .contact .left {
+    width: 13rem;
+    padding: 2rem 0;
+  }
+  .contact .right {
+    width: 32.7rem;
+    padding: 2rem 0;
+  }
+  .contact .left .txt {
+    padding-left: 1rem;
+  }
+  .contact .right .info {
+    width: 10rem;
+  }
+  .contact .right .child {
+    width: 16rem;
+  }
+  .contact .right .erweima {
+    margin-left: 2rem;
+  }
+  .honor .banner04 .banner04_nav .child {
+    width: 8px;
+    height: 8px;
+    margin-right: 2px;
+  }
+  .years .banner01 .content01 .infos{height: 80%;}
+  .years{height: 540px;}
+  .years .banner01 .content01 .infos .txt{
+    font-size: 14px;
+    line-height: 22px;
+  }
+  .years .banner01 .content01 .infos .txt h2{font-size: 50px;}
+  
+}
+@media (min-width: 1024px) and (max-width: 1335px) {
+  .years .banner01 .content01 .infos{height: 80%;}
+  .years{height: 580px;}
+  .years .banner01 .content01 .infos .txt{
+    font-size: 16px;
+    line-height: 26px;
+  }
+  .baseT h5 {
+    font-size: 34px;
+  }
+  .baseT span {
+    margin: 18px auto 30px;
+    width: 50px;
+  }
+  .remarks,
+  .introduction,
+  .organization,
+  .quality {
+    padding: 70px 0;
+  }
+  .remarks .remarkBox {
+    font-size: 12px;
+    line-height: 22px;
+    height: 364px;
+  }
+  .remarks .remarkBox .txt {
+    width: 88%;
+    padding-top: 30px;
+  }
+  .remarks .remarkBox .maohao {
+    width: 6%;
+    padding-top: 20px;
+  }
+  .remarks .remarkBox .maohao img {
+    max-width: 60%;
+  }
+  .remarks .remarkBox .imgs {
+    width: 34%;
+  }
+  .remarks .remarkBox .infos {
+    width: 66%;
+  }
+  .remarks .yumao img {
+    max-width: 500px;
+    margin-top: -40px;
+  }
+  .introduction .company p {
+    font-size: 14px;
+    line-height: 26px;
+    margin-top: 20px;
+  }
+  .organization .baseT h5 {
+    line-height: 40px;
+  }
+  .quality ul li {
+    width: 32.8%;
+    margin-right: 2px;
+  }
+  .quality ul li .imgs {
+    height: 180px;
+  }
+  .quality ul li p {
+    font-size: 12px;
+    padding-top: 16px;
+  }
+  .testing {
+    padding: 60px 0 30px;
+  }
+  .testing h5 {
+    font-size: 24px;
+    padding-bottom: 16px;
+  }
+  .testing p {
+    font-size: 14px;
+    line-height: 26px;
+  }
+  .testing .banner {
+    height: 240px;
+  }
+  .testing .banner ul li p{font-size: 12px;}
+  .testing .banner ul .imgs {
+    height: 180px;
+  }
+  .testing .banner ul li {
+    width: 32.8%;
+    margin-right: 2px;
+  }
+  .service .info {
+    font-size: 0.5rem;
+    line-height: 0.95rem;
+  }
+  .service .info h6 {
+    font-size: 1rem;
+  }
+  .honor {
+    padding-top: 60px;
+  }
+  .honor .banner04 {
+    height: 320px;
+  }
+  .honor h6 {
+    font-size: 24px;
+    padding-bottom: 14px;
+  }
+  .honor .banner04 ul {
+    top: 44px;
+  }
+  .honor .banner04 ul li .imgBox .imgs {
+    width: 99%;
+    height: 190px;
+  }
+  .honor .banner04 ul li .imgBox p {
+    padding-top: 10px;
+  }
+  .management .banner00 {
+    height: 240px;
+    margin-top: 40px;
+  }
+  .m-banner{height: 560px;}
+  .management .banner00 .content00 .child .imgs {
+    height: 180px;
+  }
+  .management .banner00 .content00 .child p{height: 34px;}
+  .management .banner00 .content00 .child {
+    width: 32.8%;
+    margin-right: 2px;
+    font-size: 12px;
+    line-height: 18px;
+  }
+  .management {
+    padding: 80px 0 60px;
+  }
+  .contact .left {
+    width: 15rem;
+    padding: 1.2rem 0;
+  }
+  .contact .right {
+    width: 30.7rem;
+    padding: 1.2rem 0;
+  }
+  .contact .left .txt {
+    padding-left: 3rem;
+  }
+  .contact .right .info {
+    width: 8rem;
+  }
+  .contact .right .child {
+    width: 15rem;
+  }
+}
+@media (min-width: 1336px) and (max-width: 1440px) {
+  .quality ul li .imgs {
+    height: auto;
+  }
+}

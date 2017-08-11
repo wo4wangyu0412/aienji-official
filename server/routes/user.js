@@ -13,6 +13,18 @@ router.get('/user/add', (req, res) => res.render('user/add'));
 
 router.get('/home', (req, res) => res.render('home/index'));
 
+router.get('/about', (req, res) => res.render('about/index'));
+
+router.get('/product', (req, res) => res.render('product/index'));
+
+router.get('/news', (req, res) => res.render('news/index'));
+
+router.get('/contact', (req, res) => res.render('contact/index'));
+
+router.get('/news/detail', (req, res) => res.render('news/detail'));
+
+router.get('/product/detail', (req, res) => res.render('product/detail'));
+
 /**
  * 添加嘉宾信息
  *

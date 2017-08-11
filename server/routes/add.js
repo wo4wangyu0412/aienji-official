@@ -14,11 +14,6 @@ router.get('/add', function(req, res) {
     res.render('add');
 });
 
-router.get('/home', function(req, res) {
-    // res.send(db.model('Person'));
-    res.render('home');
-});
-
 router.post('/add/info', jsonParser, function(req, res) {
     if (req.body) {
         new peopleModel(req.body);

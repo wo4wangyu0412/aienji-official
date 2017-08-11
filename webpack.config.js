@@ -33,8 +33,8 @@ var devConfig = {
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
         new CopyWebpackPlugin([{
-            from: "./client/home/",
-            to: "./home/"
+            from: "./client/static/",
+            to: "./static/"
         }])
     ]
 };

@@ -1,0 +1,276 @@
+.m-banner .infos {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  width: 100%;
+  color: #ffffff;
+  height: 4.175rem;
+  text-align: center;
+}
+.m-banner .infos h5 {
+  font-size: 3.0rem;
+  font-family: 'acidregular';
+  font-weight: 100;
+}
+.m-banner .infos p {
+  font-size: 0.9rem;
+  font-weight: 100;
+}
+.main {
+  overflow: hidden;
+  padding-bottom: 100px;
+}
+.main .mainTop {
+  padding-top: 30px;
+  overflow: hidden;
+}
+.main .mainTop p {
+  float: left;
+  font-size: 16px;
+  color: #444444;
+}
+.main .mainTop .on,
+.main .mainTop p:hover {
+  color: #135ea1;
+}
+.main .mainTop p:after {
+  content: "";
+  display: block;
+  float: right;
+  width: 30px;
+  height: 16px;
+  background: url(../images/contact/1.png) no-repeat center center;
+}
+.main .mainTop p.no:after {
+  content: "";
+  width: 0;
+}
+.main .top {
+  padding-top: 100px;
+  text-align: center;
+  padding-bottom: 50px;
+  border-bottom: 1px solid #b6b6b6;
+}
+.main .top h5 {
+  font-size: 36px;
+  color: #444444;
+  padding-bottom: 20px;
+}
+.main .top p {
+  font-size: 12px;
+  color: #999999;
+}
+.main .content {
+  overflow: hidden;
+  padding: 90px 0 40px;
+}
+.main .content p {
+  text-indent: 2em;
+  font-size: 16px;
+  color: #666666;
+  line-height: 36px;
+  margin-bottom: 40px;
+}
+.main .content p img {
+  max-width: 100%!important;
+  display: block;
+  margin: 0 auto;
+}
+.main .return {
+  padding-top: 40px;
+  border-top: 1px dashed #b6b6b6;
+  overflow: hidden;
+}
+.main .return .left {
+  width: 60%;
+  float: left;
+}
+.main .return .right {
+  width: 40%;
+  float: right;
+}
+.main .return .right span {
+  float: right;
+  width: 190px;
+  height: 44px;
+  background: #135ea1;
+  line-height: 44px;
+  text-align: center;
+  font-size: 16px;
+  color: #ffffff;
+  cursor: pointer;
+  transition-duration: 0.6s;
+  -webkit-transition-duration: 0.6s;
+  -moz-transition-duration: 0.6s;
+  -ms-transition-duration: 0.6s;
+  -o-transition-duration: 0.6s;
+}
+.main .return .right span:hover {
+  background: #1988c5;
+}
+.main .return a {
+  display: block;
+  font-size: 14px;
+  line-height: 24px;
+  color: #666666;
+}
+.main .return a:hover {
+  color: #135ea1;
+}
+@media (max-width: 500px) {
+  .main .mainTop {
+    padding-top: 14px;
+  }
+  .main .mainTop p {
+    font-size: 14px;
+  }
+  .main {
+    padding-bottom: 40px;
+  }
+  .main .top h5 {
+    font-size: 18px;
+    line-height: 22px;
+    padding-bottom: 4px;
+  }
+  .main .top p {
+    line-height: 20px;
+  }
+  .main .top span {
+    width: 48px;
+  }
+  .main .top {
+    padding-bottom: 10px;
+    padding-top: 20px;
+  }
+  .main .content {
+    padding: 20px 0;
+  }
+  .main .content p {
+    font-size: 12px;
+    line-height: 22px;
+    margin-bottom: 0;
+  }
+  .main .return {
+    padding-top: 30px;
+  }
+  .main .return .right span {
+    width: 80px;
+    font-size: 12px;
+    height: 30px;
+    line-height: 30px;
+  }
+  .main .return a {
+    font-size: 12px;
+  }
+  .main .return .left {
+    width: 100%;
+    padding-bottom: 10px;
+  }
+}
+@media (min-width: 500px) and (max-width: 720px) {
+  .main .mainTop {
+    padding-top: 14px;
+  }
+  .main .mainTop p {
+    font-size: 14px;
+  }
+  .main {
+    padding-bottom: 40px;
+  }
+  .main .top h5 {
+    font-size: 18px;
+    padding-bottom: 4px;
+  }
+  .main .top {
+    padding-bottom: 10px;
+    padding-top: 30px;
+  }
+  .main .top p {
+    font-size: 12px;
+    line-height: 20px;
+  }
+  .main .content {
+    padding: 30px 0;
+  }
+  .main .content p {
+    font-size: 14px;
+    line-height: 26px;
+    margin-bottom: 16px;
+  }
+  .main .return {
+    padding-top: 30px;
+  }
+  .main .return .right span {
+    width: 100px;
+    font-size: 12px;
+    height: 36px;
+    line-height: 36px;
+  }
+  .main .return a {
+    font-size: 12px;
+  }
+}
+@media (min-width: 721px) and (max-width: 1023px) {
+  .main .mainTop {
+    padding-top: 14px;
+  }
+  .main .mainTop p {
+    font-size: 14px;
+  }
+  .main {
+    padding-bottom: 40px;
+  }
+  .main .top h5 {
+    font-size: 22px;
+    padding-bottom: 14px;
+  }
+  .main .top {
+    padding-bottom: 10px;
+    padding-top: 30px;
+  }
+  .main .content {
+    padding: 30px 0;
+  }
+  .main .content p {
+    font-size: 14px;
+    line-height: 26px;
+    margin-bottom: 20px;
+  }
+  .main .return {
+    padding-top: 30px;
+  }
+  .main .return .right span {
+    width: 140px;
+    font-size: 14px;
+    height: 36px;
+    line-height: 36px;
+  }
+  .main .return a {
+    font-size: 12px;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1335px) {
+  .main .mainTop {
+    padding-top: 24px;
+  }
+  .main {
+    padding-bottom: 60px;
+  }
+  .main .top {
+    padding-bottom: 24px;
+    padding-top: 40px;
+  }
+  .main .content {
+    padding: 30px 0;
+  }
+  .main .content p {
+    font-size: 14px;
+    line-height: 26px;
+    margin-bottom: 30px;
+  }
+  .main .top h5 {
+    font-size: 28px;
+    padding-bottom: 14px;
+  }
+}

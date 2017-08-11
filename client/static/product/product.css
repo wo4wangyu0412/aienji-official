@@ -1,0 +1,422 @@
+.m-banner .infos {
+  color: #135ea1;
+  position: absolute;
+  left: 10%;
+  top: 20%;
+}
+.m-banner .infos h6 {
+  font-size: 48px;
+  font-weight: 200;
+  padding-bottom: 10px;
+}
+.m-banner .infos p {
+  font-size: 18px;
+  font-family: 'acidregular';
+}
+.main {
+  padding-bottom: 180px;
+}
+.main .productClass {
+  width: 25%;
+  max-width: 350px;
+  float: left;
+  background: #f6f6f6;
+  position: relative;
+  padding-bottom: 60px;
+}
+.main .productClass .top {
+  position: absolute;
+  top: -110px;
+  width: 100%;
+  height: 110px;
+  background: #135ea1 no-repeat center center;
+  font-size: 36px;
+  color: #ffffff;
+  line-height: 110px;
+}
+.main .productClass .top span {
+  padding-left: 30px;
+}
+.main .productClass .content {
+  padding-top: 40px;
+}
+.main .productClass .content .child {
+  width: 88%;
+  margin: 0 auto;
+}
+.main .productClass .content h6 {
+  font-size: 18px;
+  color: #333333;
+  line-height: 36px;
+  cursor: pointer;
+}
+.main .productClass .content .current {
+  color: #135ea1;
+}
+.main .productClass .content .childMian {
+  display: none;
+  padding-top: 6px;
+  padding-bottom: 50px;
+  overflow: hidden;
+}
+.main .productClass .content p {
+  font-size: 14px;
+  line-height: 24px;
+  color: #666666;
+}
+.main .productClass .content p:hover {
+  color: #135ea1;
+}
+.main .productClass .content .ph {
+  color: #135ea1;
+}
+.main .product {
+  width: 74.3%;
+  float: right;
+  margin-top: 30px;
+}
+.main .product li {
+  width: 33%;
+  float: left;
+  height: 345px;
+  text-align: center;
+  font-size: 18px;
+  color: #444444;
+  position: relative;
+  border: 1px solid #e5e5e5;
+  margin-left: -1px;
+}
+.main .product li p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.main .product li .imgs {
+  height: 280px;
+  line-height: 280px;
+}
+.main .product li .imgs img {
+  max-width: 90%;
+  max-height: 90%;
+}
+.main .product .li3 .hover {
+  right: auto;
+  left: -343px;
+}
+.main .product .hover {
+  width: 343px;
+  height: 345px;
+  position: absolute;
+  right: -343px;
+  top: -1px;
+  display: none;
+  z-index: 2;
+}
+.main .product .hover .bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: #fff;
+  opacity: .9;
+  width: 100%;
+  height: 100%;
+}
+.main .product .hover .more {
+  width: 34px;
+  height: 34px;
+  position: absolute;
+  right: 2%;
+  bottom: 4%;
+}
+.main .product .hover .more img {
+  max-height: 100%;
+}
+.main .product .hover .txt {
+  width: 86%;
+  margin: 0 auto;
+  text-align: left;
+  font-size: 12px;
+  line-height: 18px;
+  color: #444444;
+  position: relative;
+  z-index: 3;
+  padding-top: 40px;
+}
+.main .product .in {
+  border: 1px solid #135ea1;
+  border-right: 0 none;
+  background: url(../images/product/i.png) repeat;
+}
+.main .product .in p {
+  color: #135ea1;
+}
+.main .product .in .hover p {
+  color: #444444;
+}
+.main .product .on {
+  display: block;
+  border: 1px solid #135ea1;
+  border-left: 0 none;
+}
+.main .product .li3.in {
+  border: 1px solid #135ea1;
+  border-left: 0 none;
+}
+.main .product .li3 .on {
+  display: block;
+  border: 1px solid #135ea1;
+  border-right: 0 none;
+}
+.main:after {
+  content: "";
+  display: block;
+  clear: both;
+  height: 0;
+  overflow: visible;
+}
+@media (max-width: 499px) {
+  .m-banner .infos h6 {
+    font-size: 20px;
+  }
+  .m-banner .infos p {
+    font-size: 12px;
+  }
+  .main {
+    padding-bottom: 40px;
+  }
+  .main .productClass {
+    width: 100%;
+    max-width: 100%;
+    padding-bottom: 30px;
+  }
+  .main .productClass .content {
+    padding-top: 20px;
+  }
+  .main .product {
+    width: 100%;
+  }
+  .main .productClass .top {
+    height: 70px;
+    line-height: 70px;
+    top: 0;
+    font-size: 22px;
+    position: static;
+    background-size: 140px auto;
+    -webkit-background-size: 140px auto;
+    -moz-background-size: 140px auto;
+    -ms-background-size: 140px auto;
+    -o-background-size: 140px auto;
+  }
+  .main .productClass .content h6 {
+    font-size: 15px;
+    line-height: 26px;
+  }
+  .main .productClass .content .childMian {
+    padding-bottom: 10px;
+  }
+  .main .productClass .content p {
+    font-size: 12px;
+  }
+  .main .product li {
+    width: 100%;
+    height: 240px;
+    font-size: 14px;
+    margin-top: -1px;
+  }
+  .main .product .hover .txt {
+    padding-top: 20px;
+  }
+  .main .product li .liClid {
+    width: 50%;
+    float: left;
+  }
+  .main .product .hover {
+    height: 260px;
+    right: -170px;
+    position: static;
+    width: 50%;
+    display: block!important;
+    float: left;
+  }
+  .main .product .hover .bg {
+    display: none;
+  }
+  .main .product li .imgs {
+    height: 180px;
+    line-height: 180px;
+  }
+  .main .product .hover .more {
+    width: 26px;
+    height: 26px;
+  }
+  .main .product .li3 .hover {
+    left: -170px;
+  }
+  .main .product li .hover.on {
+    border: 0 none;
+  }
+  .main .product li.in {
+    border: 1px solid #135ea1;
+  }
+  .main .product li.li3.in {
+    border: 1px solid #135ea1;
+  }
+}
+@media (min-width: 500px) and (max-width: 720px) {
+  .m-banner .infos h6 {
+    font-size: 26px;
+  }
+  .m-banner .infos p {
+    font-size: 16px;
+  }
+  .main .productClass {
+    width: 34%;
+  }
+  .main .product {
+    width: 66%;
+  }
+  .main .productClass .top {
+    height: 70px;
+    line-height: 70px;
+    top: -70px;
+    font-size: 22px;
+  }
+  .main .productClass .content h6 {
+    font-size: 15px;
+  }
+  .main .productClass .content .childMian {
+    padding-bottom: 20px;
+  }
+  .main .productClass .content p {
+    font-size: 12px;
+  }
+  .main .product li {
+    width: 100%;
+    height: 260px;
+    font-size: 14px;
+    margin-top: -1px;
+  }
+  .main .product li .liClid {
+    width: 50%;
+    float: left;
+  }
+  .main .product .hover {
+    height: 260px;
+    right: -170px;
+    position: static;
+    width: 50%;
+    display: block!important;
+    float: left;
+  }
+  .main .product .hover .bg {
+    display: none;
+  }
+  .main .product li .imgs {
+    height: 200px;
+    line-height: 200px;
+  }
+  .main .product .li3 .hover {
+    left: -170px;
+  }
+  .main .product li .hover.on {
+    border: 0 none;
+  }
+  .main .product li.in {
+    border: 1px solid #135ea1;
+  }
+  .main .product li.li3.in {
+    border: 1px solid #135ea1;
+  }
+}
+@media (min-width: 721px) and (max-width: 1023px) {
+  .m-banner .infos h6 {
+    font-size: 26px;
+  }
+  .m-banner .infos p {
+    font-size: 16px;
+  }
+  .main .productClass {
+    width: 22%;
+  }
+  .main .product {
+    width: 77%;
+  }
+  .main .productClass .top {
+    height: 70px;
+    line-height: 70px;
+    top: -70px;
+    font-size: 22px;
+  }
+  .main .productClass .content h6 {
+    font-size: 15px;
+  }
+  .main .productClass .content .childMian {
+    padding-bottom: 20px;
+  }
+  .main .productClass .content p {
+    font-size: 12px;
+  }
+  .main .product li {
+    width: 33%;
+    height: 260px;
+    font-size: 14px;
+  }
+  .main .product .hover {
+    height: 260px;
+    width: 170px;
+    right: -170px;
+  }
+  .main .product li .imgs {
+    height: 200px;
+    line-height: 200px;
+  }
+  .main .product .li3 .hover {
+    left: -170px;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1335px) {
+  .m-banner .infos h6 {
+    font-size: 36px;
+  }
+  .m-banner .infos p {
+    font-size: 16px;
+  }
+  .main .productClass {
+    width: 22%;
+  }
+  .main .product {
+    width: 77%;
+  }
+  .main .productClass .top {
+    height: 90px;
+    line-height: 90px;
+    top: -90px;
+    font-size: 28px;
+  }
+  .main .productClass .content h6 {
+    font-size: 16px;
+  }
+  .main .productClass .content .childMian {
+    padding-bottom: 30px;
+  }
+  .main .productClass .content p {
+    font-size: 12px;
+  }
+  .main .product li {
+    width: 33.2%;
+    height: 300px;
+    font-size: 16px;
+  }
+  .main .product .hover {
+    height: 300px;
+    width: 270px;
+    right: -270px;
+  }
+  .main .product li .imgs {
+    height: 240px;
+    line-height: 240px;
+  }
+  .main .product .li3 .hover {
+    left: -270px;
+  }
+}

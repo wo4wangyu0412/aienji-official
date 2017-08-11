@@ -1,0 +1,472 @@
+.main {
+  width: 100%;
+  height: 17.5rem;
+  background: no-repeat right center;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -ms-background-size: cover;
+  -o-background-size: cover;
+}
+.main .mainTop {
+  padding-top: 30px;
+  overflow: hidden;
+}
+.main .mainTop p {
+  float: left;
+  font-size: 16px;
+  color: #444444;
+}
+.main .mainTop .on,
+.main .mainTop p:hover {
+  color: #135ea1;
+}
+.main .mainTop p:after {
+  content: "";
+  display: block;
+  float: right;
+  width: 30px;
+  height: 16px;
+  background: url(../images/contact/1.png) no-repeat center center;
+}
+.main .mainTop p.no:after {
+  content: "";
+  width: 0;
+}
+.main .help {
+  padding-top: 3.75rem;
+  width: 13.5rem;
+  font-size: 0.5rem;
+  line-height: 0.8rem;
+  color: #666666;
+}
+.main .help h5 {
+  font-size: 0.8rem;
+  color: #333333;
+  padding-bottom: 0.65rem;
+}
+.contact {
+  padding: 40px 0;
+  background: #135ea1;
+  color: #ffffff;
+  font-size: 14px;
+  text-align: center;
+}
+.contact li {
+  width: 25%;
+  float: left;
+  cursor: pointer;
+  position: relative;
+}
+.contact li .erweima {
+  width: 158px;
+  height: 164px;
+  background: no-repeat center center;
+  background-size: 100% 100%;
+  -webkit-background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  -ms-background-size: 100% 100%;
+  -o-background-size: 100% 100%;
+  position: absolute;
+  top: -170px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  display: none;
+}
+.contact li .erweima img {
+  position: absolute;
+  left: 0;
+  top: 17px;
+  right: 0;
+  margin: 0 auto;
+  width: 120px;
+  height: 120px;
+}
+.contact li:hover .dotted {
+  background: #ffffff;
+}
+.contact li:hover .dotted .two {
+  display: block;
+}
+.contact li:hover .dotted .one {
+  display: none;
+}
+.contact li:hover .erweima {
+  display: block;
+}
+.contact li .dotted {
+  width: 119px;
+  height: 119px;
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  margin: 0 auto;
+  position: relative;
+}
+.contact li .dotted img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+.contact li .dotted .two {
+  display: none;
+}
+.contact li .infos {
+  padding-top: 24px;
+}
+.contact li .infos h6 {
+  padding-top: 14px;
+  font-size: 18px;
+}
+.contact:after {
+  content: "";
+  display: block;
+  clear: both;
+  height: 0;
+  overflow: visible;
+}
+.us {
+  padding: 120px 0;
+  overflow: hidden;
+}
+.us em {
+  width: 24px;
+  height: 24px;
+  float: left;
+  position: relative;
+}
+.us em img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  vertical-align: middle;
+}
+.us em .two {
+  display: none;
+}
+.us span {
+  width: 88%;
+  float: left;
+  padding-left: 10px;
+
+}
+.us li {
+  width: 48%;
+  border: 1px solid #b6b6b6;
+  float: left;
+  margin-right: 3%;
+  margin-bottom: 34px;
+}
+.us li:hover {
+  background: #135ea1;
+  border: 1px solid #135ea1;
+}
+.us li:hover .left,
+.us li:hover .right {
+  color: #ffffff;
+}
+.us li:hover .one {
+  display: none;
+}
+.us li:hover .two {
+  display: block;
+}
+.us li .txt {
+  width: 90%;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 50px 0;
+}
+.us li .left {
+  width: 20%;
+  float: left;
+  font-size: 20px;
+  color: #000;
+}
+.us li .right {
+  width: 80%;
+  float: left;
+  font-size: 16px;
+  color: #6a6a6a;
+}
+.us li .right p {
+  width: 100%;
+  line-height: 22px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.us .nor {
+  margin-right: 0;
+}
+@media (max-width: 499px) {
+  .main .mainTop {
+    padding-top: 14px;
+  }
+  .main .mainTop p {
+    font-size: 14px;
+  }
+  .main .help {
+    width: 24rem;
+    line-height: 1.2rem;
+  }
+  .main .help h5 {
+    font-size: 2.6rem;
+  }
+  .contact {
+    font-size: 12px;
+    padding: 20px 0;
+  }
+  .contact li {
+    width: 50%;
+    height: 125px;
+    margin-bottom: 10px;
+  }
+  .contact li .dotted {
+    width: 60px;
+    height: 60px;
+  }
+  .contact li .dotted img {
+    max-width: 34px;
+    max-height: 34px;
+  }
+  .contact li .infos {
+    width: 88%;
+    margin: 0 auto;
+    padding-top: 16px;
+    line-height: 18px;
+  }
+  .contact li .infos h6 {
+    padding-top: 8px;
+    font-size: 14px;
+  }
+  .contact li .infos h6 img {
+    max-width: 120px;
+  }
+  .contact li .erweima {
+    width: 80px;
+    height: 80px;
+    top: -84px;
+  }
+  .contact li .erweima img {
+    width: 60px;
+    height: 60px;
+    top: 8px;
+  }
+  .us {
+    padding: 40px 0;
+  }
+  .us li .left {
+    width: 100%;
+    font-size: 14px;
+    padding-bottom: 16px;
+  }
+  .us li .txt {
+    width: 90%;
+    padding: 30px 0;
+  }
+  .us li .right {
+    width: 100%;
+    font-size: 12px;
+  }
+  .us span {
+    width: 84%;
+    padding-left: 2px;
+  }
+  .us li {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 4px;
+  }
+}
+@media (min-width: 500px) and (max-width: 720px) {
+  .main .mainTop {
+    padding-top: 14px;
+  }
+  .main .mainTop p {
+    font-size: 14px;
+  }
+  .main .help {
+    width: 24rem;
+    line-height: 1.2rem;
+  }
+  .main .help h5 {
+    font-size: 1.4rem;
+  }
+  .contact {
+    font-size: 12px;
+    padding: 20px 0;
+  }
+  .contact li .dotted {
+    width: 60px;
+    height: 60px;
+  }
+  .contact li .dotted img {
+    max-width: 34px;
+    max-height: 34px;
+  }
+  .contact li .infos {
+    width: 88%;
+    margin: 0 auto;
+    padding-top: 16px;
+    line-height: 18px;
+  }
+  .contact li .infos h6 {
+    padding-top: 8px;
+    font-size: 14px;
+  }
+  .contact li .infos h6 img {
+    max-width: 120px;
+  }
+  .contact li .erweima {
+    width: 80px;
+    height: 80px;
+    top: -84px;
+  }
+  .contact li .erweima img {
+    width: 60px;
+    height: 60px;
+    top: 8px;
+  }
+  .us {
+    padding: 40px 0;
+  }
+  .us li .left {
+    width: 100%;
+    font-size: 14px;
+    padding-bottom: 20px;
+  }
+  .us li .txt {
+    width: 90%;
+    padding: 30px 0;
+  }
+  .us li .right {
+    width: 100%;
+    font-size: 12px;
+  }
+  .us span {
+    width: 84%;
+    padding-left: 2px;
+  }
+  .us li {
+    width: 49%;
+    margin-right: 1%;
+    margin-bottom: 4px;
+  }
+}
+@media (min-width: 721px) and (max-width: 1023px) {
+  .main .mainTop {
+    padding-top: 14px;
+  }
+  .main .mainTop p {
+    font-size: 14px;
+  }
+  .main .help {
+    width: 24rem;
+    line-height: 1.2rem;
+  }
+  .main .help h5 {
+    font-size: 1.4rem;
+  }
+  .contact {
+    font-size: 12px;
+    padding: 30px 0;
+  }
+  .contact li .dotted {
+    width: 80px;
+    height: 80px;
+  }
+  .contact li .dotted img {
+    max-width: 34px;
+    max-height: 34px;
+  }
+  .contact li .infos {
+    padding-top: 16px;
+  }
+  .contact li .infos h6 {
+    padding-top: 8px;
+    font-size: 14px;
+  }
+  .contact li .infos h6 img {
+    max-width: 120px;
+  }
+  .contact li .erweima {
+    width: 100px;
+    height: 100px;
+    top: -104px;
+  }
+  .contact li .erweima img {
+    width: 80px;
+    height: 80px;
+    top: 6px;
+  }
+  .us {
+    padding: 60px 0;
+  }
+  .us li .left {
+    width: 32%;
+    font-size: 14px;
+  }
+  .us li .right {
+    width: 68%;
+    font-size: 12px;
+  }
+  .us span {
+    width: 82%;
+  }
+  .us li {
+    width: 49%;
+    margin-right: 1%;
+    margin-bottom: 10px;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1335px) {
+  .main .help {
+    width: 16rem;
+  }
+  .main .help h5 {
+    font-size: 0.85rem;
+  }
+  .contact li .dotted {
+    width: 100px;
+    height: 100px;
+  }
+  .contact li .dotted img {
+    max-width: 34px;
+    max-height: 34px;
+  }
+  .contact li .infos {
+    padding-top: 16px;
+  }
+  .contact li .infos h6 {
+    padding-top: 8px;
+    font-size: 16px;
+  }
+  .contact li .erweima {
+    width: 100px;
+    height: 100px;
+    top: -104px;
+  }
+  .contact li .erweima img {
+    width: 80px;
+    height: 80px;
+    top: 6px;
+  }
+  .us {
+    padding: 80px 0;
+  }
+  .us li .left {
+    width: 24%;
+    font-size: 16px;
+  }
+  .us li .right {
+    width: 76%;
+    font-size: 14px;
+  }
+}

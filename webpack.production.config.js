@@ -31,8 +31,8 @@ var productionConfig = [{
             allChunks: true
         }),
         new CopyWebpackPlugin([{
-            from: "./client/home/",
-            to: "./home/"
+            from: "./client/static/",
+            to: "./static/"
         }])
     ]
 }];

@@ -1,0 +1,343 @@
+.m-banner {
+  background: #135ea1;
+ 
+}
+.m-banner .table{
+  width: 100%;
+  display: table;
+  max-width: 1400px;
+  margin:0 auto;
+}
+.m-banner .imgs {
+  width: 36%;
+  height: 15.425rem;
+  display:table-cell;
+  vertical-align: middle;
+  text-align: right;
+}
+.m-banner .imgs img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.m-banner .info {
+  width: 56%;
+  padding-left: 20%;
+  position: relative;
+  background: no-repeat left center;
+  background-size: auto 100%;
+  -webkit-background-size: auto 100%;
+  -moz-background-size: auto 100%;
+  -ms-background-size: auto 100%;
+  -o-background-size: auto 100%;
+  display:table-cell;
+  vertical-align: middle;
+ 
+}
+.m-banner .info .txt {
+  width: 100%;
+ /* height: 4.75rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;*/
+}
+.m-banner .info .txt h4 {
+  font-size: 1.55rem;
+  font-weight: 200;
+  padding-bottom: 0.25rem;
+}
+.m-banner .info .txt span {
+  font-size: 0.75rem;
+  font-weight: 100;
+}
+.m-banner .info .txt i {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #6f9dc5;
+  margin: 0.7rem 0;
+}
+.m-banner .info .txt h6 {
+  font-size: 0.75rem;
+  font-weight: 100;
+  padding-bottom: 0.25rem;
+}
+.m-banner .info .txt p {
+  font-size: 0.65rem;
+  font-weight: 100;
+}
+.main {
+  padding: 190px 0;
+}
+.main .mainNav {
+  width: 100%;
+  font-size: 0;
+  text-align: center;
+}
+.main .mainNav li {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  *display: inline\;
+  *zoom: 1\;
+  vertical-align: middle;
+  overflow: hidden;
+  padding: 16px 42px;
+  border: 1px solid #bababa;
+  font-size: 18px;
+  color: #444444;
+  margin-right: 26px;
+}
+.main .mainNav li.current,
+.main .mainNav li:hover {
+  background: #135ea1;
+  border: 1px solid #135ea1;
+  color: #ffffff;
+}
+.main .mainNav .nor {
+  margin-right: 0;
+}
+.main .content {
+  padding-top: 90px;
+  overflow: hidden;
+  padding-bottom: 120px;
+}
+.main .content p {
+  font-size: 16px;
+  line-height: 24px;
+  color: #444444;
+  padding-left: 2%;
+  text-align: center;
+}
+.main .content p img {
+  max-width: 100%;
+}
+.main .content .info {
+  overflow: hidden;
+  padding: 50px 0;
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 20px;
+}
+.main .content .info p {
+  text-align: left;
+}
+.main .mainT {
+  padding: 22px 0;
+  background: #135ea1;
+}
+.main .mainT p {
+  text-align: left;
+  font-size: 20px;
+  color: #ffffff;
+  padding-left: 2%;
+}
+.main table {
+  margin-top: 1px;
+  width: 100%;
+}
+.main table .title td {
+  font-size: 18px;
+  color: #ffffff;
+  background: #868ea1;
+}
+.main table .title .bd {
+  border-bottom: 1px solid #ffffff;
+}
+.main table td {
+  padding: 32px 0;
+  background: #f6f6f6;
+  font-size: 14px;
+  color: #444444;
+  text-align: center;
+  border-right: 1px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
+  vertical-align: middle!important;
+}
+@media (max-width: 499px) {
+  .m-banner {
+    height: 18rem;
+  }
+  .main {
+    padding: 40px 0;
+  }
+  .m-banner .imgs{width: 28%;padding-left: 2%;}
+  .m-banner .info{padding-left: 4%;width: 46%;}
+  /*.m-banner .imgs {
+    left: 2rem;
+  }*/
+  /*.m-banner .info {
+    width: 15rem;
+    height: 11rem;
+    right: 1rem;
+    top: 2rem;
+  }
+  .m-banner .info .txt {
+    width: 14rem;
+    height: 8rem;
+  }*/
+  .main .mainNav li {
+    padding: 8px 10px;
+    font-size: 14px;
+    margin-right: 4px;
+  }
+  .main .content {
+    padding-top: 24px;
+    padding-bottom: 30px;
+  }
+  .main .mainT {
+    padding: 14px 0;
+  }
+  .main .mainT p,
+  .main .content .mainT p {
+    font-size: 16px;
+  }
+  .main .content .info {
+    padding: 20px 0;
+    margin-bottom: 14px;
+  }
+  .main .content p {
+    font-size: 12px;
+    line-height: 22px;
+  }
+  .main table td {
+    padding: 20px 0;
+    font-size: 12px;
+  }
+  .main table .title td {
+    font-size: 12px;
+    font-weight: bold;
+  }
+}
+@media (min-width: 500px) and (max-width: 720px) {
+  .main {
+    padding: 60px 0;
+  }
+  .m-banner .info{padding-left: 10%;}
+  .m-banner .imgs{padding-left: 4%;}
+/*  .m-banner .imgs {
+    left: 2rem;
+  }*/
+  /*.m-banner .info {
+    width: 28rem;
+    height: 11rem;
+    right: 1rem;
+    top: 2rem;
+  }*/
+/*  .m-banner .info .txt {
+    width: 26rem;
+    height: 6rem;
+  }*/
+  .main .mainNav li {
+    padding: 10px 20px;
+    font-size: 14px;
+    margin-right: 4px;
+  }
+  .main .content {
+    padding-top: 24px;
+    padding-bottom: 30px;
+  }
+  .main .mainT {
+    padding: 14px 0;
+  }
+  .main .mainT p,
+  .main .content .mainT p {
+    font-size: 16px;
+  }
+  .main .content .info {
+    padding: 20px 0;
+    margin-bottom: 14px;
+  }
+  .main .content p {
+    font-size: 12px;
+    line-height: 22px;
+  }
+  .main table td {
+    padding: 20px 0;
+    font-size: 12px;
+  }
+  .main table .title td {
+    font-size: 14px;
+  }
+}
+@media (min-width: 721px) and (max-width: 1023px) {
+  .main {
+    padding: 60px 0;
+  }
+  .m-banner .info {
+    width: 24rem;
+    height: 11rem;
+    right: 1rem;
+  }
+  .m-banner .info .txt {
+    width: 20rem;
+  }
+  .main .mainNav li {
+    padding: 10px 26px;
+    font-size: 14px;
+    margin-right: 6px;
+  }
+  .main .content {
+    padding-top: 30px;
+    padding-bottom: 40px;
+  }
+  .main .mainT {
+    padding: 14px 0;
+  }
+  .main .mainT p,
+  .main .content .mainT p {
+    font-size: 16px;
+  }
+  .main .content .info {
+    padding: 40px 0;
+    margin-bottom: 14px;
+  }
+  .main .content p {
+    font-size: 12px;
+    line-height: 22px;
+  }
+  .main table td {
+    padding: 20px 0;
+    font-size: 12px;
+  }
+  .main table .title td {
+    font-size: 14px;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1335px) {
+  .main {
+    padding: 80px 0;
+  }
+  .m-banner .table{max-width: 1000px;}
+  .main .mainNav li {
+    padding: 10px 36px;
+    font-size: 16px;
+    margin-right: 10px;
+  }
+  .main .content {
+    padding-top: 40px;
+    padding-bottom: 50px;
+  }
+  .main .mainT {
+    padding: 20px 0;
+  }
+  .main .mainT p,
+  .main .content .mainT p {
+    font-size: 18px;
+  }
+  .main .content .info {
+    padding: 40px 0;
+    margin-bottom: 14px;
+  }
+  .main .content p {
+    font-size: 14px;
+  }
+  .main table td {
+    padding: 24px 0;
+    font-size: 12px;
+  }
+  .main table .title td {
+    font-size: 16px;
+  }
+  .m-banner .info{padding-left: 10%;width: 60%;}
+}
