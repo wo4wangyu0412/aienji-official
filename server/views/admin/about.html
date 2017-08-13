@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta content="" name="description" />
+        <meta content="webthemez" name="author" />
+        <title>爱恩吉后台管理</title>
+        <!-- Bootstrap Styles-->
+        <link href="/static/admin/css/bootstrap.css" rel="stylesheet" />
+        <!-- FontAwesome Styles-->
+        <link href="/static/admin/css/font-awesome.css" rel="stylesheet" />
+        <!-- Custom Styles-->
+        <link href="/static/admin/css/custom-styles.css" rel="stylesheet" />
+        <!-- Google Fonts-->
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+        <style type="text/css">
+            .leader-show textarea {
+                height: 150px;
+            }
+
+            .leader-pic {
+                max-width: 100px;
+                margin: 10px 0;
+            }
+        </style>
+        </head>
+    <body>
+        <div id="wrapper">
+            <nav class="navbar navbar-default top-navbar" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                        <span class="sr-only">简介管理</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">
+                        <strong>
+                            <i class="icon fa fa-plane"></i>爱恩吉后台管理</strong>
+                    </a>
+                    <div id="sideNav" href="">
+                        <i class="fa fa-bars icon"></i>
+                    </div>
+                </div>
+            </nav>
+            <%-include( './side.html', {item: 'about'}) %>
+                <!-- /. NAV SIDE -->
+                <div id="page-wrapper">
+                    <div class="header">
+                        <h1 class="page-header">简介管理</h1>
+                    </div>
+                    <div class="col-xs-12 panel panel-default leader-show">
+                        <div class="form-group">
+                            <p class="help-block">设置董事长寄语</p>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">寄语</label>
+                                <textarea class="form-control" id="leaderShow" placeholder="董事长寄语"><%-leader[0].tell%>
+                                </textarea>
+                                <img src="<%-leader[0].pic%>" class="leader-pic">
+                            </div>
+                            <label for="banner-up">上传董事长照片</label>
+                            <input type="file" class="leader-pic-input">
+                            <div class="btn btn-default up-leader-btn">提交</div>
+                        </div>
+                    </div>
+                    <div id="page-inner">
+                        <footer>
+                            <p>Copyright &copy; 2016.Company name All rights reserved.
+                                <a target="_blank" href="http://www.cssmoban.com/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
+                        </footer>
+                    </div>
+                    <!-- /. PAGE INNER --></div>
+                <!-- /. PAGE WRAPPER --></div>
+        <!-- /. WRAPPER -->
+        <!-- JS Scripts-->
+        <!-- jQuery Js -->
+        <script src="/static/admin/js/jquery-1.10.2.js"></script>
+        <!-- Bootstrap Js -->
+        <script src="/static/admin/js/bootstrap.min.js"></script>
+        <!-- Metis Menu Js -->
+        <script src="/static/admin/js/jquery.metisMenu.js"></script>
+        <!-- Custom Js -->
+        <script src="/static/admin/js/custom-scripts.js"></script>
+
+        <script type="text/javascript">
+            $('.up-leader-btn').on('click', function () {
+                var imgs = [];
+                var reader = new FileReader();
+                var img = $('.leader-pic-input').val();
+                var content = $('.form-control').val();
+                var oldPic = '<%-leader[0].pic%>';
+
+                $('.leader-pic-input').each(function() {
+                    if (this.files.length) {
+                        reader.readAsDataURL(this.files[0]);
+                    }
+                });
+
+                if (!img && oldPic && content) {
+
+                    pushData();
+                }
+
+                if (!content || (!img && !oldPic)) {
+                    alert('信息录入不全，请重新输入');
+                }
+
+                reader.onload = function(e) {
+                    imgs.push(this.result);
+
+                    if (imgs.length && imgs.length === $('.leader-pic-input').length && content) {
+                        pushData();
+                    }
+                    else {
+                        alert('信息录入不全，请重检查');
+                    }
+                }
+
+                function pushData() {
+
+                    var data = {
+                        tell: content,
+                        pic: imgs || oldPic
+                    };
+
+                    var dataStr = JSON.stringify(data);
+                    var successFn = function(e) {
+                        // window.location.reload();
+                    };
+
+                    $.ajax({
+                        method: 'POST',
+                        contentType: 'application/json;charset=utf-8',
+                        url: '/admin/add/leader',
+                        data: dataStr,
+                        success: successFn,
+                        err: function() {
+                            alert('err');
+                        }
+                    });
+                }
+            });
+
+            $('.banner-del').on('click', function (e) {
+                var id = $(e.target).attr('data-id');
+
+                $.ajax({
+                    method: 'GET',
+                    url: '/admin/delete/banner',
+                    data: {
+                        id: id
+                    },
+                    success: function (data) {
+                        if (data.code == 0) {
+                            window.location.reload();
+                        }
+                    },
+                    err: function(data) {
+                        alert(data.msg);
+                    }
+                });
+            });
+        </script>
+    </body>
+
+</html>

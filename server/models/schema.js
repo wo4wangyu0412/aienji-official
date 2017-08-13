@@ -20,6 +20,15 @@ var schema = {
         session: String,
         session_key: String,
         isVip: Boolean
+    },
+    banner: {
+        title: String,
+        english: String,
+        pic: String
+    },
+    leader: {
+        tell: String,
+        pic: String
     }
 };
 

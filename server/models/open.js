@@ -8,12 +8,14 @@ mongoose.connect('mongodb://127.0.0.1:27017/friend', { useMongoClient: true });
 var db = mongoose.connection;
 
 db.on('error', function(err) {
-    console.log('dbs open err1111111111111111111');
+    console.log('dbs open err');
 });
 
 db.once('open', function() {
-    console.log('sdbs   open success22222222222222');
+    console.log('sdbs open success');
 });
 
 model.create('people', schema.people, 'people');
 model.create('visitor', schema.visitor, 'visitor');
+model.create('banner', schema.banner, 'banner');
+model.create('leader', schema.leader, 'leader');

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta content="" name="description" />
+        <meta content="webthemez" name="author" />
+        <title>爱恩吉后台管理</title>
+        <!-- Bootstrap Styles-->
+        <link href="/static/admin/css/bootstrap.css" rel="stylesheet" />
+        <!-- FontAwesome Styles-->
+        <link href="/static/admin/css/font-awesome.css" rel="stylesheet" />
+        <!-- Custom Styles-->
+        <link href="/static/admin/css/custom-styles.css" rel="stylesheet" />
+        <!-- Google Fonts-->
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+        <style type="text/css">
+            .banner-item {
+                float: left;
+                margin-right: 10px;
+            }
+
+            .banner-item .btn-default {
+                text-align: center;
+            }
+        </style>
+        </head>
+    <body>
+        <div id="wrapper">
+            <nav class="navbar navbar-default top-navbar" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                        <span class="sr-only"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">
+                        <strong>
+                            <i class="icon fa fa-plane"></i>爱恩吉后台管理</strong>
+                    </a>
+                    <div id="sideNav" href="">
+                        <i class="fa fa-bars icon"></i>
+                    </div>
+                </div>
+            </nav>
+            <%-include( './side.html', {item: 'home'}) %>
+                <!-- /. NAV SIDE -->
+                <div id="page-wrapper">
+                    <div class="header">
+                        <h1 class="page-header">首页管理
+                            <small></small>
+                        </h1>
+                    </div>
+                    <div class="col-xs-12 panel panel-default">
+                        <div class="form-group">
+                            <p class="help-block">添加轮播图</p>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">中文title</label>
+                                <input type="email" class="form-control" id="bannerTitle" placeholder="title">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">英文title</label>
+                                <input type="email" class="form-control" id="bannerEnglish" placeholder="Englist">
+                            </div>
+                            <label for="banner-up">上传轮播图</label>
+                            <input type="file" class="banner-up">
+                        </div>
+                        <div class="btn btn-default up-banner">上传</div>
+                    </div>
+                    <div class="col-xs-12 panel-default panel">
+                        <p class="help-block">轮播图管理</p>
+                        <div class="col-xs-6 col-md-12">
+                            <% banner.forEach(function(item) { %>
+                                <div class="panel panel-default banner-item">
+                                    <div class="panel-body">
+                                        <h4><%-item.title %></h4>
+                                        <div class="easypiechart" id="easypiechart-orange" data-percent="55">
+                                            <img class="col-xs-12" src="<%-item.pic %>">
+                                        </div>
+                                        <div class="btn btn-default col-xs-12 banner-del" data-id="<%-item._id%>">删除</div>
+                                    </div>
+                                </div>
+                            <% }) %>
+                        </div>
+                    </div>
+                    <div id="page-inner">
+                        <footer>
+                            <p>Copyright &copy; 2016.Company name All rights reserved.
+                                <a target="_blank" href="http://www.cssmoban.com/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+        <!-- /. WRAPPER -->
+        <!-- JS Scripts-->
+        <!-- jQuery Js -->
+        <script src="/static/admin/js/jquery-1.10.2.js"></script>
+        <!-- Bootstrap Js -->
+        <script src="/static/admin/js/bootstrap.min.js"></script>
+        <!-- Metis Menu Js -->
+        <script src="/static/admin/js/jquery.metisMenu.js"></script>
+        <!-- Custom Js -->
+        <script src="/static/admin/js/custom-scripts.js"></script>
+
+        <script type="text/javascript">
+            $('.up-banner').on('click', function () {
+                var imgs = [];
+                var reader = new FileReader();
+                var title = $('#bannerTitle').val();
+                var english = $('#bannerEnglish').val();
+
+                $('.banner-up').each(function() {
+                    if (this.files.length) {
+                        reader.readAsDataURL(this.files[0]);
+                    }
+                });
+
+                reader.onload = function(e) {
+                    imgs.push(this.result);
+
+                    if (imgs.length && imgs.length === $('.banner-up').length && title && english) {
+                        pushData();
+                    }
+                    else {
+                        alert('信息录入不全，请重检查');
+                    }
+                }
+
+                function pushData() {
+
+                    var data = {
+                        title: title,
+                        english: english,
+                        pic: imgs
+                    };
+
+                    // $.each(data, function (index, item) {
+                    //     if (!item) {
+                    //         debugger
+                    //         alert('信息填写不完整');
+                    //         return false;
+                    //     }
+                    // });
+
+                    var dataStr = JSON.stringify(data);
+                    var successFn = function(e) {
+                        window.location.reload();
+                    };
+
+                    $.ajax({
+                        method: 'POST',
+                        contentType: 'application/json;charset=utf-8',
+                        url: '/admin/add/banner',
+                        data: dataStr,
+                        success: successFn,
+                        err: function() {
+                            alert('err');
+                        }
+                    });
+                }
+            });
+
+            $('.banner-del').on('click', function (e) {
+                var id = $(e.target).attr('data-id');
+
+                $.ajax({
+                    method: 'GET',
+                    url: '/admin/delete/banner',
+                    data: {
+                        id: id
+                    },
+                    success: function (data) {
+                        if (data.code == 0) {
+                            window.location.reload();
+                        }
+                    },
+                    err: function(data) {
+                        alert(data.msg);
+                    }
+                });
+            });
+        </script>
+    </body>
+
+</html>
