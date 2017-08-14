@@ -15,13 +15,26 @@
         <!-- Google Fonts-->
         <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
         <style type="text/css">
-            .leader-show textarea {
+            .leader-show textarea, .intro-text, .quality-content {
                 height: 150px;
+                width: 100%;
             }
 
             .leader-pic {
                 max-width: 100px;
                 margin: 10px 0;
+            }
+
+            .up-leader-btn {
+                margin-top: 10px;
+            }
+
+            .infos pre {
+                line-height: 25px;
+            }
+
+            .weixin-up-label, .qq-up-label {
+                margin-top: 10px;
             }
         </style>
         </head>
@@ -59,10 +72,98 @@
                                 </textarea>
                                 <img src="<%-leader[0].pic%>" class="leader-pic">
                             </div>
-                            <label for="banner-up">上传董事长照片</label>
+                            <label for="leader-pic-input">上传董事长照片</label>
                             <input type="file" class="leader-pic-input">
                             <div class="btn btn-default up-leader-btn">提交</div>
                         </div>
+                    </div>
+                    <div class="col-xs-12 panel panel-default intro-show">
+                        <div class="form-group">
+                            <p class="help-block">公司简介设置</p>
+                            <div class="form-group">
+                                <textarea class="intro-text" id="leaderShow" placeholder="公司简介"><%-intro[0].intro%>
+                                </textarea>
+                            </div>
+                            <div class="btn btn-default up-intro-btn">提交</div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 panel panel-default quality-show">
+                        <div class="form-group">
+                            <p class="help-block">质量管理设置</p>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">质量管理文案</label>
+                                    <textarea class="quality-content" id="qualityShow" placeholder="质量管理文案"><% if (quality[0]) %><%-quality[0].content %>
+                                    </textarea>
+                                    <img src="<% if (quality[0]) %> <%-quality[0].pic %>" class="quality-pic">
+                                </div>
+                            <label for="quality-pic-input">上传质量管理流程图</label>
+                            <input type="file" class="quality-pic-input">
+                            <div class="btn btn-default up-quality-btn">提交</div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 panel panel-default">
+                        <div class="form-group">
+                            <p class="help-block">添加资质证书</p>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">中文title</label>
+                                <input type="email" class="form-control" id="cardTitle" placeholder="title">
+                            </div>
+                            <label for="card-up">上传资质证书</label>
+                            <input type="file" class="card-up">
+                        </div>
+                        <div class="btn btn-default up-card">上传</div>
+                        <p class="help-block">资质证书管理</p>
+                        <div class="col-xs-6 col-md-12">
+                            <% if (card) card.forEach(function(item) { %>
+                                <div class="panel panel-default card-item">
+                                    <div class="panel-body">
+                                        <h4><%-item.title %></h4>
+                                        <div class="easypiechart" id="easypiechart-orange" data-percent="55">
+                                            <img class="col-xs-12" src="<%-item.pic %>">
+                                        </div>
+                                        <div class="btn btn-default col-xs-12 card-del" data-id="<%-item._id%>">删除</div>
+                                    </div>
+                                </div>
+                            <% }) %>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 panel panel-default">
+                        <div class="form-group">
+                            <p class="help-block">添加公司基本信息</p>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">公司名称</label>
+                                <input class="form-control" id="companyTitle" placeholder="请填写">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">公司联系人</label>
+                                <input class="form-control" id="companyPeople" placeholder="请填写">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">公司固话</label>
+                                <input class="form-control" id="companyPhone" placeholder="请填写">
+                            </div>
+                             <div class="form-group">
+                                <label for="exampleInputEmail1">公司传真</label>
+                                <input class="form-control" id="companyPhone2" placeholder="请填写">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">微信</label>
+                                <input class="form-control" id="companyWechart" placeholder="请填写">
+                                <label for="weixin-up" class="weixin-up-label">上传微信二维码</label>
+                                <input type="file" class="info-up weixin-up">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">qq</label>
+                                <input class="form-control" id="companyQq" placeholder="请填写">
+                                <label for="qq-up" class="qq-up-label">上传qq二维码</label>
+                                <input type="file" class="info-up qq-up">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">移动电话</label>
+                                <input class="form-control" id="companyMobile" placeholder="请填写">
+                            </div>
+                        </div>
+                        <div class="btn btn-default up-info">上传</div>
                     </div>
                     <div id="page-inner">
                         <footer>
@@ -70,8 +171,7 @@
                                 <a target="_blank" href="http://www.cssmoban.com/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
                         </footer>
                     </div>
-                    <!-- /. PAGE INNER --></div>
-                <!-- /. PAGE WRAPPER --></div>
+                    <!-- /. PAGE INNER --></div></div>
         <!-- /. WRAPPER -->
         <!-- JS Scripts-->
         <!-- jQuery Js -->
@@ -84,6 +184,7 @@
         <script src="/static/admin/js/custom-scripts.js"></script>
 
         <script type="text/javascript">
+            // 上传董事长发言
             $('.up-leader-btn').on('click', function () {
                 var imgs = [];
                 var reader = new FileReader();
@@ -118,6 +219,9 @@
                 }
 
                 function pushData() {
+                    if (!imgs.length) {
+                        imgs.push(oldPic);
+                    }
 
                     var data = {
                         tell: content,
@@ -126,7 +230,7 @@
 
                     var dataStr = JSON.stringify(data);
                     var successFn = function(e) {
-                        // window.location.reload();
+                        window.location.reload();
                     };
 
                     $.ajax({
@@ -142,12 +246,185 @@
                 }
             });
 
-            $('.banner-del').on('click', function (e) {
+            // 上传质量体系
+            $('.up-quality-btn').on('click', function () {
+                var imgs = [];
+                var reader = new FileReader();
+                var img = $('.quality-pic-input').val();
+                var content = $('#qualityShow').val();
+                var oldPic = '<% if (quality[0]) %> <%-quality[0].pic %>';
+
+                $('.quality-pic-input').each(function() {
+                    if (this.files.length) {
+                        reader.readAsDataURL(this.files[0]);
+                    }
+                });
+
+                if (!img && oldPic && content) {
+
+                    pushData();
+                }
+
+                if (!content || (!img && !oldPic)) {
+                    alert('信息录入不全，请重新输入');
+                }
+
+                reader.onload = function(e) {
+                    imgs.push(this.result);
+
+                    if (imgs.length && imgs.length === $('.quality-pic-input').length && content) {
+                        pushData();
+                    }
+                    else {
+                        alert('信息录入不全，请重检查');
+                    }
+                }
+
+                function pushData() {
+                    if (!imgs.length) {
+                        imgs.push(oldPic);
+                    }
+
+                    var data = {
+                        content: content,
+                        pic: imgs || oldPic
+                    };
+
+                    var dataStr = JSON.stringify(data);
+                    var successFn = function(e) {
+                        window.location.reload();
+                    };
+
+                    $.ajax({
+                        method: 'POST',
+                        contentType: 'application/json;charset=utf-8',
+                        url: '/admin/add/quality',
+                        data: dataStr,
+                        success: successFn,
+                        err: function() {
+                            alert('err');
+                        }
+                    });
+                }
+            });
+
+            // 上传公司简介
+            $('.up-intro-btn').on('click', function (e) {
+                var intro = $('.intro-text').val();
+
+                if (intro) {
+                    pushData();
+                }
+                else {
+                    alert('公司简介不能为空');
+                }
+
+                function pushData() {
+
+                    var data = {
+                        intro: intro
+                    };
+
+                    var dataStr = JSON.stringify(data);
+                    var successFn = function(e) {
+                        window.location.reload();
+                    };
+
+                    $.ajax({
+                        method: 'POST',
+                        contentType: 'application/json;charset=utf-8',
+                        url: '/admin/add/intro',
+                        data: dataStr,
+                        success: successFn,
+                        err: function() {
+                            alert('公司简介设置出错，请稍后重试');
+                        }
+                    });
+                }
+            });
+
+            // // 
+            // $('.card-del').on('click', function (e) {
+            //     var id = $(e.target).attr('data-id');
+
+            //     $.ajax({
+            //         method: 'GET',
+            //         url: '/admin/delete/card',
+            //         data: {
+            //             id: id
+            //         },
+            //         success: function (data) {
+            //             if (data.code == 0) {
+            //                 window.location.reload();
+            //             }
+            //         },
+            //         err: function(data) {
+            //             alert(data.msg);
+            //         }
+            //     });
+            // });
+            // 上传资质证书
+            $('.up-card').on('click', function () {
+                var imgs = [];
+                var reader = new FileReader();
+                var title = $('#cardTitle').val();
+
+                $('.card-up').each(function() {
+                    if (this.files.length) {
+                        reader.readAsDataURL(this.files[0]);
+                    }
+                });
+
+                reader.onload = function(e) {
+                    imgs.push(this.result);
+
+                    if (imgs.length && imgs.length === $('.card-up').length && title) {
+                        pushData();
+                    }
+                    else {
+                        alert('信息录入不全，请重检查');
+                    }
+                }
+
+                function pushData() {
+
+                    var data = {
+                        title: title,
+                        pic: imgs
+                    };
+
+                    // $.each(data, function (index, item) {
+                    //     if (!item) {
+                    //         debugger
+                    //         alert('信息填写不完整');
+                    //         return false;
+                    //     }
+                    // });
+
+                    var dataStr = JSON.stringify(data);
+                    var successFn = function(e) {
+                        window.location.reload();
+                    };
+
+                    $.ajax({
+                        method: 'POST',
+                        contentType: 'application/json;charset=utf-8',
+                        url: '/admin/add/card',
+                        data: dataStr,
+                        success: successFn,
+                        err: function() {
+                            alert('err');
+                        }
+                    });
+                }
+            });
+            // 删除资质证书
+            $('.card-del').on('click', function (e) {
                 var id = $(e.target).attr('data-id');
 
                 $.ajax({
                     method: 'GET',
-                    url: '/admin/delete/banner',
+                    url: '/admin/delete/card',
                     data: {
                         id: id
                     },
@@ -160,6 +437,79 @@
                         alert(data.msg);
                     }
                 });
+            });
+
+            // 上传公司信息
+            $('.up-info').on('click', function () {
+                var qqPic, wechartPic;
+                var title = $('#companyTitle').val();
+                var phone = $('#companyPhone').val();
+                var phone2 = $('#companyPhone2').val();
+                var mobile = $('#companyMobile').val();
+                var person = $('#companyPerson').val();
+                var wechart = $('#companyWechart').val();
+                var qq = $('#companyQq').val();
+
+                $('.info-up').each(function(index) {
+                    if (this.files.length) {
+                        let me = this;
+                        let reader = new FileReader();
+                        reader.readAsDataURL(this.files[0]);
+
+                        reader.onload = function() {
+                            if ($(me).hasClass('weixin-up')) {
+                                wechartPic = this.result;
+                            }
+                            else {
+                                qqPic = this.result;
+                            }
+
+                            if (index == 2) {
+                                pushData();
+                            }
+
+                        }
+                    }
+                });
+
+                function pushData() {
+
+                    var data = {
+                        title: title,
+                        phone: phone,
+                        phone2: phone2,
+                        mobile: mobile,
+                        person: person,
+                        wechart: wechart,
+                        qq: qq,
+                        qqPic: qqPic,
+                        wechartPic: wechartPic
+                    };
+
+                    // $.each(data, function (index, item) {
+                    //     if (!item) {
+                    //         debugger
+                    //         alert('信息填写不完整');
+                    //         return false;
+                    //     }
+                    // });
+
+                    var dataStr = JSON.stringify(data);
+                    var successFn = function(e) {
+                        window.location.reload();
+                    };
+
+                    $.ajax({
+                        method: 'POST',
+                        contentType: 'application/json;charset=utf-8',
+                        url: '/admin/add/companyinfo',
+                        data: dataStr,
+                        success: successFn,
+                        err: function() {
+                            alert('err');
+                        }
+                    });
+                }
             });
         </script>
     </body>

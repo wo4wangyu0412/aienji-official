@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var db = mongoose.connection;
 var model = require('./models');
 var schema = require('./schema');
 mongoose.Promise = global.Promise = require('bluebird');
@@ -19,3 +20,8 @@ model.create('people', schema.people, 'people');
 model.create('visitor', schema.visitor, 'visitor');
 model.create('banner', schema.banner, 'banner');
 model.create('leader', schema.leader, 'leader');
+model.create('intro', schema.intro, 'intro');
+model.create('quality', schema.quality, 'quality');
+model.create('card', schema.card, 'card');
+model.create('info', schema.info, 'info');
+

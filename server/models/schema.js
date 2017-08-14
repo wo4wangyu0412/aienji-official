@@ -29,6 +29,28 @@ var schema = {
     leader: {
         tell: String,
         pic: String
+    },
+    intro: {
+        intro: String
+    },
+    quality: {
+        content: String,
+        pic: String
+    },
+    card: {
+        title: String,
+        pic: String
+    },
+    info: {
+        title: String,
+        phone: String,
+        phone2: String,
+        mobile: String,
+        person: String,
+        wechart: String,
+        wechartPic: String,
+        qq: String,
+        qqPic: String
     }
 };
 
