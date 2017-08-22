@@ -24,4 +24,5 @@ model.create('intro', schema.intro, 'intro');
 model.create('quality', schema.quality, 'quality');
 model.create('card', schema.card, 'card');
 model.create('info', schema.info, 'info');
+model.create('news', schema.news, 'news');
 

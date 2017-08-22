@@ -185,32 +185,33 @@
 <!-- alertBox -->
 <!-- contact -->
 <div class="contact">
+<% var item = info[0] || {} %>
     <div class="left">
         <div class="txt">
-            <p style="background-image:url(/Public/images/static/about/c1.png)">400-1300-228</p>
-            <p style="background-image:url(/Public/images/static/about/c2.png)">联系人：顾强</p>
-            <p style="background-image:url(/Public/images/static/about/c3.png)">手机电话：135-8447-1672</p>
+            <p style="background-image:url(/Public/images/static/about/c1.png)"></p>
+            <p style="background-image:url(/Public/images/static/about/c2.png)">联系人：<%-item.person %></p>
+            <p style="background-image:url(/Public/images/static/about/c3.png)">手机电话：<%-item.mobile %></p>
         </div>
     </div>
     <div class="right">
         <div class="child">
-            <div class="erweima" style="background-image:url(/Public/upload/brand/94ac62781762640194d7e6328600fcf4.jpg)">
+            <div class="erweima" style="background-image:url('<%-item.wechartPic %>')">
             </div>
             <div class="info">
                 <div class="pBox">
-                    <p>苏州爱恩吉新能源设备有限公司</p>
+                    <p><%-item.title %></p>
                     <span>扫一扫二维码，加我微信</span>
-                    <p>微信：FURUI-VALVE</p>
+                    <p>微信：<%-item.wechart %></p>
                 </div>
             </div>
         </div>
         <div class="child nor">
-            <div class="erweima" style="background-image:url(/Public/upload/brand/e808259ecb99ffb0a61f7203454f474b.jpg)"></div>
+            <div class="erweima" style="background-image:url('<%-item.qqPic %>')"></div>
             <div class="info">
                 <div class="pBox">
-                    <p>苏州爱恩吉新能源设备有限公司</p>
+                    <p><%-item.title %></p>
                     <span>扫一扫二维码，加我QQ</span>
-                    <p>QQ：3400732001</p>
+                    <p>QQ：<%-item.qq %></p>
                 </div>
             </div>
         </div>

@@ -12,6 +12,7 @@ var qualityModel = mongoose.model('quality');
 var introModel = mongoose.model('intro');
 var cardModel = mongoose.model('card');
 var infoModel = mongoose.model('info');
+var newsModel = mongoose.model('news');
 
 var mongoose = require('mongoose');
 var db = mongoose.connection;
@@ -116,24 +117,22 @@ router.get('/admin/about', (req, res) => {
 });
 
 /**
- * 添加资质证书
+ * 添加公司信息
  *
  * @param  {[type]}   '/admin/add/banner' [description]
  * @param  {[type]}   jsonParser          [description]
  * @param  {Function} (req,               res)          [description]
  * @return {[type]}                       [description]
  */
-router.post('/admin/add/info', jsonParser, (req, res) => {
+router.post('/admin/add/companyinfo', jsonParser, (req, res) => {
     if (req.body) {
-        cardModel.create(req.body, (err, doc) => {
-            if (err) {
-                res.send(err);
-            }
-
-            cardModel.find({}, (err, result) => {
-                if (err) return handleError(err);
-                // res.send(result);
-                res.send(result)
+        infoModel.remove({}).then((err) => {
+            infoModel.create(req.body, (err, doc) => {
+                infoModel.find({}, (err, result) => {
+                    res.send(util.unifyRes({
+                        result: result
+                    }));
+                });
             });
         });
     }
@@ -247,7 +246,16 @@ router.post('/admin/add/quality', jsonParser, (req, res) => {
  */
 router.post('/admin/add/intro', jsonParser, (req, res) => {
     if (req.body) {
-        introModel.remove({}).then(() => {
+        introModel.remove({}).then((err) => {
+            console.log(err);
+            if (err) {
+                res.send(util.unifyRes({
+                    code: 500,
+                    result: false,
+                    msg: '清楚数据库失败'
+                }));
+            }
+
             introModel.create(req.body, (err, doc) => {
                 if (err) {
                     res.send(err);
@@ -260,6 +268,124 @@ router.post('/admin/add/intro', jsonParser, (req, res) => {
                         result: result
                     });
                 });
+            });
+        });
+    }
+});
+
+
+/**
+ * 请求news页
+ *
+ * @param  {[type]} '/admin/home' [description]
+ * @param  {[type]} (req,         res)          [description]
+ * @return {[type]}               [description]
+ */
+router.get('/admin/news', (req, res) => {
+    var getNews = newsModel.find({});
+
+    Promise.all([getNews])
+    .then((results) => {
+        var newsList = results[0];
+
+        res.render('admin/news', {
+            news: newsList
+        });
+    });
+});
+
+/**
+ * 添加 新闻
+ *
+ * @param  {[type]}   '/admin/add/leader' [description]
+ * @param  {[type]}   jsonParser          [description]
+ * @param  {Function} (req,               res)          [description]
+ * @return {[type]}                       [description]
+ */
+router.post('/admin/add/news', jsonParser, (req, res) => {
+    if (req.body) {
+        newsModel.create(req.body, (err, doc) => {
+            if (err) {
+                res.send(err);
+            }
+
+            newsModel.find({}, (err, result) => {
+                if (err) {
+                    res.send(err);
+                }
+
+                res.send({
+                    msg: '新闻发布成功',
+                    result: result
+                });
+            });
+        });
+    }
+});
+
+/**
+ * 删除news
+ *
+ * @param  {[type]} '/admin/delete/banner' [description]
+ * @param  {[type]} (req,                  res           [description]
+ * @return {[type]}                        [description]
+ */
+router.get('/admin/delete/news', (req, res) => {
+    let id = req.query.id;
+
+    newsModel.findByIdAndRemove(id, err => {
+        if (err) {
+            res.send(util.unifyRes({
+                code: 500,
+                result: '删除失败'
+            }));
+        }
+
+        res.send(util.unifyRes({ms: 'delete success'}));
+    });
+});
+
+/**
+ * 查找news
+ *
+ * @param  {[type]} '/admin/delete/banner' [description]
+ * @param  {[type]} (req,                  res           [description]
+ * @return {[type]}                        [description]
+ */
+router.get('/admin/search/news', (req, res) => {
+    let id = req.query.id;
+
+    newsModel.findById(id, (err, result) => {
+        if (err) {
+            res.send(util.unifyRes({
+                code: 500,
+                result: '删除失败'
+            }));
+        }
+
+        res.send(util.unifyRes({result: result}));
+    });
+});
+
+/**
+ * 修改news
+ *
+ * @param  {[type]} '/admin/delete/banner' [description]
+ * @param  {[type]} (req,                  res           [description]
+ * @return {[type]}                        [description]
+ */
+router.post('/admin/update/news', jsonParser, (req, res) => {
+    if (req.body) {
+        var id = req.body.id;
+
+        newsModel.findByIdAndUpdate(id, {$set: req.body}, (err, doc) => {
+            if (err) {
+                res.send(err);
+            }
+
+            res.send({
+                msg: '新闻修改成功',
+                result: doc
             });
         });
     }

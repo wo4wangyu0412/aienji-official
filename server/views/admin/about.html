@@ -36,6 +36,12 @@
             .weixin-up-label, .qq-up-label {
                 margin-top: 10px;
             }
+
+            .info-show-pic {
+                display: block;
+                max-width: 100px;
+                margin-top: 10px;
+            }
         </style>
         </head>
     <body>
@@ -131,36 +137,39 @@
                         <div class="form-group">
                             <p class="help-block">添加公司基本信息</p>
                             <div class="form-group">
+                            <% var item = info[0] || {}%>
                                 <label for="exampleInputEmail1">公司名称</label>
-                                <input class="form-control" id="companyTitle" placeholder="请填写">
+                                <input class="form-control" id="companyTitle" placeholder="请填写" value="<%-item.title%>">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">公司联系人</label>
-                                <input class="form-control" id="companyPeople" placeholder="请填写">
+                                <input class="form-control" id="companyPerson" placeholder="请填写" value="<%-item.person%>">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">公司固话</label>
-                                <input class="form-control" id="companyPhone" placeholder="请填写">
+                                <input class="form-control" id="companyPhone" placeholder="请填写" value="<%-item.phone%>">
                             </div>
                              <div class="form-group">
                                 <label for="exampleInputEmail1">公司传真</label>
-                                <input class="form-control" id="companyPhone2" placeholder="请填写">
+                                <input class="form-control" id="companyPhone2" placeholder="请填写" value="<%-item.phone2%>">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">微信</label>
-                                <input class="form-control" id="companyWechart" placeholder="请填写">
+                                <input class="form-control" id="companyWechart" placeholder="请填写" value="<%-item.wechart%>">
                                 <label for="weixin-up" class="weixin-up-label">上传微信二维码</label>
                                 <input type="file" class="info-up weixin-up">
+                                <img src="<%-item.wechartPic %>" class="info-show-pic">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">qq</label>
-                                <input class="form-control" id="companyQq" placeholder="请填写">
+                                <input class="form-control" id="companyQq" placeholder="请填写"  value="<%-item.qq%>">
                                 <label for="qq-up" class="qq-up-label">上传qq二维码</label>
                                 <input type="file" class="info-up qq-up">
+                                <img src="<%-item.qqPic %>" class="info-show-pic">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">移动电话</label>
-                                <input class="form-control" id="companyMobile" placeholder="请填写">
+                                <input class="form-control" id="companyMobile" placeholder="请填写" value="<%-item.mobile%>">
                             </div>
                         </div>
                         <div class="btn btn-default up-info">上传</div>
@@ -343,7 +352,6 @@
                 }
             });
 
-            // // 
             // $('.card-del').on('click', function (e) {
             //     var id = $(e.target).attr('data-id');
 
@@ -441,7 +449,9 @@
 
             // 上传公司信息
             $('.up-info').on('click', function () {
-                var qqPic, wechartPic;
+                var qqPic,
+                    wechartPic,
+                    picNum = newPicNum = 0;
                 var title = $('#companyTitle').val();
                 var phone = $('#companyPhone').val();
                 var phone2 = $('#companyPhone2').val();
@@ -450,13 +460,32 @@
                 var wechart = $('#companyWechart').val();
                 var qq = $('#companyQq').val();
 
+                var data = {
+                    title: title,
+                    phone: phone,
+                    phone2: phone2,
+                    mobile: mobile,
+                    person: person,
+                    wechart: wechart,
+                    qq: qq
+                };
+
+                if (!checkData(data)) {
+                    return false;
+                }
+
                 $('.info-up').each(function(index) {
                     if (this.files.length) {
                         let me = this;
                         let reader = new FileReader();
-                        reader.readAsDataURL(this.files[0]);
+                        newPicNum++;
+                        console.log('发现一个新照片');
 
+                        reader.readAsDataURL(this.files[0]);
+                        console.log(index);
                         reader.onload = function() {
+                            picNum++;
+                            console.log('读取一个新照片');
                             if ($(me).hasClass('weixin-up')) {
                                 wechartPic = this.result;
                             }
@@ -464,38 +493,34 @@
                                 qqPic = this.result;
                             }
 
-                            if (index == 2) {
+                            if (picNum === newPicNum) {
                                 pushData();
                             }
-
                         }
                     }
                 });
 
+                if (!newPicNum) {
+                    console.log('没有新照片');
+                    pushData();
+                }
+
+
                 function pushData() {
+                    var oldWechart = '<%-item.wechartPic %>';
+                    var oldQq = '<%-item.qqPic %>';
 
-                    var data = {
-                        title: title,
-                        phone: phone,
-                        phone2: phone2,
-                        mobile: mobile,
-                        person: person,
-                        wechart: wechart,
-                        qq: qq,
-                        qqPic: qqPic,
-                        wechartPic: wechartPic
-                    };
+                    data.qqPic = qqPic || oldQq;
+                    data.wechartPic = wechartPic || oldWechart;
 
-                    // $.each(data, function (index, item) {
-                    //     if (!item) {
-                    //         debugger
-                    //         alert('信息填写不完整');
-                    //         return false;
-                    //     }
-                    // });
+                    if (!checkData(data)) {
+                        return false;
+                    }
 
                     var dataStr = JSON.stringify(data);
+
                     var successFn = function(e) {
+                        console.log(e);
                         window.location.reload();
                     };
 
@@ -511,6 +536,31 @@
                     });
                 }
             });
+
+            /**
+             * 验证必填信息完整性
+             *
+             * @param  {[type]} data [description]
+             * @return {[type]}      [description]
+             */
+            function checkData(data) {
+                var status = true;
+                if (typeof data !== 'object') {
+                    return false;
+                }
+
+                $.each(data, function (key, value) {
+                    console.log(key, value);
+                    if (!value) {
+                        console.log(key, value);
+                        alert('信息填写不完整');
+                        status = false;
+                        return false;
+                    }
+                });
+                console.log(status);
+                return status;
+            }
         </script>
     </body>
 

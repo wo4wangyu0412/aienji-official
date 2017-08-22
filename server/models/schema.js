@@ -51,6 +51,13 @@ var schema = {
         wechartPic: String,
         qq: String,
         qqPic: String
+    },
+    news: {
+        title: String,
+        intro: String,
+        type: String,
+        content: String,
+        date: String
     }
 };
 

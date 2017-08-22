@@ -11,6 +11,7 @@ var leaderModel = mongoose.model('leader');
 var introModel = mongoose.model('intro');
 var qualityModel = mongoose.model('quality');
 var cardModel = mongoose.model('card');
+var infoModel = mongoose.model('info');
 
 var mongoose = require('mongoose');
 var db = mongoose.connection;
@@ -22,19 +23,22 @@ router.get('/about', (req, res) => {
     var getIntro = introModel.find({});
     var getQuality = qualityModel.find({});
     var getCard = cardModel.find({});
+    var getInfo = infoModel.find({});
     // res.send(db.model('Person'));
-    Promise.all([getLeader, getIntro, getQuality, getCard])
+    Promise.all([getLeader, getIntro, getQuality, getCard, getInfo])
     .then((results) => {
         var leader = results[0];
         var intro = results[1];
         var quality = results[2];
         var card = results[3];
+        var info = results[4];
 
         res.render('about/index', {
             leader: leader,
             intro: intro,
             quality: quality,
-            card: card
+            card: card,
+            info: info
         });
     });
 });

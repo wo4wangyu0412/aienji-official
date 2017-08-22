@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta content="" name="description" />
+        <meta content="webthemez" name="author" />
+        <title>爱恩吉后台管理</title>
+        <!-- Bootstrap Styles-->
+        <link href="/static/admin/css/bootstrap.css" rel="stylesheet" />
+        <!-- FontAwesome Styles-->
+        <link href="/static/admin/css/font-awesome.css" rel="stylesheet" />
+        <!-- Custom Styles-->
+        <link href="/static/admin/css/custom-styles.css" rel="stylesheet" />
+        <!-- Google Fonts-->
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+        <style type="text/css">
+            .news-list {
+                width: 90%;
+                margin: 20px auto;
+            }
+
+            .news-list td, .news-list th {
+                width: 19%;
+                text-align: center;
+                border-right: 1px solid #ddd;
+                border-bottom: 1px solid #ddd;
+            }
+
+            .news-list th {
+                line-height: 40px;
+                background-color: #fff;
+            }
+
+            .news-list td {
+                position: relative;
+                line-height: 50px;
+                background-color: #f1f1f1;
+            }
+
+            .btn-default {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                display: block;
+                width: 80px;
+                height: 33px;
+                margin: auto;
+                clear: both;
+            }
+
+            .up-news {
+                position: relative;
+                margin-bottom: 13px;
+            }
+        </style>
+        </head>
+    <body>
+        <div id="wrapper">
+            <nav class="navbar navbar-default top-navbar" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                        <span class="sr-only"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">
+                        <strong>
+                            <i class="icon fa fa-plane"></i>爱恩吉后台管理</strong>
+                    </a>
+                    <div id="sideNav" href="">
+                        <i class="fa fa-bars icon"></i>
+                    </div>
+                </div>
+            </nav>
+            <%-include( './side.html', {item: 'home'}) %>
+                <!-- /. NAV SIDE -->
+                <div id="page-wrapper">
+                    <div class="header">
+                        <h1 class="page-header">新闻页管理
+                            <small></small>
+                        </h1>
+                    </div>
+                    <div class="col-xs-12 panel panel-default">
+                        <div class="form-group">
+                            <p class="help-block">添加新闻</p>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">题目</label>
+                                <input type="email" class="form-control" id="newsTitle">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">简介</label>
+                                <input type="email" class="form-control" id="newsIntro">
+                            </div>
+                            <div class="form-group">
+                                <label for="newsDate">日期</label>
+                                <input type="input" class="form-control" id="newsDate">
+                            </div>
+                            <div class="form-group">
+                            <span>类别</span>
+                                <label for="small">公司新闻</label>
+                                <input type="radio" value="1" name="type" checked="checked">
+                                <label for="big">行业新闻</label>
+                                <input type="radio" value="2" name="type">
+                            </div>
+                            <div id="editor"></div>
+                        </div>
+                        <div class="btn btn-default up-news">上传</div>
+                    </div>
+                    <div class="col-xs-12 panel-default panel">
+                        <p class="help-block">新闻列表</p>
+                        <div class="col-xs-12">
+                                <table class="news-list">
+                                    <tr>
+                                        <th>题目</th>
+                                        <th>日期</th>
+                                        <th>新闻类别</th>
+                                        <th>操作</th>
+                                        <th>操作</th>
+                                    </tr>
+                                    <% news.forEach(function(item) { %>
+                                        <tr>
+                                            <td class="news-title">
+                                                <%-item.title%>
+                                            </td>
+                                            <td class="news-date">
+                                                <%-item.date%>
+                                            </td>
+                                            <td class="news-type">
+                                                <% if (item.type == '1') { %>
+                                                    公司新闻
+                                                <% } else { %>
+                                                    行业新闻
+                                                <% } %>
+                                            </td>
+                                            <td class="news-emit">
+                                                <div class="btn btn-default col-xs-6 news-emit" data-id="<%-item._id%>">编辑</div>
+                                            </td>
+                                            <td class="news-del">
+                                                <div class="btn btn-default col-xs-6 news-del" data-id="<%-item._id%>">删除</div>
+                                            </td>
+                                        </tr>
+                                    <% }) %>
+                                </table>
+                            </div>
+                    </div>
+                </div>
+                    <div id="page-inner">
+                        <footer>
+                            <p>Copyright &copy; 2016.Company name All rights reserved.
+                                <a target="_blank" href="http://www.cssmoban.com/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+        <!-- /. WRAPPER -->
+        <!-- JS Scripts-->
+        <!-- jQuery Js -->
+        <script src="/static/admin/js/jquery-1.10.2.js"></script>
+        <!-- Bootstrap Js -->
+        <script src="/static/admin/js/bootstrap.min.js"></script>
+        <!-- Metis Menu Js -->
+        <script src="/static/admin/js/jquery.metisMenu.js"></script>
+        <!-- Custom Js -->
+        <script src="/static/admin/js/custom-scripts.js"></script>
+
+        <!-- 富文本编辑器 -->
+        <script src="https://unpkg.com/wangeditor@3.0.8/release/wangEditor.min.js"></script>
+
+        <script type="text/javascript">
+            var E = window.wangEditor
+            var editor = new E('#editor');
+            editor.customConfig.uploadImgShowBase64 = true;
+            // 使用 base64 保存图片
+            editor.create();
+
+            $('.up-news').on('click', function () {
+                var url;
+                var title = $('#newsTitle').val();
+                var date = $('#newsDate').val();
+                var intro = $('#newsIntro').val();
+                var type = $('input[name="type"]:checked').val();
+                var content = editor.txt.html();
+                var id = $('.up-news').attr('id');
+
+                function pushData() {
+                    var data = {
+                        title: title,
+                        date: date,
+                        type: type,
+                        intro: intro,
+                        content: content,
+                        id: id
+                    };
+
+                    if (!checkData(data)) {
+                        return false;
+                    }
+
+                    var dataStr = JSON.stringify(data);
+
+                    var successFn = function(e) {
+                        window.location.reload();
+                    };
+
+                    if (id) {
+                        url = '/admin/update/news';
+                    }
+                    else {
+                        url = '/admin/add/news';
+                    }
+
+                    $.ajax({
+                        method: 'POST',
+                        contentType: 'application/json;charset=utf-8',
+                        url: url,
+                        data: dataStr,
+                        success: successFn,
+                        err: function() {
+                            alert('err');
+                        }
+                    });
+                }
+
+                pushData();
+            });
+
+            $('.news-del').on('click', function (e) {
+                var id = $(e.target).attr('data-id');
+                $.ajax({
+                    method: 'GET',
+                    url: '/admin/delete/news',
+                    data: {
+                        id: id
+                    },
+                    success(data) {
+                        if (data.code == 0) {
+                            window.location.reload();
+                        }
+                    },
+                    err(data) {
+                        alert(data.msg);
+                    }
+                });
+            });
+
+            $('.news-emit').on('click', function (e) {
+                var id = $(e.target).attr('data-id');
+
+                $.ajax({
+                    method: 'get',
+                    url: '/admin/search/news',
+                    data: {
+                        id: id
+                    },
+                    success(data) {
+
+                        var item = data.result;
+
+                        $('#newsTitle').val(item.title);
+                        $('#newsDate').val(item.date);
+                        $('#newsIntro').val(item.intro);
+                        $('input[name="type"][value="' + item.type + '"').attr({'checked':true});
+                        editor.txt.html(item.content);
+                        $('.up-news').attr({'id': item._id});
+                    }
+                });
+            });
+
+            /**
+             * 验证必填信息完整性
+             *
+             * @param  {[type]} data [description]
+             * @return {[type]}      [description]
+             */
+            function checkData(data) {
+                var status = true;
+                if (typeof data !== 'object') {
+                    return false;
+                }
+
+                $.each(data, function (key, value) {
+                    if (!value) {
+
+                        alert('信息填写不完整');
+                        status = false;
+                        return false;
+                    }
+                });
+
+                return status;
+            }
+
+        </script>
+    </body>
+
+</html>
