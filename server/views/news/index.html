@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <!-- saved from url=(0042)http://frvalve.furuise.com/News/index.html -->
 <html lang="en" style="font-size: 29.6875px;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
-    <title>富瑞阀门--新闻中心</title>
-    <meta name="author" content="富瑞阀门--新闻中心">
-    <meta name="copyright" content="富瑞阀门--新闻中心">
-    <meta name="description" content="富瑞阀门--新闻中心">
-    <meta name="keywords" content="富瑞阀门--新闻中心">
-    <meta name="searchtitle" content="富瑞阀门--新闻中心">
+    <title>爱恩吉新能源--新闻中心</title>
+    <meta name="author" content="爱恩吉新能源--新闻中心">
+    <meta name="copyright" content="爱恩吉新能源--新闻中心">
+    <meta name="description" content="爱恩吉新能源--新闻中心">
+    <meta name="keywords" content="爱恩吉新能源--新闻中心">
+    <meta name="searchtitle" content="爱恩吉新能源--新闻中心">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -23,15 +22,19 @@
     <meta name="browsermode" content="application">
     <meta name="x5-page-mode" content="app">
     <meta name="msapplication-tap-highlight" content="no">
-    <link rel="stylesheet" type="text/css" href="./static/news/rest.css">
-    <link rel="stylesheet" type="text/css" href="./static/news/base.css">
-
-<script src="./static/news/share.js"></script></head>
+    <link rel="stylesheet" type="text/css" href="/static/news/rest.css">
+    <link rel="stylesheet" type="text/css" href="/static/news/base.css"></head>
 <body>
 <%-include('../common/head.html', {item:'news'}) %>
-<link rel="stylesheet" type="text/css" href="./static/news/new.css">
+<link rel="stylesheet" type="text/css" href="/static/news/new.css">
+
+<style type="text/css">
+    .hide {
+        display: none;
+    }
+</style>
 <!-- banner -->
-<div class="m-banner" style="background-image:url(./static/news/news-banner.jpg)">
+<div class="m-banner" style="background-image:url(/static/news/news-banner.jpg)">
     <div class="infos">
         <h5>NEWS CENTER</h5>
         <p>新闻中心</p>
@@ -50,31 +53,34 @@
 <div class="main">
     <div class="wrap">
         <ul class="nav">
-            <a href="http://frvalve.furuise.com/News/index.html?pid=1">
+            <a href="/news?type=1">
                 <li>公司新闻</li>
             </a>
-            <a href="http://frvalve.furuise.com/News/index.html?pid=35">
+            <a href="/news?type=2">
                 <li>行业动态</li>
             </a>
         </ul>
         <div class="cont_box">
             <div class="main_cont" style="display: block;">
                 <ul>
-                    <a href="http://frvalve.furuise.com/News/detail.html?pid=28&amp;id=123">
+                    <% news.forEach(function(item) { %>
+                    <a href="/news/detail?id=<%-item.id%>">
                         <li>
                             <div class="imgs">
-                                <img src="./static/news/94e3dcb8226be30cf3fd61ab98d9edf3.jpg" alt="">
+                                <div class="hide"><%-item.content%></div>
+                                <img src="/static/news/default.jpg" alt="" class="shortImg">
                             </div>
                             <div class="info">
-                                <span>2017-02-04 </span>
-                                <h5>2017年开门红暨总结表彰大会</h5>
-                                <p>2月4日(正月初八)上午，富瑞特装隆重召开了2017年开门红既总结表彰大会。</p>
+                                <span><%-item.date%></span>
+                                <h5><%-item.title%></h5>
+                                <p><%-item.intro%></p>
                                 <em class="more">
-                                    <i class="t">查看更多</i><i><img src="./static/news/m.png" alt=""></i>
+                                    <i class="t">查看更多</i><i><img src="/static/news/m.png" alt=""></i>
                                 </em>
                             </div>
                         </li>
                     </a>
+                    <% }) %>
                 </ul>
             </div>
         </div>
@@ -84,13 +90,33 @@
 <% include ../common/footer.html%>
 
 
-<script src="./static/news/jquery.js"></script>
-<script src="./static/news/base.js"></script>
-<script src="./static/news/documentSize.js"></script>
-<script src="./static/news/dydong.change.js"></script>
-<script src="./static/news/show.js"></script>
-<script src="./static/news/keepscroll.js"></script>
+<script src="/static/news/jquery.js"></script>
+<script src="/static/news/base.js"></script>
+<script src="/static/news/documentSize.js"></script>
+<script src="/static/news/dydong.change.js"></script>
+<script src="/static/news/show.js"></script>
+<script src="/static/news/keepscroll.js"></script>
 
 
-<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api//Public/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
-<script src="./static/news/new.js"></script></body></html>
+<script>
+    var type;
+    var hash = window.location.search;
+
+    $('.imgs').each(function (index, item) {
+        var hide = $(item).children('.hide');
+        var source = hide.find('img');
+        var pic = $(source).attr('src');
+
+        var img = $(item).find('.shortImg');
+
+        img.attr('src', pic);
+    });
+
+    if (hash.indexOf('type=1') > -1) {
+        $('a[href="/news?type=1"').find('li').addClass('on');
+    }
+    else if (hash.indexOf('type=2') > -1) {
+        $('a[href="/news?type=2"').find('li').addClass('on');
+    }
+</script>
+<script src="/static/news/new.js"></script></body></html>

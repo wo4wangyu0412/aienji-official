@@ -12,6 +12,7 @@ var introModel = mongoose.model('intro');
 var qualityModel = mongoose.model('quality');
 var cardModel = mongoose.model('card');
 var infoModel = mongoose.model('info');
+var newsModel = mongoose.model('news');
 
 var mongoose = require('mongoose');
 var db = mongoose.connection;
@@ -45,13 +46,43 @@ router.get('/about', (req, res) => {
 
 router.get('/product', (req, res) => res.render('product/index'));
 
-router.get('/news', (req, res) => res.render('news/index'));
-
 router.get('/contact', (req, res) => res.render('contact/index'));
 
-router.get('/news/detail', (req, res) => res.render('news/detail'));
-
 router.get('/product/detail', (req, res) => res.render('product/detail'));
+
+router.get('/news/detail', (req, res) => {
+    var id = req.query.id;
+
+    var getNews = newsModel.findById(id);
+    // res.render('news-detail');
+    Promise.all([getNews])
+    .then((results) => {
+        var newsDetail = results[0];
+
+        res.render('news/detail', {
+            news: newsDetail
+        });
+    });
+});
+
+router.get('/news', (req, res) => {
+    var getNews, type = req.query.type;
+    if (type) {
+        getNews = newsModel.find({type: type});
+    }
+    else {
+        getNews = newsModel.find({});
+    }
+
+    Promise.all([getNews])
+    .then((results) => {
+        var newsList = results[0];
+
+        res.render('news/index', {
+            news: newsList
+        });
+    });
+});
 
 router.get('/home', (req, res) => {
     var getBanner = bannerModel.find({});

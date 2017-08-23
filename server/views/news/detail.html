@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <!-- saved from url=(0057)http://frvalve.furuise.com/News/detail.html?pid=28&id=123 -->
 <html lang="en" style="font-size: 29.6875px;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
     <title>2017年开门红暨总结表彰大会</title>
     <meta name="author" content="Meta Author">
     <meta name="copyright" content="Meta Copyright">
@@ -23,16 +22,30 @@
     <meta name="browsermode" content="application">
     <meta name="x5-page-mode" content="app">
     <meta name="msapplication-tap-highlight" content="no">
-    <link rel="stylesheet" type="text/css" href="./static/news-detail/rest.css">
-    <link rel="stylesheet" type="text/css" href="./static/news-detail/base.css">
-
-<script src="./static/news-detail/share.js"></script></head>
+    <link rel="stylesheet" type="text/css" href="/static/news-detail/rest.css">
+    <link rel="stylesheet" type="text/css" href="/static/news-detail/base.css">
 <body>
 <%-include('../common/head.html', {item:'news'}) %>
-<link rel="stylesheet" type="text/css" href="./static/news-detail/new-detail.css">
+<link rel="stylesheet" type="text/css" href="/static/news-detail/new-detail.css">
+
+<style type="text/css">
+    .content p {
+        font-size: 14px!important;
+        line-height: 26px!important;
+        margin-bottom: 20px!important;
+        text-align: left!important;
+    }
+
+    .content img {
+        display: block!important;
+        text-align: center!important;
+        max-width: 80%!important;
+        margin: 0 auto 20px!important;
+    }
+</style>
 
 <!-- banner -->
-<div class="m-banner" style="background-image:url(/Public/upload/banner/news/1/c56e651db6ab104292872c38accfcf6b.jpg)">
+<div class="m-banner" style="background-image:url(/static/news/news-banner.jpg)">
     <div class="infos">
         <h5>NEWS CENTER</h5>
         <p>新闻中心</p>
@@ -56,42 +69,24 @@
     </div>
     <div class="top">
         <div class="wrap">
-            <h5>2017年开门红暨总结表彰大会</h5>
-            <p>发表时间：2017-02-04 </p>
+            <h5><%-news.title%></h5>
+            <p>发表时间：<%-news.date%> </p>
         </div>
     </div>
     <div class="wrap">
         <div class="content">
-            <p>2月4日(正月初八)上午，富瑞特装隆重召开了2017年开门红既总结表彰大会，公司董事长邬品芳先生、总经理黄锋先生及各子公司管理人员和核心团队成员及2016年度先进代表共计200多人参加了此次会议。</p>
-
-<p><img alt="" src="./static/news-detail/IMG_7427.JPG" style="border-image:none; border:0px currentColor; font-size-adjust:inherit; font-stretch:inherit; font:inherit; height:auto !important; margin:0px; max-width:100%; padding:0px; vertical-align:middle"></p>
-
-<p>会议首先由总经理黄锋先生作集团2016年度工作总结和2017年规划报告，主要回顾了公司在2016年主要经营概况，指出集团化、高效化管理模式初步成型，新工艺提升产品可靠性、新产品带动部分子公司销售业绩稳定提升。黄总要求各子公司紧紧围绕经营目标，尽早计划、精心谋划，尽快执行、尽职落地。2017年预计将是国内外市场逐渐复苏的一年，全员奋进，同心同德，共同为圆满完成公司今年的各项经营目标、最终实现个人价值与公司价值的共同提升而努力拼搏！随后，公司对年度优秀员工进行了隆重表彰；会上，集团总部与主要子公司签订了年度绩效目标协议书。</p>
-
-<p><img alt="" src="./static/news-detail/IMG_7323.JPG" style="border-image:none; border:0px currentColor; font-size-adjust:inherit; font-stretch:inherit; font:inherit; height:auto !important; margin:0px; max-width:100%; padding:0px; vertical-align:middle"><img alt="" src="./static/news-detail/IMG_7358.JPG" style="border-image:none; border:0px currentColor; font-size-adjust:inherit; font-stretch:inherit; font:inherit; height:auto !important; margin:0px; max-width:100%; padding:0px; vertical-align:middle"></p>
-
-<p>最后，公司董事长邬品芳先生就2017年的展望和战略目标进行了重点布署。邬董指出，各子公司团队需确保净资产的回报收益，通过新的合伙企业运行机制及责任性的充分发挥，进行产业结构转型调整、产品模式创新发展，为未来三年富瑞稳步增长打好基础。在新的一年里，富瑞特装全体员工以三大战略为导向，尽最大努力，挖掘最大潜能，发挥各自优势，为公司十三五期间达到百亿富瑞目标而不懈奋斗！</p>
-        </div>
-        <div class="return">
-            <div class="left">
-                 
-                    <a href="http://frvalve.furuise.com/News/detail/pid/28/id/120.html">上一篇：“江苏七进宣教中心”走进富瑞</a>
-                 
-                    <a href="http://frvalve.furuise.com/News/detail/pid/28/id/138.html">下一篇：张家港市安监局陈局长一行调研富瑞特装</a>            </div>
-            <div class="right">
-                <a href="javascript:void(history.back())"><span>返回</span></a>
-            </div>
+            <%-news.content%>
         </div>
     </div>
 </div>
 <!-- main over -->
 <% include ../common/footer.html%>
-<script src="./static/news-detail/jquery.js"></script>
-<script src="./static/news-detail/base.js"></script>
-<script src="./static/news-detail/documentSize.js"></script>
-<script src="./static/news-detail/dydong.change.js"></script>
-<script src="./static/news-detail/show.js"></script>
-<script src="./static/news-detail/keepscroll.js"></script>
+<script src="/static/news-detail/jquery.js"></script>
+<script src="/static/news-detail/base.js"></script>
+<script src="/static/news-detail/documentSize.js"></script>
+<script src="/static/news-detail/dydong.change.js"></script>
+<script src="/static/news-detail/show.js"></script>
+<script src="/static/news-detail/keepscroll.js"></script>
 
 
 <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api//Public/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>

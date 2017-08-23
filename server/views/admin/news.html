@@ -192,19 +192,12 @@
                         date: date,
                         type: type,
                         intro: intro,
-                        content: content,
-                        id: id
+                        content: content
                     };
 
                     if (!checkData(data)) {
                         return false;
                     }
-
-                    var dataStr = JSON.stringify(data);
-
-                    var successFn = function(e) {
-                        window.location.reload();
-                    };
 
                     if (id) {
                         url = '/admin/update/news';
@@ -212,6 +205,14 @@
                     else {
                         url = '/admin/add/news';
                     }
+
+                    data.id = id;
+
+                    var dataStr = JSON.stringify(data);
+
+                    var successFn = function(e) {
+                        window.location.reload();
+                    };
 
                     $.ajax({
                         method: 'POST',
