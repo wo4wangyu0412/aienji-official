@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta content="" name="description" />
+        <meta content="webthemez" name="author" />
+        <title>爱恩吉后台管理</title>
+        <!-- Bootstrap Styles-->
+        <link href="/static/admin/css/bootstrap.css" rel="stylesheet" />
+        <!-- FontAwesome Styles-->
+        <link href="/static/admin/css/font-awesome.css" rel="stylesheet" />
+        <!-- Custom Styles-->
+        <link href="/static/admin/css/custom-styles.css" rel="stylesheet" />
+        <!-- Google Fonts-->
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+        <style type="text/css">
+            .news-list {
+                width: 90%;
+                margin: 20px auto;
+            }
+
+            .news-list td, .news-list th {
+                width: 19%;
+                text-align: center;
+                border-right: 1px solid #ddd;
+                border-bottom: 1px solid #ddd;
+            }
+
+            .news-list th {
+                line-height: 40px;
+                background-color: #fff;
+            }
+
+            .news-list td {
+                position: relative;
+                line-height: 50px;
+                background-color: #f1f1f1;
+            }
+
+            .btn-default {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                display: block;
+                width: 80px;
+                height: 33px;
+                margin: auto;
+                clear: both;
+            }
+
+            .up-one-type, .up-two-type {
+                position: relative;
+                margin-top: 10px;
+                margin-bottom: 13px;
+            }
+
+            .list-body {
+                position: relative;
+                display: inline-block;
+                width: 150px;
+                min-height: 150px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                margin: 5px;
+            }
+
+            .list-body h4, .list-body h3 {
+                text-align: center;
+                margin-bottom: 5px;
+            }
+
+            .list-body .type-del {
+                color: #333;
+                text-align: center;
+                background-color: #fff;
+                border-color: #ccc;
+            }
+
+            .type-edit, .type-del {
+                position: relative;
+                margin-bottom: 5px;
+            }
+
+            .btn-default {
+                position: relative;
+            }
+        </style>
+        </head>
+    <body>
+        <div id="wrapper">
+            <nav class="navbar navbar-default top-navbar" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                        <span class="sr-only"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">
+                        <strong>
+                            爱恩吉后台管理
+                        </strong>
+                    </a>
+                    <div id="sideNav" href="">
+                        <i class="fa fa-bars icon"></i>
+                    </div>
+                </div>
+            </nav>
+            <%-include( './side.html', {item: 'product'}) %>
+                <!-- /. NAV SIDE -->
+                <div id="page-wrapper">
+                    <div class="header">
+                        <h1 class="page-header">新闻页管理
+                            <small></small>
+                        </h1>
+                    </div>
+                    <div class="col-xs-12 panel panel-default">
+                        <!-- 类别1 -->
+                        <div class="form-group">
+                            <p class="help-block">添加第一大类</p>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">类名</label>
+                                <input type="email" class="form-control" id="type1">
+                                <div class="btn btn-default up-one-type">提交</div>
+                                <div class="one-type-list">
+                                    <% type1.forEach(function (item) {%>
+                                    <div class="list-body">
+                                        <h4><%-item.title%></h4>
+                                        <div class="btn btn-default type-edit" data-id="<%-item.id%>" data-title="<%-item.title%>">编辑</div>
+                                        <div class="btn btn-default type-del" data-id="<%-item.id%>" data-title="<%-item.title%>">删除</div>
+                                    </div>
+                                    <% }) %>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 类别2 -->
+                        <div class="form-group">
+                            <p class="help-block">添加第二大类</p>
+                            <div class="form-group">
+                                <p>类名</p>
+                                <input type="email" class="form-control" id="type2Title">
+                                <span>选择所属类别1</span>
+                                <% type1.forEach(function (item) { %>
+                                    <label for="big"><%-item.title%></label>
+                                    <input type="radio" value="<%-item.id%>" name="type1" title="<%-item.title%>">
+                                <% }) %>
+                                <div class="btn btn-default up-two-type">提交</div>
+                                <div class="one-type-list">
+                                    <% type2.forEach(function (item) {%>
+                                    <div class="list-body">
+                                        <h4><%-item.title%></h4>
+                                        <h3><%-item.type1Title%></h3>
+                                        <div class="btn btn-default type2-edit" data-id="<%-item.id%>" data-title="<%-item.title%>" data-typeid="<%-item.type1Id%>">编辑</div>
+                                        <div class="btn btn-default type2-del" data-id="<%-item.id%>" data-title="<%-item.title%>">删除</div>
+                                    </div>
+                                    <% }) %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <p>添加产品</p>
+                            <div class="form-group">
+                                <p>产品名字</p>
+                                <input type="email" class="form-control" id="productIntro">
+                                <div class="form-group">
+                                    <p>产品封面图片</p>
+                                    <div class="form-group">
+                                        <div id="faceContent"></div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <span>选择所属类别1</span>
+                                    <% type1.forEach(function (item, index) { %>
+                                        <label for="big"><%-item.title%></label>
+                                        <% if (index === 0) { %>
+                                            <input type="radio" value="<%-item.id%>" name="productType1" checked="checked" title="<%-item.title%>">
+                                        <% } else { %>
+                                            <input type="radio" value="<%-item.id%>" name="productType1" title="<%-item.title%>">
+                                        <% } %>
+                                    <% }) %>
+                                </div>
+                                <div class="form-group">
+                                    <span>选择所属类别2</span>
+                                    <% type2.forEach(function (item) { %>
+                                        <label for="<%-item.id%>"><%-item.title%></label>
+                                        <input type="radio" value="<%-item.id%>" name="productType2" data-type1="<%-item.type1Id%>" title="<%-item.title%>">
+                                    <% }) %>
+                                </div>
+                                <div class="form-group">
+                                    <p>主要参数</p>
+                                    <div class="form-group">
+                                        <div id="numberContent"></div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <p>主要外形和连接尺寸</p>
+                                    <div class="form-group">
+                                        <div id="sizeContent"></div>
+                                    </div>
+                                </div>
+                                <div class="btn btn-default up-product">提交</div>
+                            </div>
+                        </div>
+                        <% if (product.length) { %>
+                            <div class="col-xs-12 panel-default panel">
+                                <p class="help-block">产品列表</p>
+                                <div class="col-xs-12">
+                                    <table class="news-list">
+                                        <tr>
+                                            <th>名字</th>
+                                            <th>所属大类</th>
+                                            <th>所属二类</th>
+                                            <th>操作</th>
+                                            <th>操作</th>
+                                        </tr>
+                                        <% product.forEach(function(item) { %>
+                                            <tr>
+                                                <td class="news-title">
+                                                    <%-item.title%>
+                                                </td>
+                                                <td class="news-date" id="<%-item.type1Id%>">
+                                                    <%-item.type1Title%>
+                                                </td>
+                                                <td class="news-date" id="<%-item.type2Id%>">
+                                                    <%-item.type2Title%>
+                                                </td>
+                                                <td class="news-emit">
+                                                    <div class="btn btn-default col-xs-6 product-emit" data-id="<%-item._id%>">编辑</div>
+                                                </td>
+                                                <td class="news-del">
+                                                    <div class="btn btn-default col-xs-6 product-del" data-id="<%-item._id%>">删除</div>
+                                                </td>
+                                            </tr>
+                                        <% }) %>
+                                    </table>
+                                </div>
+                            </div>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        <!-- /. WRAPPER -->
+        <!-- JS Scripts-->
+        <!-- jQuery Js -->
+        <script src="/static/admin/js/jquery-1.10.2.js"></script>
+        <!-- Bootstrap Js -->
+        <script src="/static/admin/js/bootstrap.min.js"></script>
+        <!-- Metis Menu Js -->
+        <script src="/static/admin/js/jquery.metisMenu.js"></script>
+
+        <!-- 富文本编辑器 -->
+        <script src="https://unpkg.com/wangeditor@3.0.8/release/wangEditor.min.js"></script>
+
+        <script type="text/javascript">
+            var E = window.wangEditor
+            var numberBox = new E('#numberContent');
+            var sizeBox = new E('#sizeContent');
+            var faceBox = new E('#faceContent');
+            numberBox.customConfig.uploadImgShowBase64 = true;
+            sizeBox.customConfig.uploadImgShowBase64 = true;
+            faceBox.customConfig.uploadImgShowBase64 = true;
+            // 使用 base64 保存图片
+            numberBox.create();
+            faceBox.create();
+            sizeBox.create();
+
+            // 提交类别1
+            $('.up-one-type').on('click', (e) => {
+                var title = $('#type1').val();
+                var id = $(e.target).attr('id');
+
+                if (!title) {
+                    alert('请输入有效信息');
+                    return false;
+                }
+
+                var data = {
+                    type: '1',
+                    title: title,
+                    id: id
+                };
+
+                var dataStr = JSON.stringify(data);
+
+                function successFn(data) {
+                    if (data.code === 0) {
+                        window.location.reload();
+                    }
+                }
+
+                $.ajax({
+                    method: 'POST',
+                    contentType: 'application/json;charset=utf-8',
+                    url: '/admin/add/product/type',
+                    data: dataStr,
+                    success: successFn,
+                    err: function() {
+                        alert('err');
+                    }
+                });
+            });
+
+            // 修改类别1
+            $('.type-edit').on('click', (e) => {
+                var title = $(e.target)[0].dataset.title;
+                var id = $(e.target)[0].dataset.id;
+
+                $('#type1').val(title);
+                $('.up-one-type').attr('id', id);
+            });
+
+            // 删除类别1
+            $('.type-del').on('click', (e) => {
+                var id = $(e.target)[0].dataset.id;
+                var data = {
+                    id: id,
+                    type: '1'
+                };
+
+                $.ajax({
+                    method: 'GET',
+                    url: '/admin/delete/product/type',
+                    data: data,
+                    success(data) {
+                        if (!data.code) {
+                            window.location.reload();
+                        }
+                    },
+                    err: function() {
+                        alert('err');
+                    }
+                });
+            });
+
+            // 提交类别2
+            $('.up-two-type').on('click', (e) => {
+                var title = $('#type2Title').val();
+                var type1Id = $('input[name="type1"]:checked').val();
+                var type1Title = $('input[name="type1"]:checked').attr('title');
+                var id = $(e.target).attr('id');
+
+                if (!(title && type1Id && type1Title)) {
+                    alert('请输入有效信息');
+                    return false;
+                }
+
+                var data = {
+                    type: '2',
+                    title: title,
+                    type1Id: type1Id,
+                    type1Title: type1Title,
+                    id: id
+                };
+
+                var dataStr = JSON.stringify(data);
+
+                function successFn(data) {
+                    if (data.code === 0) {
+                        window.location.reload();
+                    }
+                }
+
+                $.ajax({
+                    method: 'POST',
+                    contentType: 'application/json;charset=utf-8',
+                    url: '/admin/add/product/type',
+                    data: dataStr,
+                    success: successFn,
+                    err: function() {
+                        alert('err');
+                    }
+                });
+            });
+
+            // 修改类别2
+            $('.type2-edit').on('click', (e) => {
+                var title = $(e.target)[0].dataset.title;
+                var type1Id = $(e.target)[0].dataset.typeid;
+                var id = $(e.target)[0].dataset.id;
+
+                $('#type2Title').val(title);
+                $('input[name="type1"][value="' + type1Id + '"').attr({'checked':true});
+                $('.up-two-type').attr('id', id);
+            });
+
+            // 删除类别2
+            $('.type2-del').on('click', (e) => {
+                var id = $(e.target)[0].dataset.id;
+                var data = {
+                    id: id,
+                    type: '2'
+                };
+
+                $.ajax({
+                    method: 'GET',
+                    url: '/admin/delete/product/type',
+                    data: data,
+                    success(data) {
+                        if (!data.code) {
+                            window.location.reload();
+                        }
+                    },
+                    err: function() {
+                        alert('err');
+                    }
+                });
+            });
+
+
+            $('.up-product').on('click', function () {
+                var url;
+                var title = $('#productIntro').val();
+
+                var type1Id = $('input[name="productType1"]:checked').val();
+                var type1Title = $('input[name="productType1"]:checked').attr('title');
+                var type2Id = $('input[name="productType2"]:checked').val();
+                var type2Title = $('input[name="productType2"]:checked').attr('title');
+                var numberContent = numberBox.txt.html();
+                var sizeContent = sizeBox.txt.html();
+                var faceContent = faceBox.txt.html();
+                var id = $('.up-product').attr('id');
+                var url = '/admin/add/product/add';
+
+                function pushData() {
+                    var data = {
+                        type1Id: type1Id,
+                        type1Title: type1Title,
+                        type2Id: type2Id,
+                        type2Title: type2Title,
+                        detailNum: numberContent,
+                        detailSize: sizeContent,
+                        detailPic: faceContent,
+                        title: title
+                    };
+
+                    if (!checkData(data)) {
+                        return false;
+                    }
+
+                    data.id = id;
+
+                    var dataStr = JSON.stringify(data);
+
+                    var successFn = function(e) {
+                        window.location.reload();
+                    };
+
+                    $.ajax({
+                        method: 'POST',
+                        contentType: 'application/json;charset=utf-8',
+                        url: url,
+                        data: dataStr,
+                        success: successFn,
+                        err: function() {
+                            alert('err');
+                        }
+                    });
+                }
+
+                pushData();
+            });
+
+            /**
+             * 删除产品
+             *
+             * @param  {[type]} e)            {                           var id [description]
+             * @param  {[type]} success(data) {                                                     if               (data.code [description]
+             * @param  {[type]} err(data)     {                                                     alert(data.msg);                                           }                });            } [description]
+             * @return {[type]}               [description]
+             */
+            $('.product-del').on('click', function (e) {
+                var id = $(e.target)[0].dataset.id;
+
+                $.ajax({
+                    method: 'GET',
+                    url: '/admin/delete/product',
+                    data: {
+                        id: id
+                    },
+                    success(data) {
+                        if (data.code == 0) {
+                            window.location.reload();
+                        }
+                    },
+                    err(data) {
+                        alert(data.msg);
+                    }
+                });
+            });
+
+            /**
+             * 修改产品信息
+             *
+             * @param  {[type]} e)            {                           var id [description]
+             * @param  {[type]} success(data) {                                                     var item [description]
+             * @return {[type]}               [description]
+             */
+            $('.product-emit').on('click', function (e) {
+                var id = $(e.target).attr('data-id');
+
+                $.ajax({
+                    method: 'get',
+                    url: '/admin/search/product',
+                    data: {
+                        id: id
+                    },
+                    success(data) {
+                        var item = data.result;
+
+                        showSelect(item.type1Id);
+                        $('#productIntro').val(item.title);
+                        $('input[name="productType1"][value="' + item.type1Id + '"').click();
+                        $('input[name="productType2"][value="' + item.type2Id + '"').click();
+                        numberBox.txt.html(item.detailNum);
+                        faceBox.txt.html(item.detailPic);
+                        sizeBox.txt.html(item.detailSize);
+                        $('.up-product').eq(0).attr('id', item._id);
+                    }
+                });
+            });
+
+            /**
+             * 显示所选择的项目
+             *
+             * @return {[type]} [description]
+             */
+            function showSelect(checkType1) {
+
+                $('input[name="productType2"]').each((index, item) => {
+                    var type1 = $(item).attr('data-type1');
+                    var value = $(item).val();
+                    var label = $(item).siblings('label[for="' + value + '"]');
+
+                    if (checkType1 === type1) {
+                        $(item).show();
+                        label.show();
+                    }
+                    else {
+                        $(item).hide();
+                        label.hide();
+                        $(item).attr({
+                            checked: false
+                        });
+                    }
+                });
+            }
+
+            /**
+             * 验证必填信息完整性
+             *
+             * @param  {[type]} data [description]
+             * @return {[type]}      [description]
+             */
+            function checkData(data) {
+                var status = true;
+
+                if (typeof data !== 'object') {
+                    return false;
+                }
+
+                $.each(data, function (key, value) {
+                    if (!value) {
+
+                        alert('信息填写不完整');
+                        status = false;
+                        return false;
+                    }
+                });
+
+                return status;
+            }
+
+            $('input[name="productType1"]').on('click', (e) => {
+                var checkType1 = $(e.target).val();
+
+                showSelect(checkType1);
+            });
+
+            (function init() {
+                var checkType1 = $('input[name="productType1"]:checked').val();
+
+                showSelect(checkType1);
+            })();
+
+        </script>
+    </body>
+
+</html>

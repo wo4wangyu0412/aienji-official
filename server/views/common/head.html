@@ -35,25 +35,18 @@
             <div class="list" style="display:block;">
                 <div class="bg"></div>
                 <div class="listBox" id="cate">
-                    <dl style="height: 219px;">
-                        <dt>
-                            <a href="javascript:void(0)">截止阀&gt;</a>
+                    <% type1.forEach(function (item) { %>
+                        <dl style="height: 219px;">
+                            <dt>
+                                <a href="javascript:void(0)"><%-item.title%>&gt;</a>
                             </dt>
-                        <dd>
-                            <a href="/product?pid=83&amp;k=0">仪表阀/针型截止阀</a></dd>
-                        <dd>
-                            <a href="/product?pid=82&amp;k=0">低温真空夹套截止阀</a></dd>
-                        <dd>
-                            <a href="/product?pid=81&amp;k=0">低温三通截止阀</a></dd>
-                        <dd>
-                            <a href="/product?pid=80&amp;k=0">低温角式截止阀</a></dd>
-                        <dd>
-                            <a href="/product?pid=79&amp;k=0">低温长轴截止阀</a></dd>
-                        <dd>
-                            <a href="/product?pid=78&amp;k=0">低温短轴截止阀</a></dd>
-                        <dd>
-                            <a href="/product?pid=125&amp;k=0">低温高压截止阀</a></dd>
-                    </dl>
+                            <% type2.forEach(function (items) { if (items.type1Id === item.id) { %>
+                                <dd>
+                                    <a href="/product?type1=<%-item.id%>&type2=<%-items.id%>"><%-items.title%></a>
+                                </dd>
+                            <% }}) %>
+                        </dl>
+                    <% }) %>
                 </div>
             </div>
         </li>

@@ -58,6 +58,24 @@ var schema = {
         type: String,
         content: String,
         date: String
+    },
+    type1: {
+        title: String
+    },
+    type2: {
+        title: String,
+        type1Id: String,
+        type1Title: String
+    },
+    product: {
+        type1Id: String,
+        type1Title: String,
+        type2Id: String,
+        type2Title: String,
+        title: String,
+        detailNum: String,
+        detailSize: String,
+        detailPic:String
     }
 };
 

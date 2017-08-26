@@ -13,6 +13,9 @@ var introModel = mongoose.model('intro');
 var cardModel = mongoose.model('card');
 var infoModel = mongoose.model('info');
 var newsModel = mongoose.model('news');
+var type1Model = mongoose.model('type1');
+var type2Model = mongoose.model('type2');
+var productModel = mongoose.model('product');
 
 var mongoose = require('mongoose');
 var db = mongoose.connection;
@@ -389,6 +392,193 @@ router.post('/admin/update/news', jsonParser, (req, res) => {
             });
         });
     }
+});
+
+/**
+ * 请求product页
+ *
+ * @param  {[type]} '/admin/product' [description]
+ * @param  {[type]} (req,         res)          [description]
+ * @return {[type]}               [description]
+ */
+router.get('/admin/product', (req, res) => {
+    var getType1 = type1Model.find({});
+    var getType2 = type2Model.find({});
+    var getProduct = productModel.find({});
+    // res.send(db.model('Person'));
+    Promise.all([getType1, getType2, getProduct])
+    .then((results) => {
+        var type1List = results[0];
+        var type2List = results[1];
+        var productList = results[2];
+
+        res.render('admin/product', {
+            type1: type1List,
+            type2: type2List,
+            product: productList
+        });
+    });
+});
+
+/**
+ * 添加 产品类别
+ *
+ * @param  {[type]}   '/admin/add/leader' [description]
+ * @param  {[type]}   jsonParser          [description]
+ * @param  {Function} (req,               res)          [description]
+ * @return {[type]}                       [description]
+ */
+router.post('/admin/add/product/type', jsonParser, (req, res) => {
+    var model = req.body.type == 1 ? type1Model: type2Model;
+
+    if (req.body) {
+        if (req.body.id) {
+            model.findByIdAndUpdate(req.body.id, req.body, (err, doc) => {
+                if (err) {
+                    req.send(err);
+                    req.end();
+                }
+
+                res.send(util.unifyRes({
+                    msg: '新闻修改成功',
+                    result: doc
+                }));
+            });
+        }
+        else {
+            model.create(req.body, (err, doc) => {
+                if (err) {
+                    res.send(err);
+                }
+
+                model.find({}, (err, result) => {
+                    if (err) {
+                        res.send(err);
+                    }
+
+                    res.send(util.unifyRes({
+                        msg: '产品成功',
+                        result: model
+                    }));
+                });
+            });
+        }
+    }
+});
+
+/**
+ * 删除产品类别
+ *
+ * @param  {[type]} '/admin/delete/banner' [description]
+ * @param  {[type]} (req,                  res           [description]
+ * @return {[type]}                        [description]
+ */
+router.get('/admin/delete/product/type', (req, res) => {
+    var type = req.query.type;
+    let id = req.query.id;
+
+    var model = type == 1 ? type1Model: type2Model;
+    console.log(model);
+    model.findByIdAndRemove(id, err => {
+        if (err) {
+            res.send(util.unifyRes({
+                code: 500,
+                result: '删除失败'
+            }));
+        }
+
+        res.send(util.unifyRes({ms: 'delete success'}));
+    });
+});
+
+/**
+ * 添加 产品详情
+ *
+ * @param  {[type]}   '/admin/add/leader' [description]
+ * @param  {[type]}   jsonParser          [description]
+ * @param  {Function} (req,               res)          [description]
+ * @return {[type]}                       [description]
+ */
+router.post('/admin/add/product/add', jsonParser, (req, res) => {
+    var model = productModel;
+
+    if (req.body) {
+        if (req.body.id) {
+            model.findByIdAndUpdate(req.body.id, req.body, (err, doc) => {
+                if (err) {
+                    req.send(err);
+                    req.end();
+                }
+
+                res.send(util.unifyRes({
+                    msg: '修改产品成功',
+                    result: doc
+                }));
+            });
+        }
+        else {
+            model.create(req.body, (err, doc) => {
+                if (err) {
+                    res.send(err);
+                }
+
+                model.find({}, (err, result) => {
+                    if (err) {
+                        res.send(err);
+                    }
+
+                    res.send(util.unifyRes({
+                        msg: '新增产品成功',
+                        result: doc
+                    }));
+                });
+            });
+        }
+    }
+});
+
+/**
+ * 删除产品
+ *
+ * @param  {[type]} '/admin/delete/banner' [description]
+ * @param  {[type]} (req,                  res           [description]
+ * @return {[type]}                        [description]
+ */
+router.get('/admin/delete/product', (req, res) => {
+    let id = req.query.id;
+
+    productModel.findByIdAndRemove(id, err => {
+        if (err) {
+            res.send(util.unifyRes({
+                code: 500,
+                result: '删除失败'
+            }));
+        }
+
+        res.send(util.unifyRes({ms: 'delete success'}));
+    });
+});
+
+/**
+ * 查找产品
+ *
+ * @param  {[type]} '/admin/delete/banner' [description]
+ * @param  {[type]} (req,                  res           [description]
+ * @return {[type]}                        [description]
+ */
+router.get('/admin/search/product', (req, res) => {
+    let id = req.query.id;
+
+    productModel.findById(id, (err, result) => {
+        if (err) {
+            res.send(util.unifyRes({
+                code: 500,
+                result: '删除失败'
+            }));
+        }
+
+        res.send(util.unifyRes({result: result}));
+    });
 });
 
 module.exports = router;
