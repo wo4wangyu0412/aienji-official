@@ -42,6 +42,9 @@
                 max-width: 100px;
                 margin-top: 10px;
             }
+            #sideNav {
+                float: right!important;
+            }
         </style>
         </head>
     <body>
@@ -149,9 +152,13 @@
                                 <label for="exampleInputEmail1">公司固话</label>
                                 <input class="form-control" id="companyPhone" placeholder="请填写" value="<%-item.phone%>">
                             </div>
-                             <div class="form-group">
+                            <div class="form-group">
                                 <label for="exampleInputEmail1">公司传真</label>
                                 <input class="form-control" id="companyPhone2" placeholder="请填写" value="<%-item.phone2%>">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">邮箱</label>
+                                <input class="form-control" id="companyEmail" placeholder="请填写" value="<%-item.email%>">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">微信</label>
@@ -175,16 +182,12 @@
                         <div class="btn btn-default up-info">上传</div>
                     </div>
                     <div id="page-inner">
-                        <footer>
-                            <p>Copyright &copy; 2016.Company name All rights reserved.
-                                <a target="_blank" href="http://www.cssmoban.com/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
-                        </footer>
                     </div>
                     <!-- /. PAGE INNER --></div></div>
         <!-- /. WRAPPER -->
         <!-- JS Scripts-->
         <!-- jQuery Js -->
-        <script src="/static/admin/js/jquery-1.10.2.js"></script>
+        <!-- <script src="/static/admin/js/jquery-1.10.2.js"></script> -->
         <!-- Bootstrap Js -->
         <script src="/static/admin/js/bootstrap.min.js"></script>
         <!-- Metis Menu Js -->
@@ -352,25 +355,6 @@
                 }
             });
 
-            // $('.card-del').on('click', function (e) {
-            //     var id = $(e.target).attr('data-id');
-
-            //     $.ajax({
-            //         method: 'GET',
-            //         url: '/admin/delete/card',
-            //         data: {
-            //             id: id
-            //         },
-            //         success: function (data) {
-            //             if (data.code == 0) {
-            //                 window.location.reload();
-            //             }
-            //         },
-            //         err: function(data) {
-            //             alert(data.msg);
-            //         }
-            //     });
-            // });
             // 上传资质证书
             $('.up-card').on('click', function () {
                 var imgs = [];
@@ -458,6 +442,7 @@
                 var mobile = $('#companyMobile').val();
                 var person = $('#companyPerson').val();
                 var wechart = $('#companyWechart').val();
+                var email = $('#companyEmail').val();
                 var qq = $('#companyQq').val();
 
                 var data = {
@@ -467,6 +452,7 @@
                     mobile: mobile,
                     person: person,
                     wechart: wechart,
+                    email: email,
                     qq: qq
                 };
 

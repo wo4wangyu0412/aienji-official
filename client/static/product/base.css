@@ -552,6 +552,9 @@ body {
   vertical-align: middle;
 }
 @media (max-width: 720px) {
+  .wapBtn {
+    display: block!important;
+  }
   .notice{display: none;}
   .notice span {
     width: 40px;
@@ -800,11 +803,17 @@ body {
   }
 }
 @media (min-width: 560px) and (max-width: 720px) {
+  .wapBtn {
+    display: block!important;
+  }
   .footer dl {
     width: 16.6%;
   }
 }
 @media (min-width: 721px) and (max-width: 1023px) {
+  .wapBtn {
+    display: block!important;
+  }
   .notice{display: none;}
   .notice span {
     width: 50px;

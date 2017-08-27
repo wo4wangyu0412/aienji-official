@@ -32,6 +32,21 @@
         .on .txt img {
             display: none;
         }
+
+        .product {
+            width: 73%!important;
+        }
+
+        .infos h5 {
+            font-size: 46px;
+            line-height: 56px;
+            margin-bottom: 10px;
+        }
+
+        .infos p {
+            font-size: 30px;
+            color: #2193d2;
+        }
     </style>
 
 <script src="./static/product/share.js"></script></head>
@@ -42,7 +57,7 @@
 
 <!-- m-banner -->
 <div class="m-banner" style="background-image:url(<%-banner[0].pic%>)">
-    <div class="info">
+    <div class="infos">
         <h5><%-banner[0].title%></h5>
         <p><%-banner[0].english%></p>
     </div>
@@ -58,11 +73,23 @@
             <div class="content">
                 <% type1.forEach(function (item) { %>
                 <div class="child">
-                    <h6><%-item.title%></h6>
-                    <div class="childMian">
+                    <% if (item.id === type1Id ) { %>
+                        <h6 class="current"><%-item.title%></h6>
+                        <div class="childMian" style="display: block">
+                    <% } else { %>
+                        <h6><%-item.title%></h6>
+                        <div class="childMian">
+                    <% } %>
                         <% type2.forEach(function (items) { if (items.type1Id === item.id) { %>
-                            <a href="/product?type1=<%-item.id%>&type2=<%-items.type1Id%>">
-                                <p "=""><span>−</span><%-items.title%></p>
+                            <a href="/product?type1=<%-item.id%>&type2=<%-items.id%>">
+                                <% if (items.id === type2Id ) { %>
+                                    <p class="ph">
+                                <% } else { %>
+                                    <p class="">
+                                <% } %>
+                                    <span>−</span>
+                                    <%-items.title%>
+                                </p>
                             </a>
                         <% }}) %>
                     </div>
@@ -112,19 +139,22 @@
 <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api//Public/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
 <script src="./static/product/product.js"></script>
 <script type="text/javascript">
-function GetQueryString(name)
-{
-     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
-     var r = window.location.search.substr(1).match(reg);
-     if(r!=null)return  unescape(r[2]); return null;
-}
-    var k=GetQueryString("k");
-    if (!k) {
-        k=0;
-    }
+    // function GetQueryString(name) {
+    //     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+    //     var r = window.location.search.substr(1).match(reg);
+    //     if (r != null) return unescape(r[2]);
+    //     return null;
+    // }
 
-    $('.main .productClass .content h6').eq(k).addClass('current');
-    $('.main .productClass .content .childMian').eq(k).stop().slideDown();
+    // var k = GetQueryString("type1");
+
+    // if (!k) {
+    //     k = 0;
+    // }
+
+    // $('.main .productClass .content h6').eq(k).addClass('current');
+    // $('.main .productClass .content .childMian').eq(k).stop().slideDown();
+    // $('.main .productClass .content h6 .childMian p').eq(k).addClass('ph');
 
 
 </script></body></html>

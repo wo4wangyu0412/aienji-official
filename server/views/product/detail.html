@@ -24,6 +24,16 @@
     <meta name="msapplication-tap-highlight" content="no">
     <link rel="stylesheet" type="text/css" href="/static/product-detail/rest.css">
     <link rel="stylesheet" type="text/css" href="/static/product-detail/base.css">
+    <style>
+        .info img, .detail img {
+            margin: 0 auto;
+            display: block
+        }
+
+        .detail .mainT {
+            background-color: #fff!important;
+        }
+    </style>
 
 <script src="/static/product-detail/share.js"></script></head>
 <body>
@@ -36,7 +46,7 @@
         <div class="imgs">
             <%-detail.detailPic %>
         </div>
-        <div class="info" style="background-image:url({/Public/images/product/i1.png})">
+        <div class="info" style="">
             <div class="txt">
                 <h4><%-detail.title %></h4>
                 <i></i>
@@ -51,60 +61,28 @@
 <div class="main">
     <div class="wrap">
         <ul class="mainNav">
-            <a href="http://frvalve.furuise.com/Product/detail.html?id=192">
-                    <li class="current">角式截止阀</li>
-                </a><a href="http://frvalve.furuise.com/Product/detail.html?id=155">
-                    <li class="">仪表阀/针型截止阀</li>
-                </a>        </ul>
+            <% product.forEach((item) => { if (item.type2Id === detail.type2Id) { %>
+                <a href="/product/detail?id=<%-item.id%>">
+                    <% if (item.type2Id === detail.type2Id) { %>
+                        <li class="current"><%-item.title%></li>
+                    <% } else { %>
+                        <li class=""><%-item.title%></li>
+                    <% } %>
+                </a>
+            <% }}) %>
+        </ul>
         <div class="content">
             <div class="mainT">
                 <p>主要参数</p>
             </div>
             <div class="info">
-               <p>主要参数</p>
-
-<p>公称压力：6.3MPa</p>
-
-<p>公称通径：4mm</p>
-
-<p>适用介质：NG、O2、N2、Ar等气体</p>
-
-<p>适用温度：-40°C ~+120°C</p>
-
-<p>连接形式：焊接</p>
-
-<p>介质流向：从阀瓣下面向上</p>
-
-<p>试验检验：GB/T26480</p>
-
-<p>&nbsp;</p>
-
-<p>主要零件材料</p>
-
-<p>阀体、阀杆：不锈钢</p>
-
-<p>&nbsp;</p>
+                <%-detail.detailNum%>
             </div>
-            <p><img src="http://frvalve.furuise.com/Product/detail.html?id=192" alt=""></p><p><img src="/static/product-detail/73d72d77da73e7f4f74c7585a9082fc1.jpg" alt=""></p>        </div>
-        <div class="detail">
-            <div class="mainT">
-                <p>主要外形和连接尺寸</p>
+            <div class="detail">
+                <div class="mainT">
+                    <%-detail.detailSize%>
+                </div>
             </div>
-            <table>
-                <tbody><tr class="title">
-                    <td rowspan="2">工厂代号</td><td colspan="7" class="bd">主要外形和连接尺寸(mm)</td><td rowspan="2">重量(Kg)</td>                </tr>
-                <tr class="title">
-                    <td>
-H开</td><td>H关</td><td>H1</td><td>D</td><td>D1</td><td>D2</td><td>B</td>                </tr>
-                <tr>
-                        <td>
-04DXA7S-JS10</td><td>72</td><td>70</td><td>21</td><td>φ37</td><td>φ10.2</td><td>φ8.2</td><td>10</td><td>0.4</td>                    </tr><tr>
-                        <td>
-04DXA7S</td><td>72</td><td>70</td><td>21</td><td>φ37</td><td>φ8.2</td><td>φ8.2</td><td>10</td><td>0.4</td>                    </tr><tr>
-                        <td>
-04DXA7S-JS14</td><td>72</td><td>70</td><td>21</td><td>φ37</td><td>φ14.2</td><td>φ8.2</td><td>10</td><td>0.4</td>                    </tr><tr>
-                        <td>
-</td>                    </tr>            </tbody></table>
         </div>
     </div>
 </div>

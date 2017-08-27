@@ -47,6 +47,7 @@ var schema = {
         phone2: String,
         mobile: String,
         person: String,
+        email: String,
         wechart: String,
         wechartPic: String,
         qq: String,
@@ -76,6 +77,16 @@ var schema = {
         detailNum: String,
         detailSize: String,
         detailPic:String
+    },
+    contact: {
+        title: String,
+        name: String,
+        phone: String,
+        email: String
+    },
+    user: {
+        userName: String,
+        passWord: String
     }
 };
 

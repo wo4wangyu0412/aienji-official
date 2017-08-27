@@ -26,6 +26,23 @@
         <meta name="msapplication-tap-highlight" content="no" />
         <link rel="stylesheet" type="text/css" href="./static/home/rest.css" />
         <link rel="stylesheet" type="text/css" href="./static/home/base.css" />
+        <style type="text/css">
+            .imgs .img {
+                overflow: hidden;
+            }
+
+            .imgs .img p {
+                display: none;
+            }
+
+            .imgs .img img {
+                width: 100%;
+            }
+
+            .contacts .right .erweima img {
+                width: 100px;
+            }
+        </style>
         <!-- <script src="./static/home/share.js"></script> --></head>
     <body>
         <%-include('../common/head.html', {item:'home'}) %>
@@ -64,217 +81,34 @@
                             <span></span>
                         </div>
                         <div class="classBox">
-                            <a href="/product?pid=83&amp;k=0">
-                                <p>截止阀</p>
+                            <% type2.forEach((item) => { %>
+
+                            <a href="/product?type1=<%-item.type1Id%>&type2=<%-item.id%>">
+                                <p><%-item.title%></p>
                             </a>
-                            <a href="/product?pid=122&amp;k=1">
-                                <p>止回阀</p>
-                            </a>
-                            <a href="/product?pid=84&amp;k=2">
-                                <p>紧急切断阀</p>
-                            </a>
-                            <a href="/product?pid=36&amp;k=3">
-                                <p>安全阀</p>
-                            </a>
-                            <a href="/product?pid=94&amp;k=4">
-                                <p>减压阀</p>
-                            </a>
-                            <a href="/product?pid=88&amp;k=5">
-                                <p>球阀</p>
-                            </a>
-                            <a href="/product?pid=93&amp;k=6">
-                                <p>拉断阀</p>
-                            </a>
-                            <a href="/product?pid=101&amp;k=7">
-                                <p>加液回气装置</p>
-                            </a>
-                            <a href="/product?pid=96&amp;k=8">
-                                <p>LNG气瓶专用阀</p>
-                            </a>
-                            <a href="/product?pid=119&amp;k=9">
-                                <p>特殊阀及管路附件</p>
-                            </a>
-                            <a href="/product?pid=110&amp;k=10">
-                                <p>车用高压氢气装置</p>
-                            </a>
+                            <% }) %>
                         </div>
                     </div>
                     <div class="banner_left">
                         <div class="banner01">
-                            <div class="content01" style="left: -815px;">
-                                <ul>
-                                    <a href="/product/detail?id=183">
-                                        <li>
-                                            <div class="imgs">
-                                                <img src="./static/home/c6e0fa3a6c6b264a1ee4c8d9f9f38bc3.png" alt="" /></div>
-                                            <div class="info">
-                                                <p>低温球阀</p>
-                                            </div>
-                                        </li>
-                                    </a>
-                                    <a href="/product/detail?id=195">
-                                        <li>
-                                            <div class="imgs">
-                                                <img src="./static/home/127efc85925fdc0c217f1e4d86b049cd.png" alt="" /></div>
-                                            <div class="info">
-                                                <p>低温紧急切断阀</p>
-                                            </div>
-                                        </li>
-                                    </a>
-                                    <a href="/product/detail?id=190">
-                                        <li>
-                                            <div class="imgs">
-                                                <img src="./static/home/2adec6b8f48eaa8f482278eb72fdc66e.png" alt="" /></div>
-                                            <div class="info">
-                                                <p>低温长轴截止阀</p>
-                                            </div>
-                                        </li>
-                                    </a>
-                                    <a href="/product/detail?id=185">
-                                        <li>
-                                            <div class="imgs">
-                                                <img src="./static/home/edff39df8374b32dd5cbb47b3d20487b.png" alt="" /></div>
-                                            <div class="info">
-                                                <p>低温硬密封全启安全阀</p>
-                                            </div>
-                                        </li>
-                                    </a>
-                                    <a href="/product/detail?id=186">
-                                        <li>
-                                            <div class="imgs">
-                                                <img src="./static/home/ec17a2f2f491fb4224156479ca8b68d9.png" alt="" /></div>
-                                            <div class="info">
-                                                <p>低温止回阀</p>
-                                            </div>
-                                        </li>
-                                    </a>
-                                    <a href="/product/detail?id=192">
-                                        <li>
-                                            <div class="imgs">
-                                                <img src="./static/home/61972fe1f4420bbf52eb259666254a7f.png" alt="" /></div>
-                                            <div class="info">
-                                                <p>角式截止阀</p>
-                                            </div>
-                                        </li>
-                                    </a>
-                                </ul>
-                            </div>
-                            <div class="content01" style="left: -815px;">
-                                <ul>
-                                    <a href="/product/detail?id=151">
-                                        <li>
-                                            <div class="imgs">
-                                                <img src="./static/home/300a8f57b98d750e9ab0777cc3b62aa8.png" alt="" /></div>
-                                            <div class="info">
-                                                <p>低温加液枪</p>
-                                            </div>
-                                        </li>
-                                    </a>
-                                    <a href="/product/detail?id=197">
-                                        <li>
-                                            <div class="imgs">
-                                                <img src="./static/home/6a0b823ba5f6a087efbcef8f2e34d4b8.png" alt="" /></div>
-                                            <div class="info">
-                                                <p>低温升压调压阀</p>
-                                            </div>
-                                        </li>
-                                    </a>
-                                    <a href="/product/detail?id=152">
-                                        <li>
-                                            <div class="imgs">
-                                                <img src="./static/home/ecca14ec90d4bbdd58ae567363398ac0.png" alt="" /></div>
-                                            <div class="info">
-                                                <p>低温加液口</p>
-                                            </div>
-                                        </li>
-                                    </a>
-                                    <a href="/product/detail?id=154">
-                                        <li>
-                                            <div class="imgs">
-                                                <img src="./static/home/fdcf3704607fa73686d2265b0f5d4fd4.png" alt="" /></div>
-                                            <div class="info">
-                                                <p>低温回气枪</p>
-                                            </div>
-                                        </li>
-                                    </a>
-                                    <a href="/product/detail?id=182">
-                                        <li>
-                                            <div class="imgs">
-                                                <img src="./static/home/d6ed6c38a9d49427f6750a5c8198c69a.png" alt="" /></div>
-                                            <div class="info">
-                                                <p>船用加液枪</p>
-                                            </div>
-                                        </li>
-                                    </a>
-                                    <a href="/product/detail?id=162">
-                                        <li>
-                                            <div class="imgs">
-                                                <img src="./static/home/b8c2af3f6764ddc2130eda25e5920025.png" alt="" /></div>
-                                            <div class="info">
-                                                <p>低温罐箱球阀</p>
-                                            </div>
-                                        </li>
-                                    </a>
-                                </ul>
-                            </div>
-                            <div class="content01" style="left: -815px;">
-                                <ul>
-                                    <a href="/product/detail?id=179">
-                                        <li>
-                                            <div class="imgs">
-                                                <img src="./static/home/d9596facf09f5428105eb243be0f4084.png" alt="" /></div>
-                                            <div class="info">
-                                                <p>低温管道阻火器</p>
-                                            </div>
-                                        </li>
-                                    </a>
-                                    <a href="/product/detail?id=175">
-                                        <li>
-                                            <div class="imgs">
-                                                <img src="./static/home/b86d157bb5e4fb7db03ab76abe649256.png" alt="" /></div>
-                                            <div class="info">
-                                                <p>低温组合充灌阀</p>
-                                            </div>
-                                        </li>
-                                    </a>
-                                    <a href="/product/detail?id=171">
-                                        <li>
-                                            <div class="imgs">
-                                                <img src="./static/home/f1e99327393fddeb2bc7248794b87d49.png" alt="" /></div>
-                                            <div class="info">
-                                                <p>低温安全阀</p>
-                                            </div>
-                                        </li>
-                                    </a>
-                                    <a href="/product/detail?id=181">
-                                        <li>
-                                            <div class="imgs">
-                                                <img src="./static/home/889f1b42c9677f7fffe5a03fb3df83c6.png" alt="" /></div>
-                                            <div class="info">
-                                                <p>车用高压氢气集成瓶阀</p>
-                                            </div>
-                                        </li>
-                                    </a>
-                                    <a href="/product/detail?id=199">
-                                        <li>
-                                            <div class="imgs">
-                                                <img src="./static/home/235f99a63414fe4392fe9bfb3ae4850b.png" alt="" /></div>
-                                            <div class="info">
-                                                <p>低温加液口</p>
-                                            </div>
-                                        </li>
-                                    </a>
-                                    <a href="/product/detail?id=157">
-                                        <li>
-                                            <div class="imgs">
-                                                <img src="./static/home/50f51b1d0a6a247b6945828c8f277e28.png" alt="" /></div>
-                                            <div class="info">
-                                                <p>低温角式截止阀</p>
-                                            </div>
-                                        </li>
-                                    </a>
-                                </ul>
-                            </div>
+                            <% showList.forEach((items) => { %>
+                                <div class="content01" style="left: -815px;">
+                                    <ul>
+                                        <% items.forEach((item) => { %>
+                                        <a href="/product/detail?id=<%-item.id%>">
+                                            <li>
+                                                <div class="imgs">
+                                                    <%-item.detailPic%>
+                                                    </div>
+                                                <div class="info">
+                                                    <p><%-item.title%></p>
+                                                </div>
+                                            </li>
+                                        </a>
+                                        <% }) %>
+                                    </ul>
+                                </div>
+                            <% }) %>
                         </div>
                         <div class="max-container">
                             <div class="btn1 next11" onclick="banner01.todo({'direc':'-'})">
@@ -289,13 +123,13 @@
         <!-- product over -->
         <!-- about -->
         <div class="about">
-            <div class="imgs" style="background-image:url(/Public/upload/indexs/84832b6ba7659f3a621223a958bfb17b.jpg)">
+            <div class="imgs" style="background-image:url(./static/home/jianjie_bg.jpg)">
                 <div class="info">
                     <div class="bg"></div>
                     <div class="txt">
                         <h6>简介</h6>
                         <h5>INTRODUCTION TO THE</h5>
-                        <p>苏州爱恩吉新能源有限公司专业从事低温深冷介质用各类超低温阀门，压力管道元件的设计、制造、销售和相应的技术服务，事业部现有员工200余名，中高级工程师10余名，从事技术设计及产品开发的专业技术人员20余名，具有雄厚的技术研发实力。</p>
+                        <p><%-info.intro%></p>
                         <a href="#/" class="more">
                             <span>查看详情</span>
                             <em>
@@ -384,11 +218,9 @@
                     <p>新闻中心</p>
                 </div>
                 <div class="newsNav">
-                    <a href="/news?pid=28">
-                        <div class="chil ">集团新闻</div></a>
-                    <a href="/news?pid=1">
+                    <a href="/news?type=1">
                         <div class="chil ">公司新闻</div></a>
-                    <a href="/news?pid=35">
+                    <a href="/news?type=2">
                         <div class="chil nor">行业动态</div></a>
                 </div>
                 <div class="banner04">
@@ -399,139 +231,33 @@
                         <img src="./static/home/prev.png" class="s" alt="" />
                         <img src="./static/home/prev_hover.png" class="h" alt="" /></div>
                     <ul>
-                        <li class="on" style="z-index: 5; display: list-item;">
-                            <a href="/news/detail?id=123">
+                        <% showNews.forEach((items, index) => { %>
+                        <% if (index === 0) { %>
+                            <li class="on" style="display: list-item;">
+                        <% } else { %>
+                            <li class="" style="display: none;">
+                        <% } %>
+                            <% items.forEach((item) => { %>
+                            <a href="/news/detail?id=<%-item.id%>">
                                 <div class="child ">
                                     <div class="imgs">
                                         <!-- <img src="" alt="" />-->
-                                        <div class="img" style="background-image: url(/Public/upload/news/123/94e3dcb8226be30cf3fd61ab98d9edf3.jpg)"></div></div>
+                                        <div class="img" style="background-image: url()">
+                                            <%-item.content%>
+                                        </div>
+                                    </div>
                                     <div class="info">
                                         <div class="txt">
-                                            <h5>2017年开门红暨总结表彰大会</h5>
+                                            <h5><%-item.title%></h5>
                                             <span></span>
-                                            <p>2月4日(正月初八)上午，富瑞特装隆重召开了2017年开门红既总结表彰大会。</p>
+                                            <p><%-item.intro%></p>
                                         </div>
                                     </div>
                                 </div>
                             </a>
-                            <a href="/news/detail?id=120">
-                                <div class="child ">
-                                    <div class="imgs">
-                                        <!-- <img src="" alt="" />-->
-                                        <div class="img" style="background-image: url(/Public/upload/news/120/de5179244fb9bd96e1b2c65906fc2404.jpg)"></div></div>
-                                    <div class="info">
-                                        <div class="txt">
-                                            <h5>“江苏七进宣教中心”走进富瑞</h5>
-                                            <span></span>
-                                            <p>2017年2月21日，富瑞特装公司邀请”江苏七进宣教中心”培训讲师对生产一线管理员进行应急、急救专业培训。</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="/news/detail?id=119">
-                                <div class="child nor">
-                                    <div class="imgs">
-                                        <!-- <img src="" alt="" />-->
-                                        <div class="img" style="background-image: url(/Public/upload/news/119/911838be9245fb699177e3a5ff74cde8.jpg)"></div></div>
-                                    <div class="info">
-                                        <div class="txt">
-                                            <h5>爱恩吉新能源截止阀生产流水线调试安装</h5>
-                                            <span></span>
-                                            <p>意大利进口截止阀生产流水线调试安装</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
+                            <% }) %>
                         </li>
-                        <li class="" style="display: none;">
-                            <a href="/news/detail?id=117">
-                                <div class="child ">
-                                    <div class="imgs">
-                                        <!-- <img src="" alt="" />-->
-                                        <div class="img" style="background-image: url(/Public/upload/news/117/96fb07f99f2b66e74848682a141d4b9b.jpg)"></div></div>
-                                    <div class="info">
-                                        <div class="txt">
-                                            <h5>爱恩吉新能源走出国门，首批出口加纳15台LNG槽车顺利发货</h5>
-                                            <span></span>
-                                            <p>爱恩吉新能源走出国门，首批出口加纳15台LNG槽车顺利发货，此项目采用爱恩吉新能源所生产的低温阀门。</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="/news/detail?id=140">
-                                <div class="child ">
-                                    <div class="imgs">
-                                        <!-- <img src="" alt="" />-->
-                                        <div class="img" style="background-image: url(/Public/upload/news/140/4f58401c9f363b069f59fad7164e5120.jpg)"></div></div>
-                                    <div class="info">
-                                        <div class="txt">
-                                            <h5>迎接燃料电池汽车产业发展的春天</h5>
-                                            <span></span>
-                                            <p>迎接燃料电池汽车产业发展的春天</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="/news/detail?id=139">
-                                <div class="child nor">
-                                    <div class="imgs">
-                                        <!-- <img src="" alt="" />-->
-                                        <div class="img" style="background-image: url(/Public/upload/news/139/5ff99bb6fb39cedb5d70049b04912375.jpg)"></div></div>
-                                    <div class="info">
-                                        <div class="txt">
-                                            <h5>中国海油船运6.9万吨液化天然气 缓解浙江天然气缺口</h5>
-                                            <span></span>
-                                            <p>中国海油船运6.9万吨液化天然气 缓解浙江天然气缺口</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="" style="display: none;">
-                            <a href="/news/detail?id=138">
-                                <div class="child ">
-                                    <div class="imgs">
-                                        <!-- <img src="" alt="" />-->
-                                        <div class="img" style="background-image: url(/Public/upload/news/138/3c105ed1a53064f64959988daeaee090.jpg)"></div></div>
-                                    <div class="info">
-                                        <div class="txt">
-                                            <h5>苏州市安监局陈局长一行调研富瑞特装</h5>
-                                            <span></span>
-                                            <p>2017年3月6日下午，苏州市安监局、经开区杨舍镇安监中队等领导一行8人调研参观了富瑞特装。</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="/news/detail?id=141">
-                                <div class="child ">
-                                    <div class="imgs">
-                                        <!-- <img src="" alt="" />-->
-                                        <div class="img" style="background-image: url(/Public/upload/news/141/c7b94ea19fd7b278958e9f94ba308c32.jpg)"></div></div>
-                                    <div class="info">
-                                        <div class="txt">
-                                            <h5>爱恩吉新能源研发成功高压氢用阀门</h5>
-                                            <span></span>
-                                            <p>2016~2017年期间，爱恩吉新能源展开高压氢用阀门研制，目前取得阶段性成功，取得型式试验证书并制定企业标准。</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="/news/detail?id=135">
-                                <div class="child nor">
-                                    <div class="imgs">
-                                        <!-- <img src="" alt="" />-->
-                                        <div class="img" style="background-image: url(/Public/upload/news/135/bef8ac7a062c2001f11dff91f299681d.jpg)"></div></div>
-                                    <div class="info">
-                                        <div class="txt">
-                                            <h5>LNG燃料市场潜力巨大</h5>
-                                            <span></span>
-                                            <p>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
+                        <% }) %>
                     </ul>
                 </div>
             </div>
@@ -543,20 +269,20 @@
                 <div class="left">
                     <p>体验从沟通开始，让我们聆听您的需求！</p>
                     <h6>苏州爱恩吉新能源有限公司
-                        <span>联系人:王女士</span></h6>
+                        <span>联系人：<%-info[0].person%></span></h6>
                     <div class="area">
                         <p>
                             <span>地址</span>
-                            <em>苏州市工业园区唯华路君地新大陆10幢2单元6楼</em></p>
+                            <em>&nbsp;&nbsp;苏州市工业园区唯华路君地新大陆10幢2单元6楼</em></p>
                         <p>
                             <span>电话</span>
-                            <em>0512-62516403</em></p>
+                            <em>&nbsp;&nbsp;<%-info[0].phone%></em></p>
                         <p>
                             <span>传真</span>
-                            <em>0512-62516403</em></p>
+                            <em>&nbsp;&nbsp;<%-info[0].phone2%></em></p>
                         <p>
                             <span>邮箱</span>
-                            <em> suzhouing@126.com</em></p>
+                            <em>&nbsp;&nbsp;<%-info[0].email%></em></p>
                     </div>
                     <div class="btns">
                         <!--63401620 qq号码 -->
@@ -566,13 +292,13 @@
                 <div class="right">
                     <div class="imgs">
                         <div class="erweima">
-                            <img src="./static/home/e2.png" alt="" /></div>
-                        <p>富瑞业务经理微信了解最新产品报价</p>
+                            <img src="<%-info[0].wechartPic%>" alt="" /></div>
+                        <p>公司微信二维码</p>
                     </div>
                     <div class="imgs one1">
                         <div class="erweima">
-                            <img src="./static/home/e1.png" alt="" /></div>
-                        <p>手机端富瑞官方网服务全球不是梦想</p>
+                            <img src="<%-info[0].qqPic%>" alt="" /></div>
+                        <p>公司qq二维码</p>
                     </div>
                 </div>
             </div>

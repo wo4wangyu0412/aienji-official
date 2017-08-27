@@ -1,23 +1,47 @@
 <!--/. NAV TOP  -->
-        <nav class="navbar-default navbar-side" role="navigation">
-            <div class="sidebar-collapse">
-                <ul class="nav" id="main-menu">
+<nav class="navbar-default navbar-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav" id="main-menu">
 
-                    <li>
-                        <a class="<% if (item === 'home') { %> active-menu <% } %>" href="/admin/home"><i class="fa fa-dashboard"></i>首页</a>
-                    </li>
-                    <li>
-                        <a class="<% if (item === 'news') { %> active-menu <% } %>" href="/admin/news"><i class="fa fa-desktop"></i>新闻</a>
-                    </li>
-					 <li>
-                        <a class="<% if (item === 'product') { %> active-menu <% } %>" href="/admin/product"><i class="fa fa-sitemap"></i>产品<span class="fa arrow"></span></a>
-                    <li>
-                        <a href="/admin/down" class="<% if (item === 'down') { %> active-menu <% } %>"><i class="fa fa-qrcode"></i>下载管理</a>
-                    </li>
-                    <li>
-                        <a href="/admin/about" class="<% if (item === 'about') { %> active-menu <% } %>"><i class="fa fa-table"></i>简介</a>
-                    </li>
-                </ul>
+            <li>
+                <a class="<% if (item === 'home') { %> active-menu <% } %>" href="/admin/home"><i class="fa fa-dashboard"></i>首页</a>
+            </li>
+            <li>
+                <a class="<% if (item === 'news') { %> active-menu <% } %>" href="/admin/news"><i class="fa fa-desktop"></i>新闻</a>
+            </li>
+			 <li>
+                <a class="<% if (item === 'product') { %> active-menu <% } %>" href="/admin/product"><i class="fa fa-sitemap"></i>产品</a>
+            <li>
+                <a href="/admin/down" class="<% if (item === 'down') { %> active-menu <% } %>"><i class="fa fa-qrcode"></i>下载管理</a>
+            </li>
+            <li>
+                <a href="/admin/about" class="<% if (item === 'about') { %> active-menu <% } %>"><i class="fa fa-table"></i>简介</a>
+            </li>
+            <li>
+                <a href="/admin/contact" class="<% if (item === 'contact') { %> active-menu <% } %>"><i class="fa fa-table"></i>联系我们</a>
+            </li>
+        </ul>
 
-            </div>
-        </nav>
+    </div>
+</nav>
+<div class="out">退出登录</div>
+<style type="text/css">
+    .out {
+        color: #3E3E45;
+        position: fixed;
+        right: 10px;
+        top: 10px;
+        z-index: 400;
+        cursor: pointer;
+    }
+</style>
+<script src="/static/admin/js/jquery-1.10.2.js"></script>
+<script src="/static/admin/js/jquery.cookie.js"></script>
+<script type="text/javascript">
+    $('.out').on('click', (e) => {
+        $.cookie('token', '', {
+            path: '/'
+        });
+        window.location.reload();
+    });
+</script>

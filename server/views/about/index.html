@@ -39,6 +39,10 @@
             line-height: 36px;
             color: #444444;
         }
+
+        .quality img {
+            max-width: 100%;
+        }
     </style>
     <script src="/static/about/share.js"></script></head>
 <body>
@@ -46,13 +50,14 @@
 <link rel="stylesheet" type="text/css" href="/static/about/about.css">
 
 <!-- m-banner -->
-<div class="m-banner" style="background-image:url(/Public/upload/banner/culture/1/337d505864a89905a1c703ba7f8ac4b8.jpg)">
+<div class="m-banner" style="background-image:url(<%-banner[0].pic%>)">
     <div class="infos">
         <h5>ABOUT US</h5>
         <p>关于我们</p>
     </div>
 </div>
 <!-- m-banner over -->
+
 <!-- remarks -->
 <div class="remarks k1">
     <div class="wrap">

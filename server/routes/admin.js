@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 var router = express.Router();
+var cookie = require('cookie-parser');
 var util = require('../util/util');
 var bodyParser = require('body-parser');
 var jsonParser = bodyParser.json({limit: '50mb'});
@@ -16,9 +17,61 @@ var newsModel = mongoose.model('news');
 var type1Model = mongoose.model('type1');
 var type2Model = mongoose.model('type2');
 var productModel = mongoose.model('product');
+var contactModel = mongoose.model('contact');
+var userModel = mongoose.model('user');
 
 var mongoose = require('mongoose');
 var db = mongoose.connection;
+var token = 'asdashj3h4j34j23k34h3jh4j3423';
+router.use(cookie());
+
+router.get('/login', (req, res) => {
+    res.render('admin/login');
+});
+
+/**
+ * 登录
+ *
+ * @param  {[type]} '/admin/delete/banner' [description]
+ * @param  {[type]} (req,                  res           [description]
+ * @return {[type]}                        [description]
+ */
+router.post('/admin/login', jsonParser, (req, res) => {
+    if (req.body) {
+        var userName = req.body.userName;
+        var passWord = req.body.passWord;
+
+        userModel.findOne({userName: userName}, (err, doc) => {
+            if (err) {
+                res.send(err);
+            }
+            console.log(doc, passWord);
+            if (doc.passWord === passWord) {
+                res.send(util.unifyRes({
+                    msg: '登录成功',
+                    result: token
+                }));
+            }
+            else {
+                res.send(util.unifyRes({
+                    code: 500,
+                    ms: '用户名或密码错误'
+                }));
+            }
+        });
+    }
+});
+
+router.use((req, res, next) => {
+    var cookie = req.headers.cookie || '';
+    console.log(111, token , cookie);
+
+    if (cookie.indexOf(token) === -1) {
+        res.redirect('/login');
+    }
+
+    next();
+});
 
 /**
  * 请求home页
@@ -578,6 +631,115 @@ router.get('/admin/search/product', (req, res) => {
         }
 
         res.send(util.unifyRes({result: result}));
+    });
+});
+
+/**
+ * 请求contact页
+ *
+ * @param  {[type]} '/admin/product' [description]
+ * @param  {[type]} (req,         res)          [description]
+ * @return {[type]}               [description]
+ */
+router.get('/admin/contact', (req, res) => {
+    var getContact = contactModel.find({});
+    // res.send(db.model('Person'));
+    Promise.all([getContact])
+    .then((results) => {
+        var contactList = results[0];
+
+        res.render('admin/contact', {
+            contact: contactList
+        });
+    });
+});
+
+/**
+ * 请求contact页
+ *
+ * @param  {[type]} '/admin/product' [description]
+ * @param  {[type]} (req,         res)          [description]
+ * @return {[type]}               [description]
+ */
+router.get('/admin/down', (req, res) => {
+    var getContact = contactModel.find({});
+    // res.send(db.model('Person'));
+    Promise.all([getContact])
+    .then((results) => {
+        var contactList = results[0];
+
+        res.render('admin/demo', {
+            contact: contactList
+        });
+    });
+});
+
+
+/**
+ * 添加 联系人卡片
+ *
+ * @param  {[type]}   '/admin/add/leader' [description]
+ * @param  {[type]}   jsonParser          [description]
+ * @param  {Function} (req,               res)          [description]
+ * @return {[type]}                       [description]
+ */
+router.post('/admin/add/contact', jsonParser, (req, res) => {
+    var model = contactModel;
+
+    if (req.body) {
+        if (req.body.id) {
+            model.findByIdAndUpdate(req.body.id, req.body, (err, doc) => {
+                if (err) {
+                    req.send(err);
+                    req.end();
+                }
+
+                res.send(util.unifyRes({
+                    msg: '联系方式修改成功',
+                    result: doc
+                }));
+            });
+        }
+        else {
+            model.create(req.body, (err, doc) => {
+                if (err) {
+                    res.send(err);
+                }
+
+                model.find({}, (err, result) => {
+                    if (err) {
+                        res.send(err);
+                    }
+
+                    res.send(util.unifyRes({
+                        msg: '添加成功',
+                        result: model
+                    }));
+                });
+            });
+        }
+    }
+});
+
+/**
+ * 删除联系人
+ *
+ * @param  {[type]} '/admin/delete/banner' [description]
+ * @param  {[type]} (req,                  res           [description]
+ * @return {[type]}                        [description]
+ */
+router.get('/admin/delete/contact', (req, res) => {
+    let id = req.query.id;
+
+    contactModel.findByIdAndRemove(id, err => {
+        if (err) {
+            res.send(util.unifyRes({
+                code: 500,
+                result: '删除失败'
+            }));
+        }
+
+        res.send(util.unifyRes({ms: 'delete success'}));
     });
 });
 

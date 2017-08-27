@@ -13,32 +13,24 @@
                 <a href="/about?as=k4">
                     <dd>质量管理</dd></a>
                 <a href="/about?as=k5">
-                    <dd>工厂管理</dd></a>
+                    <dd>资质认证</dd></a>
             </dl>
             <dl>
                 <dt>产品中心</dt>
-                <a href="/product?pid=83&amp;k=0">
-                    <dd>截止阀</dd></a>
-                <a href="/product?pid=122&amp;k=1">
-                    <dd>止回阀</dd></a>
-                <a href="/product?pid=84&amp;k=2">
-                    <dd>紧急切断阀</dd></a>
-                <a href="/product?pid=36&amp;k=3">
-                    <dd>安全阀</dd></a>
-                <a href="/product?pid=94&amp;k=4">
-                    <dd>减压阀</dd></a>
-                <a href="/product?pid=88&amp;k=5">
-                    <dd>球阀</dd></a>
+                <% type2.forEach((item, index) => { %>
+                    <a href="/product?id=<%-item.id%>">
+                        <dd><%-item.title%></dd>
+                    </a>
+                <% }) %>
                 <a href="/product">
-                    <dd>查看更多</dd></a>
+                    <dd>查看更多</dd>
+                </a>
             </dl>
             <dl>
                 <dt>新闻中心</dt>
-                <a href="/news?pid=28">
-                    <dd>集团新闻</dd></a>
-                <a href="/news?pid=1">
+                <a href="/news?type=1">
                     <dd>公司新闻</dd></a>
-                <a href="/news?pid=35">
+                <a href="/news?type=2">
                     <dd>行业动态</dd></a>
             </dl>
         </div>
@@ -49,9 +41,9 @@
             <div class="hotTel">
                 <p>全国服务热线:</p>
                 <p>
-                    <span>0512-62516403</span></p>
+                    <span><%-info[0].phone%></span></p>
                 <p>E-mail:</p>
-                <p>suzhouing@126.com</p>
+                <p><%-info[0].email%></p>
             </div>
             <div class="share ">
                 <div class="bdsharebuttonbox">
@@ -72,8 +64,6 @@
             <span>
                 <img src="/static/home/f.png" alt="" />
             </span>
-            <a href="/contact">
-                <li>在线留言</li></a>
             <a href="/contact">
                 <li class="nor">联系我们</li></a>
         </ul>
