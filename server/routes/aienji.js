@@ -22,6 +22,10 @@ var mongoose = require('mongoose');
 var db = mongoose.connection;
 var getInfo = infoModel.find({});
 
+router.get('/', (req, res) => {
+    res.redirect('/home');
+});
+
 router.get('/down', (req, res) => {
     var getType1 = type1Model.find({});
     var getType2 = type2Model.find({});
