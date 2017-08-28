@@ -38,8 +38,8 @@ router.get('/login', (req, res) => {
  */
 router.post('/admin/login', jsonParser, (req, res) => {
     if (req.body) {
-        var userName = req.body.userName;
-        var passWord = req.body.passWord;
+        var userName = req.body.userName || '';
+        var passWord = req.body.passWord || '';
 
         userModel.findOne({userName: userName}, (err, doc) => {
             if (err) {
