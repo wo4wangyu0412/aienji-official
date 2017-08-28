@@ -40,13 +40,14 @@ router.post('/admin/login', jsonParser, (req, res) => {
     if (req.body) {
         var userName = req.body.userName || '';
         var passWord = req.body.passWord || '';
+        console.log(userName, passWord);
 
         userModel.findOne({userName: userName}, (err, doc) => {
             if (err) {
                 res.send(err);
             }
-            console.log(doc, passWord);
-            if (doc.passWord === passWord) {
+
+            if (doc && doc.passWord === passWord) {
                 res.send(util.unifyRes({
                     msg: '登录成功',
                     result: token
