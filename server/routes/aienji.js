@@ -23,6 +23,7 @@ var db = mongoose.connection;
 var getInfo = infoModel.find({});
 
 router.get('/', (req, res) => {
+    console.log('重定向');
     res.redirect('/home');
 });
 
