@@ -310,11 +310,13 @@ router.post('/admin/add/intro', jsonParser, (req, res) => {
                     result: false,
                     msg: '清楚数据库失败'
                 }));
+                res.end();
             }
 
             introModel.create(req.body, (err, doc) => {
                 if (err) {
                     res.send(err);
+                    res.end();
                 }
 
                 introModel.find({}, (err, result) => {
@@ -323,6 +325,7 @@ router.post('/admin/add/intro', jsonParser, (req, res) => {
                         msg: '公司简介设置成功',
                         result: result
                     });
+                    res.end();
                 });
             });
         });
