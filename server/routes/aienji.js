@@ -23,8 +23,67 @@ var db = mongoose.connection;
 var getInfo = infoModel.find({});
 
 router.get('/', (req, res) => {
-    console.log('重定向');
-    res.redirect('/home');
+    var getBanner = bannerModel.find({});
+    var getType1 = type1Model.find({});
+    var getType2 = type2Model.find({});
+    var getProduct = productModel.find({});
+    var getNews = newsModel.find({});
+    var getInfo = infoModel.find({});
+    var getIntro = introModel.find({});
+
+    // res.send(db.model('Person'));
+    Promise.all([getBanner, getType1, getType2, getProduct, getInfo, getNews, getIntro])
+    .then((results) => {
+        var bannerList = results[0];
+        var type1List = results[1];
+        var type2List = results[2];
+        var productList = results[3];
+        var infoList = results[4];
+        var newsList = results[5];
+        var introList = results[6];
+
+        var showList = [], showNews = [];
+
+        for (let i = 0, j = productList.length; i < j; i++) {
+            if (i % 6 === 0) {
+                for (let k = 0; k < 6; k++) {
+                    if ((k + i) < j) {
+                        if (!showList[parseInt(i / 6)]) {
+                            showList[parseInt(i / 6)] = [];
+                        }
+
+                        showList[parseInt(i / 6)].push(productList[k + i]);
+                    }
+                }
+            }
+        }
+
+        for (let i = 0, j = newsList.length; i < j; i++) {
+            if (i % 6 === 0) {
+                for (let k = 0; k < 6; k++) {
+                    if ((k + i) < j) {
+                        if (!showNews[parseInt(i / 6)]) {
+                            showNews[parseInt(i / 6)] = [];
+                        }
+
+                        showNews[parseInt(i / 6)].push(newsList[k + i]);
+                    }
+                }
+            }
+        }
+
+        res.render('home/index', {
+            banner: bannerList,
+            type1: type1List,
+            type2: type2List,
+            product: productList,
+            info: infoList,
+            showList: showList,
+            showNews: showNews,
+            news: newsList,
+            intro: introList
+        });
+    });
 });
 
 router.get('/down', (req, res) => {
