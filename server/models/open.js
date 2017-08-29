@@ -30,4 +30,5 @@ model.create('type2', schema.type2, 'type2');
 model.create('product', schema.product, 'product');
 model.create('contact', schema.contact, 'contact');
 model.create('user', schema.user, 'user');
+model.create('down', schema.down, 'down');
 

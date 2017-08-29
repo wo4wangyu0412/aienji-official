@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta content="" name="description" />
+        <meta content="webthemez" name="author" />
+        <title>爱恩吉后台管理</title>
+        <!-- Bootstrap Styles-->
+        <link href="/static/admin/css/bootstrap.css" rel="stylesheet" />
+        <!-- FontAwesome Styles-->
+        <link href="/static/admin/css/font-awesome.css" rel="stylesheet" />
+        <!-- Custom Styles-->
+        <link href="/static/admin/css/custom-styles.css" rel="stylesheet" />
+        <!-- Google Fonts-->
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+        <style type="text/css">
+            .easypiechart img {
+                height: 100%;
+            }
+
+            .up-down {
+                margin: 10px 0 10px 10px;
+            }
+
+            input {
+                display: inline-block!important;
+            }
+
+            .col-xs-12 {
+                margin: 10px 0;
+            }
+        </style>
+        </head>
+    <body>
+        <div id="wrapper">
+            <nav class="navbar navbar-default top-navbar" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                        <span class="sr-only"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">
+                        <strong>
+                            <i class="icon fa fa-plane"></i>爱恩吉后台管理</strong>
+                    </a>
+                    <div id="sideNav" href="">
+                        <i class="fa fa-bars icon"></i>
+                    </div>
+                </div>
+            </nav>
+            <%-include( './side.html', {item: 'down'}) %>
+                <!-- /. NAV SIDE -->
+                <div id="page-wrapper">
+                    <div class="header">
+                        <h1 class="page-header">首页管理
+                            <small></small>
+                        </h1>
+                    </div>
+                    <div class="col-xs-12 panel panel-default">
+                        <div class="form-group">
+                            <p class="help-block">添加下载文件</p>
+                            <form method="post" enctype="multipart/form-data" action="/admin/file-upload">
+                                <div class="col-xs-12">
+                                    <label>文件名字</label>
+                                    <input type="text" name="title">
+                                </div>
+                                <div class="col-xs-12">
+                                    <label>文件封面</label>
+                                    <input type="file" name="pic">
+                                </div>
+                                <div class="col-xs-12">
+                                    <label>文件</label>
+                                    <input type="file" name="file">
+                                </div>
+                                <input type="submit" class="btn btn-default up-down">
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 panel-default panel">
+                        <p class="help-block">轮播图管理</p>
+                        <div class="col-xs-6 col-md-2">
+                            <% down.forEach(function(item) { %>
+                                <div class="panel panel-default down-item">
+                                    <div class="panel-body">
+                                        <h4><%-item.title %></h4>
+                                        <div class="easypiechart" id="easypiechart-orange" data-percent="55">
+                                            <img class="col-xs-12" src="<%-item.pic%>">
+                                        </div>
+                                        <div class="btn btn-default col-xs-12 down-del" data-id="<%-item._id%>">删除</div>
+                                    </div>
+                                </div>
+                            <% }) %>
+                        </div>
+                    </div>
+                    <div id="page-inner">
+                    </div>
+                </div>
+            </div>
+        <!-- /. WRAPPER -->
+        <!-- JS Scripts-->
+        <!-- jQuery Js -->
+        <!-- <script src="/static/admin/js/jquery-1.10.2.js"></script> -->
+        <!-- Bootstrap Js -->
+        <script src="/static/admin/js/bootstrap.min.js"></script>
+        <!-- Metis Menu Js -->
+        <script src="/static/admin/js/jquery.metisMenu.js"></script>
+        <!-- Custom Js -->
+        <script src="/static/admin/js/custom-scripts.js"></script>
+
+        <script type="text/javascript">
+            $('.down-del').on('click', function (e) {
+                var id = $(e.target).attr('data-id');
+                $.ajax({
+                    method: 'GET',
+                    url: '/admin/delete/down',
+                    data: {
+                        id: id
+                    },
+                    success: function (data) {
+                        if (data.code == 0) {
+                            window.location.reload();
+                        }
+                    },
+                    err: function(data) {
+                        alert(data.msg);
+                    }
+                });
+            });
+        </script>
+    </body>
+
+</html>

@@ -87,6 +87,11 @@ var schema = {
     user: {
         userName: String,
         passWord: String
+    },
+    down: {
+        title: String,
+        pic: String,
+        file: String
     }
 };
 

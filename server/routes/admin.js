@@ -5,6 +5,7 @@ var cookie = require('cookie-parser');
 var util = require('../util/util');
 var bodyParser = require('body-parser');
 var jsonParser = bodyParser.json({limit: '50mb'});
+var fileParser = bodyParser({uploadDir:'./uploads'});
 var mongoose = require('mongoose');
 var personModel = mongoose.model('people');
 var bannerModel = mongoose.model('banner');
@@ -19,6 +20,8 @@ var type2Model = mongoose.model('type2');
 var productModel = mongoose.model('product');
 var contactModel = mongoose.model('contact');
 var userModel = mongoose.model('user');
+var downModel = mongoose.model('down');
+var upload = require('../models/fileuploads');
 
 var mongoose = require('mongoose');
 var db = mongoose.connection;
@@ -667,13 +670,16 @@ router.get('/admin/contact', (req, res) => {
  */
 router.get('/admin/down', (req, res) => {
     var getContact = contactModel.find({});
+    var getDown = downModel.find({});
     // res.send(db.model('Person'));
-    Promise.all([getContact])
+    Promise.all([getContact, getDown])
     .then((results) => {
         var contactList = results[0];
+        var downList = results[1];
 
-        res.render('admin/demo', {
-            contact: contactList
+        res.render('admin/down', {
+            contact: contactList,
+            down: downList
         });
     });
 });
@@ -744,6 +750,56 @@ router.get('/admin/delete/contact', (req, res) => {
         }
 
         res.send(util.unifyRes({ms: 'delete success'}));
+    });
+});
+
+
+/**
+ * 删除联系人
+ *
+ * @param  {[type]} '/admin/delete/banner' [description]
+ * @param  {[type]} (req,                  res           [description]
+ * @return {[type]}                        [description]
+ */
+router.get('/admin/delete/down', (req, res) => {
+    let id = req.query.id;
+
+    downModel.findByIdAndRemove(id, err => {
+        if (err) {
+            res.send(util.unifyRes({
+                code: 500,
+                result: '删除失败'
+            }));
+        }
+
+        res.send(util.unifyRes({ms: 'delete success'}));
+    });
+});
+
+var cpUpload = upload.fields([{ name: 'pic', maxCount: 1 }, { name: 'file', maxCount: 1}]);
+/**
+ * 上传文件
+ *
+ * @param  {[type]} 'admin/file-upload' [description]
+ * @param  {[type]} (req,               res           [description]
+ * @return {[type]}                     [description]
+ */
+router.post('/admin/file-upload', cpUpload, (req, res) => {
+    var piclist = req.files, pic, file;
+
+    pic = piclist.pic[0].path;
+    file = piclist.file[0].path;
+
+    var data = {
+        pic: pic,
+        file: file,
+        title: req.body.title
+    };
+
+    downModel.create(data, (err, dac) => {
+        if (err) throw err;
+
+        res.redirect('/admin/down');
     });
 });
 

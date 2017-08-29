@@ -17,6 +17,7 @@ var type1Model = mongoose.model('type1');
 var type2Model = mongoose.model('type2');
 var productModel = mongoose.model('product');
 var contactModel = mongoose.model('contact');
+var downModel = mongoose.model('down');
 
 var mongoose = require('mongoose');
 var db = mongoose.connection;
@@ -32,8 +33,9 @@ router.get('/down', (req, res) => {
     var getProduct = productModel.find({});
     var getBanner = bannerModel.find({});
     var getContact = contactModel.find({});
+    var getDown = downModel.find({});
     // res.send(db.model('Person'));
-    Promise.all([getType1, getType2, getProduct, getBanner, getInfo, getContact])
+    Promise.all([getType1, getType2, getProduct, getBanner, getInfo, getContact, getDown])
     .then((results) => {
         var type1List = results[0];
         var type2List = results[1];
@@ -41,6 +43,7 @@ router.get('/down', (req, res) => {
         var bannerList = results[3];
         var infoList = results[4];
         var contactList = results[5];
+        var downList = results[6];
 
         res.render('download/index', {
             type1: type1List,
@@ -48,7 +51,8 @@ router.get('/down', (req, res) => {
             product: productList,
             banner: bannerList,
             info: infoList,
-            contact: contactList
+            contact: contactList,
+            down: downList
         });
     });
 });
