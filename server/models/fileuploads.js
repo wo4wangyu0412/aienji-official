@@ -12,7 +12,7 @@ var md5 = require('md5');
 
 var config = {
     upload: {
-        path: process.cwd() + '/uploads'
+        path: process.cwd() + '/client/static/upload/'
     }
 }
 
