@@ -787,8 +787,8 @@ var cpUpload = upload.fields([{ name: 'pic', maxCount: 1 }, { name: 'file', maxC
 router.post('/admin/file-upload', cpUpload, (req, res) => {
     var piclist = req.files, pic, file;
 
-    pic = '/uploads/' + piclist.pic[0].filename;
-    file = '/uploads/' + piclist.file[0].filename;
+    pic = '/static/upload/' + piclist.pic[0].filename;
+    file = '/static/upload/' + piclist.file[0].filename;
 
     var data = {
         pic: pic,
