@@ -828,6 +828,9 @@
   right: 0;
 }
 @media (max-width: 499px) {
+  .wapBtn {
+    display: block!important;
+  }
   .baseT h5 {
     font-size: 20px;
   }
@@ -1115,6 +1118,9 @@
   }
 }
 @media (min-width: 500px) and (max-width: 720px) {
+  .wapBtn {
+    display: block!important;
+  }
   .baseT h5 {
     font-size: 26px;
   }
@@ -1353,6 +1359,9 @@
   }
 }
 @media (min-width: 721px) and (max-width: 1023px) {
+  .wapBtn {
+    display: block!important;
+  }
   .m-banner{height: 500px;}
   .baseT h5 {
     font-size: 30px;

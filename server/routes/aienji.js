@@ -100,6 +100,9 @@ router.get('/product', (req, res) => {
     if (type2Id) {
         var getProduct = productModel.find({type2Id: type2Id});
     }
+    else if (type1Id) {
+        var getProduct = productModel.find({type1Id: type1Id});
+    }
     else {
         var getProduct = productModel.find({});
     }
