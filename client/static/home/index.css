@@ -1771,11 +1771,12 @@
     height: 19.0rem;
   }
   .banner .content {
-    background-size: 100% auto;
-    -webkit-background-size: 100% auto;
-    -moz-background-size: 100% auto;
-    -ms-background-size: 100% auto;
-    -o-background-size: 100% auto;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    background: no-repeat center center;
   }
   .banner .content .info h5 {
     font-size: 46px;
