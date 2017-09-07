@@ -1769,6 +1769,7 @@
 @media (min-width: 1336px) and (max-width: 1720px) {
   .banner {
     height: 19.0rem;
+    background-size: contain;
   }
   .banner .content {
     background-size: cover;

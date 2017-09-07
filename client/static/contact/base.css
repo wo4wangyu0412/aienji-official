@@ -372,6 +372,7 @@ body {
   color: #ffffff;
   position: relative;
   font-weight: bold;
+  background-size: auto;
 }
 .baseTitle {
   overflow: hidden;

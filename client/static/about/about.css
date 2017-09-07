@@ -1,7 +1,7 @@
 .m-banner {
 
   height: 640px;
-
+  background-size: contain;
 }
 .m-banner .infos {
   position: absolute;

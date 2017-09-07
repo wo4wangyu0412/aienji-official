@@ -1,6 +1,6 @@
 .m-banner {
   background: #135ea1;
- 
+  background-size: contain;
 }
 .m-banner .table{
   width: 100%;
