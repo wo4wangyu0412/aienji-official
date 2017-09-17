@@ -74,7 +74,14 @@
   width: 100%;
   font-size: 0;
   text-align: center;
+  clear: both;
 }
+
+.main .mainNav li {
+  float: left;
+  margin-bottom: 10px;
+}
+
 .main .mainNav li {
   display: inline-block;
   *display: inline;
