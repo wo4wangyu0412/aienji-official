@@ -90,6 +90,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  background-color: #fff;
 }
 .main .product li .imgs {
   height: 280px;
