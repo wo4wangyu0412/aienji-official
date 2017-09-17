@@ -597,7 +597,11 @@ router.get('/admin/delete/product/type', (req, res) => {
 //     }
 // });
 
-var productUpload = upload.fields([{ name: 'detailPic', maxCount: 1 }]);
+var productUpload = upload.fields([{
+    name: 'detailPic',
+    maxCount: 1,
+    title: '123123'
+}]);
 /**
  * 上传文件
  *
@@ -608,41 +612,56 @@ var productUpload = upload.fields([{ name: 'detailPic', maxCount: 1 }]);
 router.post('/admin/add/product/add', productUpload, (req, res) => {
     var piclist = req.files, pic, file;
     var model = productModel;
-    pic = '/static/upload/' + piclist.detailPic[0].filename;
-
-    var data = {
-        pic: pic,
-        file: file,
-        title: req.body.title
-    };
+    console.log(piclist.detailPic);
+    if (piclist.detailPic) {
+        pic = '/static/upload/' + piclist.detailPic[0].filename;
+    }
 
     var data = {
         type1Id: req.body.type1Id,
         type1Title: req.body.type1Title,
         type2Id: req.body.type2Id,
         type2Title: req.body.type2Title,
-        detailNum: req.body.numberContent,
-        detailSize: req.body.sizeContent,
+        detailNum: req.body.detailNum,
+        detailSize: req.body.detailSize,
         detailPic: pic,
         title: req.body.title,
         id: req.body.id
     };
-    console.log(data.id, typeof data.id);
+
     if (req.body) {
         if (req.body.id) {
-            console.log('change');
-            model.findByIdAndUpdate(req.body.id, data, (err, doc) => {
-                if (err) {
-                    res.send(err);
-                    res.end();
+            var a = model.findById(req.body.id, (err, doc) => {
+                if (!data.detailPic) {
+                    data.detailPic = doc.detailPic;
                 }
+                console.log(data);
+                model.findByIdAndUpdate(req.body.id, data, (err, doc) => {
+                    if (err) {
+                        res.send(err);
+                        res.end();
+                    }
 
-                res.send(util.unifyRes({
-                    msg: '修改产品成功',
-                    result: doc
-                }));
-                res.end();
+                    res.send(util.unifyRes({
+                        msg: '修改产品成功',
+                        result: doc
+                    }));
+                    res.end();
+                });
             });
+
+            // model.findByIdAndUpdate(req.body.id, data, (err, doc) => {
+            //     if (err) {
+            //         res.send(err);
+            //         res.end();
+            //     }
+
+            //     res.send(util.unifyRes({
+            //         msg: '修改产品成功',
+            //         result: doc
+            //     }));
+            //     res.end();
+            // });
         }
         else {
             console.log('add');

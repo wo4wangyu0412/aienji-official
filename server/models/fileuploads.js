@@ -24,7 +24,7 @@ var storage = multer.diskStorage({
     //获取文件MD5，重命名，添加后缀,文件重复会直接覆盖
     filename: function (req, file, cb) {
         var fileFormat =(file.originalname).split(".");
-        cb(null, file.fieldname + '-' + md5(file) + "." + fileFormat[fileFormat.length - 1]);
+        cb(null, file.fieldname + '-' + Date.now() + "." + fileFormat[fileFormat.length - 1]);
     }
 });
 
