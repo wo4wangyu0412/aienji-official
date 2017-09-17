@@ -168,50 +168,50 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <p>添加产品</p>
+                        <form method="post" enctype="multipart/form-data" action="/admin/file-upload">
                             <div class="form-group">
-                                <p>产品名字</p>
-                                <input type="email" class="form-control" id="productIntro">
+                                <p>添加产品</p>
                                 <div class="form-group">
-                                    <p>产品封面图片</p>
+                                    <p>产品名字</p>
+                                    <input type="email" class="form-control" id="productIntro">
                                     <div class="form-group">
-                                        <div id="faceContent"></div>
+                                        <p>产品封面图片</p>
+                                        <input type="file" id="detailPic" />
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <span>选择所属类别1</span>
-                                    <% type1.forEach(function (item, index) { %>
-                                        <label for="big"><%-item.title%></label>
-                                        <% if (index === 0) { %>
-                                            <input type="radio" value="<%-item.id%>" name="productType1" checked="checked" title="<%-item.title%>">
-                                        <% } else { %>
-                                            <input type="radio" value="<%-item.id%>" name="productType1" title="<%-item.title%>">
-                                        <% } %>
-                                    <% }) %>
-                                </div>
-                                <div class="form-group">
-                                    <span>选择所属类别2</span>
-                                    <% type2.forEach(function (item) { %>
-                                        <label for="<%-item.id%>"><%-item.title%></label>
-                                        <input type="radio" value="<%-item.id%>" name="productType2" data-type1="<%-item.type1Id%>" title="<%-item.title%>">
-                                    <% }) %>
-                                </div>
-                                <div class="form-group">
-                                    <p>主要参数</p>
                                     <div class="form-group">
-                                        <div id="numberContent"></div>
+                                        <span>选择所属类别1</span>
+                                        <% type1.forEach(function (item, index) { %>
+                                            <label for="big"><%-item.title%></label>
+                                            <% if (index === 0) { %>
+                                                <input type="radio" value="<%-item.id%>" name="productType1" checked="checked" title="<%-item.title%>">
+                                            <% } else { %>
+                                                <input type="radio" value="<%-item.id%>" name="productType1" title="<%-item.title%>">
+                                            <% } %>
+                                        <% }) %>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <p>主要外形和连接尺寸</p>
                                     <div class="form-group">
-                                        <div id="sizeContent"></div>
+                                        <span>选择所属类别2</span>
+                                        <% type2.forEach(function (item) { %>
+                                            <label for="<%-item.id%>"><%-item.title%></label>
+                                            <input type="radio" value="<%-item.id%>" name="productType2" data-type1="<%-item.type1Id%>" title="<%-item.title%>">
+                                        <% }) %>
                                     </div>
+                                    <div class="form-group">
+                                        <p>主要参数</p>
+                                        <div class="form-group">
+                                            <div id="numberContent"></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <p>主要外形和连接尺寸</p>
+                                        <div class="form-group">
+                                            <div id="sizeContent"></div>
+                                        </div>
+                                    </div>
+                                    <div class="btn btn-default up-product">提交</div>
                                 </div>
-                                <div class="btn btn-default up-product">提交</div>
                             </div>
-                        </div>
+                        </form>
                         <% if (product.length) { %>
                             <div class="col-xs-12 panel-default panel">
                                 <p class="help-block">产品列表</p>
@@ -420,6 +420,7 @@
 
             $('.up-product').on('click', function () {
                 var url;
+                var formData = new FormData($( "#uploadForm" )[0]);
                 var title = $('#productIntro').val();
 
                 var type1Id = $('input[name="productType1"]:checked').val();
@@ -428,39 +429,54 @@
                 var type2Title = $('input[name="productType2"]:checked').attr('title');
                 var numberContent = numberBox.txt.html();
                 var sizeContent = sizeBox.txt.html();
-                var faceContent = faceBox.txt.html();
+                var faceContent = $('#detailPic').get(0).files[0];
                 var id = $('.up-product').attr('id');
                 var url = '/admin/add/product/add';
 
+                formData.append('type1Id', type1Id);
+                formData.append('type1Title', type1Title);
+                formData.append('type2Id', type2Id);
+                formData.append('type2Title', type2Title);
+                formData.append('detailNum', numberContent);
+                formData.append('detailSize', sizeContent);
+                formData.append('detailPic', faceContent);
+                formData.append('title', title);
+
+                if (id) {
+                    formData.append('id', id);
+                }
+                // debugger
                 function pushData() {
-                    var data = {
-                        type1Id: type1Id,
-                        type1Title: type1Title,
-                        type2Id: type2Id,
-                        type2Title: type2Title,
-                        detailNum: numberContent,
-                        detailSize: sizeContent,
-                        detailPic: faceContent,
-                        title: title
-                    };
+                    // var data = {
+                    //     type1Id: type1Id,
+                    //     type1Title: type1Title,
+                    //     type2Id: type2Id,
+                    //     type2Title: type2Title,
+                    //     detailNum: numberContent,
+                    //     detailSize: sizeContent,
+                    //     detailPic: faceContent,
+                    //     title: title
+                    // };
 
-                    if (!checkData(data)) {
-                        return false;
-                    }
+                    // if (!checkData(data)) {
+                    //     return false;
+                    // }
 
-                    data.id = id;
+                    // data.id = id;
 
-                    var dataStr = JSON.stringify(data);
+                    // var dataStr = JSON.stringify(data);
 
                     var successFn = function(e) {
                         window.location.reload();
                     };
 
                     $.ajax({
-                        method: 'POST',
-                        contentType: 'application/json;charset=utf-8',
+                        type: 'POST',
+                        cache: false,
+                        contentType: false,//设置为false。因为是由<form>表单构造的FormData对象，且已经声明了属性enctype="multipart/form-data"，所以这里设置为false。
+                        processData: false,//设置为false。因为data值是FormData对象，不需要对数据做处理。
                         url: url,
-                        data: dataStr,
+                        data: formData,
                         success: successFn,
                         err: function() {
                             alert('err');
@@ -489,6 +505,7 @@
                         id: id
                     },
                     success(data) {
+                        debugger
                         if (data.code == 0) {
                             window.location.reload();
                         }

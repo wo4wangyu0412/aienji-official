@@ -559,39 +559,103 @@ router.get('/admin/delete/product/type', (req, res) => {
  * @param  {Function} (req,               res)          [description]
  * @return {[type]}                       [description]
  */
-router.post('/admin/add/product/add', jsonParser, (req, res) => {
-    var model = productModel;
+// router.post('/admin/add/product/add', jsonParser, (req, res) => {
+//     var model = productModel;
 
+//     if (req.body) {
+//         if (req.body.id) {
+//             model.findByIdAndUpdate(req.body.id, req.body, (err, doc) => {
+//                 if (err) {
+//                     req.send(err);
+//                     req.end();
+//                 }
+
+//                 res.send(util.unifyRes({
+//                     msg: '修改产品成功',
+//                     result: doc
+//                 }));
+//             });
+//         }
+//         else {
+//             model.create(req.body, (err, doc) => {
+//                 if (err) {
+//                     res.send(err);
+//                 }
+
+//                 model.find({}, (err, result) => {
+//                     if (err) {
+//                         res.send(err);
+//                     }
+
+//                     res.send(util.unifyRes({
+//                         msg: '新增产品成功',
+//                         result: doc
+//                     }));
+//                 });
+//             });
+//         }
+//     }
+// });
+
+var productUpload = upload.fields([{ name: 'detailPic', maxCount: 1 }]);
+/**
+ * 上传文件
+ *
+ * @param  {[type]} 'admin/file-upload' [description]
+ * @param  {[type]} (req,               res           [description]
+ * @return {[type]}                     [description]
+ */
+router.post('/admin/add/product/add', productUpload, (req, res) => {
+    var piclist = req.files, pic, file;
+    var model = productModel;
+    pic = '/static/upload/' + piclist.detailPic[0].filename;
+
+    var data = {
+        pic: pic,
+        file: file,
+        title: req.body.title
+    };
+
+    var data = {
+        type1Id: req.body.type1Id,
+        type1Title: req.body.type1Title,
+        type2Id: req.body.type2Id,
+        type2Title: req.body.type2Title,
+        detailNum: req.body.numberContent,
+        detailSize: req.body.sizeContent,
+        detailPic: pic,
+        title: req.body.title,
+        id: req.body.id
+    };
+    console.log(data.id, typeof data.id);
     if (req.body) {
         if (req.body.id) {
-            model.findByIdAndUpdate(req.body.id, req.body, (err, doc) => {
+            console.log('change');
+            model.findByIdAndUpdate(req.body.id, data, (err, doc) => {
                 if (err) {
-                    req.send(err);
-                    req.end();
+                    res.send(err);
+                    res.end();
                 }
 
                 res.send(util.unifyRes({
                     msg: '修改产品成功',
                     result: doc
                 }));
+                res.end();
             });
         }
         else {
-            model.create(req.body, (err, doc) => {
+            console.log('add');
+            model.create(data, (err, doc) => {
                 if (err) {
                     res.send(err);
+                    res.end();
                 }
 
-                model.find({}, (err, result) => {
-                    if (err) {
-                        res.send(err);
-                    }
-
-                    res.send(util.unifyRes({
-                        msg: '新增产品成功',
-                        result: doc
-                    }));
-                });
+                res.send(util.unifyRes({
+                    msg: '新增产品成功',
+                    result: doc
+                }));
             });
         }
     }
@@ -776,7 +840,7 @@ router.get('/admin/delete/down', (req, res) => {
     });
 });
 
-var cpUpload = upload.fields([{ name: 'pic', maxCount: 1 }, { name: 'file', maxCount: 1}]);
+var downUpload = upload.fields([{ name: 'pic', maxCount: 1 }, { name: 'file', maxCount: 1}]);
 /**
  * 上传文件
  *
@@ -784,7 +848,7 @@ var cpUpload = upload.fields([{ name: 'pic', maxCount: 1 }, { name: 'file', maxC
  * @param  {[type]} (req,               res           [description]
  * @return {[type]}                     [description]
  */
-router.post('/admin/file-upload', cpUpload, (req, res) => {
+router.post('/admin/file-upload', downUpload, (req, res) => {
     var piclist = req.files, pic, file;
 
     pic = '/static/upload/' + piclist.pic[0].filename;

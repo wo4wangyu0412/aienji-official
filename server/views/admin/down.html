@@ -62,7 +62,7 @@
                     <div class="col-xs-12 panel panel-default">
                         <div class="form-group">
                             <p class="help-block">添加下载文件</p>
-                            <form method="post" enctype="multipart/form-data" action="/admin/file-upload">
+                            <form method="post" enctype="multipart/form-data" action="/admin/file-upload" id="uploadForm">
                                 <div class="col-xs-12">
                                     <label>文件名字</label>
                                     <input type="text" name="title">
@@ -80,7 +80,7 @@
                         </div>
                     </div>
                     <div class="col-xs-12 panel-default panel">
-                        <p class="help-block">轮播图管理</p>
+                        <p class="help-block">文件管理</p>
                         <div class="col-xs-6 col-md-2">
                             <% down.forEach(function(item) { %>
                                 <div class="panel panel-default down-item">

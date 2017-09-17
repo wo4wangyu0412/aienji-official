@@ -74,6 +74,7 @@
   width: 74.3%;
   float: right;
   margin-top: 30px;
+  overflow-x: hidden;
 }
 .main .product li {
   width: 33%;
