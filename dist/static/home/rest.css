@@ -9,7 +9,7 @@ blockquote:before, blockquote:after,q:before, q:after {content: '';content: none
 table {border-collapse: collapse;border-spacing: 0;}
 .clearfix:after {content:".";}
 /*my reset*/
-html,body{background:#fff;margin:0;font-size:14px;padding:0px;font-family:"Microsoft YaHei" ,Helvetica Neue,Tahoma,Arial,"微软雅黑","宋体","黑体";}
+html,body{background:#fff;margin:0;font-size:40px;padding:0px;font-family:"Microsoft YaHei" ,Helvetica Neue,Tahoma,Arial,"微软雅黑","宋体","黑体";}
 a{text-decoration: none;}
 input,button,select,textarea{ outline:none;border:0 none ;}
 textarea{resize:none;}
