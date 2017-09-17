@@ -114,7 +114,11 @@
     </ul>
 </div>
 <script type="text/javascript">
-alert('asd');
+    var font = window.innerWidth / 48.75;
+
+    $('html').css({
+        'font-size': font + 'px'
+    });
     window.onload=function(){
         console.log('所有资源加载完毕！')
     //..
