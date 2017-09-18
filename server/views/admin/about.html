@@ -57,6 +57,29 @@
             img {
                 max-width: 100%;
             }
+
+            .loading {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: #000;
+                opacity: 0.5;
+                z-index: 1000;
+            }
+
+            .loading img {
+                display: block;
+                width: 120px;
+                margin: 300px auto;
+                border: none;
+            }
+
+            .show {
+                display: block;
+            }
         </style>
         </head>
     <body>
@@ -195,7 +218,12 @@
                     </div>
                     <div id="page-inner">
                     </div>
-                    <!-- /. PAGE INNER --></div></div>
+                    <!-- /. PAGE INNER -->
+                </div>
+            </div>
+            <div class="loading">
+                <img src="/static/admin/img/loading.gif">
+            </div>
         <!-- /. WRAPPER -->
         <!-- JS Scripts-->
         <!-- jQuery Js -->
@@ -243,6 +271,7 @@
                 }
 
                 function pushData() {
+                    $('.loading').addClass('show');
                     if (!imgs.length) {
                         imgs.push(oldPic);
                     }
@@ -254,6 +283,7 @@
 
                     var dataStr = JSON.stringify(data);
                     var successFn = function(e) {
+                        $('.loading').removeClass('show');
                         window.location.reload();
                     };
 
@@ -305,6 +335,7 @@
                 }
 
                 function pushData() {
+                    $('.loading').addClass('show');
                     if (!imgs.length) {
                         imgs.push(oldPic);
                     }
@@ -316,6 +347,7 @@
 
                     var dataStr = JSON.stringify(data);
                     var successFn = function(e) {
+                        $('.loading').removeClass('show');
                         window.location.reload();
                     };
 
@@ -344,6 +376,7 @@
                 }
 
                 function pushData() {
+                    $('.loading').addClass('show');
 
                     var data = {
                         intro: intro
@@ -351,6 +384,7 @@
 
                     var dataStr = JSON.stringify(data);
                     var successFn = function(e) {
+                        $('.loading').removeClass('show');
                         window.location.reload();
                     };
 
@@ -391,6 +425,7 @@
                 }
 
                 function pushData() {
+                    $('.loading').addClass('show');
 
                     var data = {
                         title: title,
@@ -407,6 +442,7 @@
 
                     var dataStr = JSON.stringify(data);
                     var successFn = function(e) {
+                        $('.loading').removeClass('show');
                         window.location.reload();
                     };
 
@@ -505,6 +541,7 @@
 
 
                 function pushData() {
+                    $('.loading').addClass('show');
                     var oldWechart = '<%-item.wechartPic %>';
                     var oldQq = '<%-item.qqPic %>';
 
@@ -518,6 +555,7 @@
                     var dataStr = JSON.stringify(data);
 
                     var successFn = function(e) {
+                        $('.loading').removeClass('show');
                         console.log(e);
                         window.location.reload();
                     };
