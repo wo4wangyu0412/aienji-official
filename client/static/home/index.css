@@ -71,6 +71,8 @@
   position: absolute;
   left: 16%;
   top: 20%;
+  font-family: 'acidregular'!important;
+  font-weight: 100!important;
 }
 .banner .content h5 {
   font-size: 48px;
@@ -88,6 +90,8 @@
   -moz-transform: translate(-100%);
   -ms-transform: translate(-100%);
   -o-transform: translate(-100%);
+  font-family: 'acidregular'!important;
+  font-weight: 100!important;
 }
 .banner .content p {
   font-size: 30px;
@@ -96,6 +100,8 @@
   font-family: 'acidregular';
   padding-top: 10px;
   font-weight: bold;
+  font-family: 'acidregular'!important;
+  font-weight: 100!important;
   transition-delay: 0.4s;
   -webkit-transition-delay: 0.4s;
   -moz-transition-delay: 0.4s;
