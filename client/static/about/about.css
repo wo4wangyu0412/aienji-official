@@ -8,7 +8,7 @@
   top: 0;
   bottom: 0;
   margin: auto 0;
-  width: 100%;
+  // width: 100%;
   color: #135ea1;
   height: 4.175rem;
   text-align: center;
@@ -252,6 +252,10 @@
   padding: 120px 0 70px;
   overflow: hidden;
   border-bottom: 1px solid #7f7f7f;
+}
+
+.quality pre {
+  font-size: 14px;
 }
 .quality ul {
   width: 90%;
