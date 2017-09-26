@@ -174,6 +174,8 @@
                                 <div class="form-group">
                                     <p>产品名字</p>
                                     <input type="email" class="form-control" id="productIntro">
+                                    <label for="top">是否置顶</label>
+                                    <input type="radio" value="1" name="top">
                                     <div class="form-group">
                                         <p>产品封面图片</p>
                                         <input type="file" id="detailPic" />
@@ -226,7 +228,7 @@
                                         </tr>
                                         <% product.forEach(function(item) { %>
                                             <tr>
-                                                <td class="news-title">
+                                                <td class="news-title <%-item.top%>">
                                                     <%-item.title%>
                                                 </td>
                                                 <td class="news-date" id="<%-item.type1Id%>">
@@ -418,6 +420,9 @@
             });
 
 
+            /**
+             * 提交产品
+             */
             $('.up-product').on('click', function () {
                 var url;
                 var formData = new FormData($( "#uploadForm" )[0]);
@@ -432,6 +437,7 @@
                 var faceContent = $('#detailPic').get(0).files[0];
                 var id = $('.up-product').attr('id');
                 var url = '/admin/add/product/add';
+                var top = $('input[name="top"]:checked').val();
 
                 formData.append('type1Id', type1Id);
                 formData.append('type1Title', type1Title);
@@ -441,11 +447,12 @@
                 formData.append('detailSize', sizeContent);
                 formData.append('detailPic', faceContent);
                 formData.append('title', title);
-                debugger
+                formData.append('top', top || '');
+
                 if (id) {
                     formData.append('id', id);
                 }
-                // debugger
+
                 function pushData() {
                     // var data = {
                     //     type1Id: type1Id,
@@ -505,7 +512,6 @@
                         id: id
                     },
                     success(data) {
-                        debugger
                         if (data.code == 0) {
                             window.location.reload();
                         }
@@ -539,6 +545,7 @@
                         $('#productIntro').val(item.title);
                         $('input[name="productType1"][value="' + item.type1Id + '"').click();
                         $('input[name="productType2"][value="' + item.type2Id + '"').click();
+                        $('input[name="top"][value="' + item.top + '"').click();
                         numberBox.txt.html(item.detailNum);
                         faceBox.txt.html(item.detailPic);
                         sizeBox.txt.html(item.detailSize);

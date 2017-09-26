@@ -652,7 +652,8 @@ router.post('/admin/add/product/add', productUpload, (req, res) => {
         detailSize: req.body.detailSize,
         detailPic: pic,
         title: req.body.title,
-        id: req.body.id
+        id: req.body.id,
+        top: req.body.top
     };
 
     if (req.body) {

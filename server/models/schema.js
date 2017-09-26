@@ -76,7 +76,8 @@ var schema = {
         title: String,
         detailNum: String,
         detailSize: String,
-        detailPic:String
+        detailPic:String,
+        top: String
     },
     contact: {
         title: String,
