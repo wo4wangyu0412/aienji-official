@@ -339,31 +339,25 @@ router.post('/admin/add/quality', jsonParser, (req, res) => {
 router.post('/admin/add/intro', jsonParser, (req, res) => {
     if (req.body) {
         introModel.remove({}).then((err) => {
-            console.log(err);
-            if (err) {
-                res.send(util.unifyRes({
-                    code: 500,
-                    result: false,
-                    msg: '清楚数据库失败'
-                }));
-                res.end();
-            }
-
-            introModel.create(req.body, (err, doc) => {
-                if (err) {
-                    res.send(err);
-                    res.end();
-                }
-
-                introModel.find({}, (err, result) => {
-                    if (err) return handleError(err);
+            // console.log(err);
+            // if (err) {
+            //     res.send(util.unifyRes({
+            //         code: 500,
+            //         result: false,
+            //         msg: '清楚数据库失败'
+            //     }));
+            //     res.end();
+            // }
+            // else {
+                // console.log('asd啊实打实大声道阿斯顿阿斯顿啊说的');
+                introModel.create(req.body, (err, doc) => {
                     res.send({
                         msg: '公司简介设置成功',
-                        result: result
+                        result: doc
                     });
                     res.end();
                 });
-            });
+            // }
         });
     }
 });

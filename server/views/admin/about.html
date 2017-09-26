@@ -125,7 +125,7 @@
                         <div class="form-group">
                             <p class="help-block">公司简介设置</p>
                             <div class="form-group">
-                                <textarea class="intro-text" id="leaderShow" placeholder="公司简介"><%-intro[0].intro%>
+                                <textarea class="intro-text" id="leaderShow" placeholder="公司简介"><% if (intro[0]) { %><%-intro[0].intro || ''%><%}%>
                                 </textarea>
                             </div>
                             <div class="btn btn-default up-intro-btn">提交</div>
@@ -236,77 +236,13 @@
         <script src="/static/admin/js/custom-scripts.js"></script>
 
         <script type="text/javascript">
-            // 上传董事长发言
-            $('.up-leader-btn').on('click', function () {
-                var imgs = [];
-                var reader = new FileReader();
-                var img = $('.leader-pic-input').val();
-                var content = $('.form-control').val();
-                var oldPic = '<%-leader[0].pic%>';
-
-                $('.leader-pic-input').each(function() {
-                    if (this.files.length) {
-                        reader.readAsDataURL(this.files[0]);
-                    }
-                });
-
-                if (!img && oldPic && content) {
-
-                    pushData();
-                }
-
-                if (!content || (!img && !oldPic)) {
-                    alert('信息录入不全，请重新输入');
-                }
-
-                reader.onload = function(e) {
-                    imgs.push(this.result);
-
-                    if (imgs.length && imgs.length === $('.leader-pic-input').length && content) {
-                        pushData();
-                    }
-                    else {
-                        alert('信息录入不全，请重检查');
-                    }
-                }
-
-                function pushData() {
-                    $('.loading').addClass('show');
-                    if (!imgs.length) {
-                        imgs.push(oldPic);
-                    }
-
-                    var data = {
-                        tell: content,
-                        pic: imgs || oldPic
-                    };
-
-                    var dataStr = JSON.stringify(data);
-                    var successFn = function(e) {
-                        $('.loading').removeClass('show');
-                        window.location.reload();
-                    };
-
-                    $.ajax({
-                        method: 'POST',
-                        contentType: 'application/json;charset=utf-8',
-                        url: '/admin/add/leader',
-                        data: dataStr,
-                        success: successFn,
-                        err: function() {
-                            alert('err');
-                        }
-                    });
-                }
-            });
-
             // 上传质量体系
             $('.up-quality-btn').on('click', function () {
                 var imgs = [];
                 var reader = new FileReader();
                 var img = $('.quality-pic-input').val();
                 var content = $('#qualityShow').val();
-                var oldPic = '<% if (quality[0]) %> <%-quality[0].pic %>';
+                var oldPic = $('.quality-pic').attr('src');
 
                 $('.quality-pic-input').each(function() {
                     if (this.files.length) {
@@ -477,100 +413,6 @@
                         alert(data.msg);
                     }
                 });
-            });
-
-            // 上传公司信息
-            $('.up-info').on('click', function () {
-                var qqPic,
-                    wechartPic,
-                    picNum = newPicNum = 0;
-                var title = $('#companyTitle').val();
-                var phone = $('#companyPhone').val();
-                var phone2 = $('#companyPhone2').val();
-                var mobile = $('#companyMobile').val();
-                var person = $('#companyPerson').val();
-                var wechart = $('#companyWechart').val();
-                var email = $('#companyEmail').val();
-                var qq = $('#companyQq').val();
-
-                var data = {
-                    title: title,
-                    phone: phone,
-                    phone2: phone2,
-                    mobile: mobile,
-                    person: person,
-                    wechart: wechart,
-                    email: email,
-                    qq: qq
-                };
-
-                if (!checkData(data)) {
-                    return false;
-                }
-
-                $('.info-up').each(function(index) {
-                    if (this.files.length) {
-                        let me = this;
-                        let reader = new FileReader();
-                        newPicNum++;
-                        console.log('发现一个新照片');
-
-                        reader.readAsDataURL(this.files[0]);
-                        console.log(index);
-                        reader.onload = function() {
-                            picNum++;
-                            console.log('读取一个新照片');
-                            if ($(me).hasClass('weixin-up')) {
-                                wechartPic = this.result;
-                            }
-                            else {
-                                qqPic = this.result;
-                            }
-
-                            if (picNum === newPicNum) {
-                                pushData();
-                            }
-                        }
-                    }
-                });
-
-                if (!newPicNum) {
-                    console.log('没有新照片');
-                    pushData();
-                }
-
-
-                function pushData() {
-                    $('.loading').addClass('show');
-                    var oldWechart = '<%-item.wechartPic %>';
-                    var oldQq = '<%-item.qqPic %>';
-
-                    data.qqPic = qqPic || oldQq;
-                    data.wechartPic = wechartPic || oldWechart;
-
-                    if (!checkData(data)) {
-                        return false;
-                    }
-
-                    var dataStr = JSON.stringify(data);
-
-                    var successFn = function(e) {
-                        $('.loading').removeClass('show');
-                        console.log(e);
-                        window.location.reload();
-                    };
-
-                    $.ajax({
-                        method: 'POST',
-                        contentType: 'application/json;charset=utf-8',
-                        url: '/admin/add/companyinfo',
-                        data: dataStr,
-                        success: successFn,
-                        err: function() {
-                            alert('err');
-                        }
-                    });
-                }
             });
 
             /**
