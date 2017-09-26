@@ -83,37 +83,6 @@
     </div>
 </div>
 <!-- m-banner over -->
-
-<!-- remarks -->
-<!-- <div class="remarks k1">
-    <div class="wrap">
-        <div class="baseT">
-            <h5>董事长寄语</h5>
-            <span></span>
-        </div>
-        <div class="remarkBox">
-            <% leader.forEach(function (item) {%>
-            <div class="imgs">
-                <img src="<%-item.pic%>" alt="">
-            </div>
-            <div class="infos">
-                <div class="maohao ml">
-                    <img src="/static/about/1.png" alt="">
-                </div>
-                <div class="txt">
-                    <pre><%-item.tell%></pre>
-                </div>
-                <div class="maohao mb">
-                    <img src="/static/about/2.png" alt="">
-                </div>
-            </div>
-            <% }) %>
-        </div>
-        <div class="yumao">
-            <img src="/static/about/bg.png" alt="">
-        </div>
-    </div>
-</div> -->
 <!-- remarks over -->
 <!-- Introduction -->
 <div class="introduction k2">
@@ -167,6 +136,7 @@
 <!-- Testing -->
 <!-- Testing over -->
 <!-- honor -->
+<% if (card.length) { %>
 <div class="honor">
     <div class="wrap">
         <div class="banner04">
@@ -190,6 +160,7 @@
         </div>
     </div>
 </div>
+<% } %>
 <!-- honor -->
 <!-- alertBox -->
 <div class="alertBox">
@@ -284,9 +255,6 @@
 <script src="/static/about/dydong.change.js"></script>
 <script src="/static/about/show.js"></script>
 <script src="/static/about/keepscroll.js"></script>
-
-
-<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api//Public/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
 <script src="/static/about/index.js"></script>
 <script src="/static/about/about.js"></script>
 <!-- <script src="js/banner01.js"></script> -->
