@@ -76,16 +76,16 @@
 <div class="main">
     <div class="wrap">
         <div class="mainTop">
-          <a href="http://frvalve.furuise.com/Index/index.html">
+          <a href="/home" class="">
               <p>首页</p>
           </a>
-          <a href="http://frvalve.furuise.com/News/index.html">
-              <p class="on">新闻中心</p>
+          <a href="/news?type=2">
+              <p class="<%if (news.type == 2) { %>on<% } %>">行业动态</p>
           </a>
-          <a href="javascript:void(0)">
-              <p class="no on">集团新闻</p>
+          <a href="/news?type=1">
+              <p class="<%if (news.type == 1) { %>on<% } %>">公司新闻</p>
           </a>
-        </div> 
+        </div>
     </div>
     <div class="top">
         <div class="wrap">
