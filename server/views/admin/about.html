@@ -107,20 +107,6 @@
                     <div class="header">
                         <h1 class="page-header">简介管理</h1>
                     </div>
-                    <!-- <div class="col-xs-12 panel panel-default leader-show">
-                        <div class="form-group">
-                            <p class="help-block">设置董事长寄语</p>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">寄语</label>
-                                <textarea class="form-control" id="leaderShow" placeholder="董事长寄语"><%-leader[0].tell%>
-                                </textarea>
-                                <img src="<%-leader[0].pic%>" class="leader-pic">
-                            </div>
-                            <label for="leader-pic-input">上传董事长照片</label>
-                            <input type="file" class="leader-pic-input">
-                            <div class="btn btn-default up-leader-btn">提交</div>
-                        </div>
-                    </div> -->
                     <div class="col-xs-12 panel panel-default intro-show">
                         <div class="form-group">
                             <p class="help-block">公司简介设置</p>
@@ -138,7 +124,7 @@
                                     <label for="exampleInputEmail1">质量管理文案</label>
                                     <textarea class="quality-content" id="qualityShow" placeholder="质量管理文案"><% if (quality[0]) %><%-quality[0].content %>
                                     </textarea>
-                                    <img src="<% if (quality[0]) %> <%-quality[0].pic %>" class="quality-pic">
+                                    <!-- <img src=" if (quality[0]) -quality[0].pic " class="quality-pic"> -->
                                 </div>
                             <label for="quality-pic-input">上传质量管理流程图</label>
                             <input type="file" class="quality-pic-input">
@@ -163,7 +149,7 @@
                                     <div class="panel-body">
                                         <h4><%-item.title %></h4>
                                         <div class="easypiechart" id="easypiechart-orange" data-percent="55">
-                                            <img class="col-xs-12" src="<%-item.pic %>">
+                                            <!-- <img class="col-xs-12" src="-item.pic "> -->
                                         </div>
                                         <div class="btn btn-default col-xs-12 card-del" data-id="<%-item._id%>">删除</div>
                                     </div>
@@ -171,51 +157,6 @@
                             <% }) %>
                         </div>
                     </div>
-                    <!-- <div class="col-xs-12 panel panel-default">
-                        <div class="form-group">
-                            <p class="help-block">添加公司基本信息</p>
-                            <div class="form-group">
-                            <% var item = info[0] || {}%>
-                                <label for="exampleInputEmail1">公司名称</label>
-                                <input class="form-control" id="companyTitle" placeholder="请填写" value="<%-item.title%>">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">公司联系人</label>
-                                <input class="form-control" id="companyPerson" placeholder="请填写" value="<%-item.person%>">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">公司固话</label>
-                                <input class="form-control" id="companyPhone" placeholder="请填写" value="<%-item.phone%>">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">公司传真</label>
-                                <input class="form-control" id="companyPhone2" placeholder="请填写" value="<%-item.phone2%>">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">邮箱</label>
-                                <input class="form-control" id="companyEmail" placeholder="请填写" value="<%-item.email%>">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">微信</label>
-                                <input class="form-control" id="companyWechart" placeholder="请填写" value="<%-item.wechart%>">
-                                <label for="weixin-up" class="weixin-up-label">上传微信二维码</label>
-                                <input type="file" class="info-up weixin-up">
-                                <img src="<%-item.wechartPic %>" class="info-show-pic">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">qq</label>
-                                <input class="form-control" id="companyQq" placeholder="请填写"  value="<%-item.qq%>">
-                                <label for="qq-up" class="qq-up-label">上传qq二维码</label>
-                                <input type="file" class="info-up qq-up">
-                                <img src="<%-item.qqPic %>" class="info-show-pic">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">移动电话</label>
-                                <input class="form-control" id="companyMobile" placeholder="请填写" value="<%-item.mobile%>">
-                            </div>
-                        </div>
-                        <div class="btn btn-default up-info">上传</div>
-                    </div> -->
                     <div id="page-inner">
                     </div>
                     <!-- /. PAGE INNER -->
