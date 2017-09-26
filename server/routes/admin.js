@@ -177,6 +177,38 @@ router.get('/admin/about', (req, res) => {
 });
 
 /**
+ * 请求关于我们
+ *
+ * @param  {[type]} '/admin/about' [description]
+ * @param  {[type]} (req,          res)          [description]
+ * @return {[type]}                [description]
+ */
+router.get('/admin/basic', (req, res) => {
+    var getLeader = leaderModel.find({});
+    var getIntro = introModel.find({});
+    var getQuality = qualityModel.find({});
+    var getCard = cardModel.find({});
+    var getInfo = infoModel.find({});
+    // res.send(db.model('Person'));
+    Promise.all([getLeader, getIntro, getQuality, getCard, getInfo])
+    .then((results) => {
+        var leader = results[0];
+        var intro = results[1];
+        var quality = results[2];
+        var card = results[3];
+        var info = results[4];
+
+        res.render('admin/basic', {
+            leader: leader,
+            intro: intro,
+            quality: quality,
+            card: card,
+            info: info
+        });
+    });
+});
+
+/**
  * 添加公司信息
  *
  * @param  {[type]}   '/admin/add/banner' [description]
