@@ -124,7 +124,7 @@
                                     <label for="exampleInputEmail1">质量管理文案</label>
                                     <textarea class="quality-content" id="qualityShow" placeholder="质量管理文案"><% if (quality[0]) %><%-quality[0].content %>
                                     </textarea>
-                                    <!-- <img src=" if (quality[0]) -quality[0].pic " class="quality-pic"> -->
+                                    <img src="<% if (quality[0]) %> <%-quality[0].pic %>" class="quality-pic">
                                 </div>
                             <label for="quality-pic-input">上传质量管理流程图</label>
                             <input type="file" class="quality-pic-input">
