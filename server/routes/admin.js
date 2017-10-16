@@ -66,7 +66,7 @@ router.post('/admin/login', jsonParser, (req, res) => {
     }
 });
 
-router.get('/admin/', (req, res, next) => {
+router.use((req, res, next) => {
     var cookie = req.headers.cookie || '';
     console.log(111, token , cookie);
 
